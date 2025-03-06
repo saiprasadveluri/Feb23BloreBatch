@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\bin\Debug\SQL2.exe.config
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\bin\Debug\SQL2.exe
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\bin\Debug\SQL2.pdb
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\obj\Debug\SQL2.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\obj\Debug\SQL2.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\obj\Debug\SQL2.exe
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\obj\Debug\SQL2.pdb
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\dotNet\SQL2\SQL2\obj\Debug\SQL2.csproj.Up2Date
