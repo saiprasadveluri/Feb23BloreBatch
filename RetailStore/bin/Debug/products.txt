@@ -1,0 +1,2 @@
+Fashion,1235,chikankari,860,5,3,350,cotton,traditional
+Electronics,65250,iron,1250,5,1,30,electrical,steam

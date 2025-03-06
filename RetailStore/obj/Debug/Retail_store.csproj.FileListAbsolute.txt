@@ -1,0 +1,7 @@
+C:\Users\Administrator\source\repos\Retail_store\Retail_store\bin\Debug\Retail_store.exe.config
+C:\Users\Administrator\source\repos\Retail_store\Retail_store\bin\Debug\Retail_store.exe
+C:\Users\Administrator\source\repos\Retail_store\Retail_store\bin\Debug\Retail_store.pdb
+C:\Users\Administrator\source\repos\Retail_store\Retail_store\obj\Debug\Retail_store.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\Retail_store\Retail_store\obj\Debug\Retail_store.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Retail_store\Retail_store\obj\Debug\Retail_store.exe
+C:\Users\Administrator\source\repos\Retail_store\Retail_store\obj\Debug\Retail_store.pdb
