@@ -1,0 +1,1 @@
+Electronics,10,smartphone,10000,5,2,10,4gb ram,12

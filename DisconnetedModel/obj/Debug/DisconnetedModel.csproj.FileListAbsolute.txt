@@ -1,0 +1,7 @@
+C:\Users\Administrator\source\repos\DisconnetedModel\bin\Debug\DisconnetedModel.exe.config
+C:\Users\Administrator\source\repos\DisconnetedModel\bin\Debug\DisconnetedModel.exe
+C:\Users\Administrator\source\repos\DisconnetedModel\bin\Debug\DisconnetedModel.pdb
+C:\Users\Administrator\source\repos\DisconnetedModel\obj\Debug\DisconnetedModel.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\DisconnetedModel\obj\Debug\DisconnetedModel.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\DisconnetedModel\obj\Debug\DisconnetedModel.exe
+C:\Users\Administrator\source\repos\DisconnetedModel\obj\Debug\DisconnetedModel.pdb
