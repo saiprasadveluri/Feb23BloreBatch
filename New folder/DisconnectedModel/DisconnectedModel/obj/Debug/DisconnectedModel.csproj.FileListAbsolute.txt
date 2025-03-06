@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\New folder\DisconnectedModel\DisconnectedModel\obj\Debug\DisconnectedModel.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\New folder\DisconnectedModel\DisconnectedModel\obj\Debug\DisconnectedModel.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\New folder\DisconnectedModel\DisconnectedModel\bin\Debug\DisconnectedModel.exe.config
+C:\Users\Administrator\Desktop\New folder\DisconnectedModel\DisconnectedModel\bin\Debug\DisconnectedModel.exe
+C:\Users\Administrator\Desktop\New folder\DisconnectedModel\DisconnectedModel\bin\Debug\DisconnectedModel.pdb
+C:\Users\Administrator\Desktop\New folder\DisconnectedModel\DisconnectedModel\obj\Debug\DisconnectedModel.exe
+C:\Users\Administrator\Desktop\New folder\DisconnectedModel\DisconnectedModel\obj\Debug\DisconnectedModel.pdb
