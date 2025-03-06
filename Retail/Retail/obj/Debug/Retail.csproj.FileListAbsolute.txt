@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\dotNet\Retail\Retail\bin\Debug\Retail.exe.config
+C:\Users\Administrator\Desktop\dotNet\Retail\Retail\bin\Debug\Retail.exe
+C:\Users\Administrator\Desktop\dotNet\Retail\Retail\bin\Debug\Retail.pdb
+C:\Users\Administrator\Desktop\dotNet\Retail\Retail\obj\Debug\Retail.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\dotNet\Retail\Retail\obj\Debug\Retail.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\dotNet\Retail\Retail\obj\Debug\Retail.exe
+C:\Users\Administrator\Desktop\dotNet\Retail\Retail\obj\Debug\Retail.pdb

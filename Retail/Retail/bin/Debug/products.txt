@@ -1,0 +1,1 @@
+Kitchen,101,Induction,950,5,9,56,White,4,Auto Off
