@@ -1,0 +1,7 @@
+C:\Users\Administrator\source\repos\FOOD\FOOD\bin\Debug\FOOD.exe.config
+C:\Users\Administrator\source\repos\FOOD\FOOD\bin\Debug\FOOD.exe
+C:\Users\Administrator\source\repos\FOOD\FOOD\bin\Debug\FOOD.pdb
+C:\Users\Administrator\source\repos\FOOD\FOOD\obj\Debug\FOOD.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\FOOD\FOOD\obj\Debug\FOOD.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\FOOD\FOOD\obj\Debug\FOOD.exe
+C:\Users\Administrator\source\repos\FOOD\FOOD\obj\Debug\FOOD.pdb
