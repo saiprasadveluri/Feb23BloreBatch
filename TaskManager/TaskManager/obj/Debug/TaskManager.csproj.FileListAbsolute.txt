@@ -1,2 +1,0 @@
-C:\Users\Administrator\source\repos\TaskManager\TaskManager\obj\Debug\TaskManager.csproj.AssemblyReference.cache
-C:\Users\Administrator\source\repos\TaskManager\TaskManager\obj\Debug\TaskManager.csproj.CoreCompileInputs.cache
