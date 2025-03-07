@@ -1,0 +1,2 @@
+C:\Users\Administrator\Desktop\democode\FrontDesk\FrontDesk\obj\Debug\FrontDesk.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\democode\FrontDesk\FrontDesk\obj\Debug\FrontDesk.csproj.CoreCompileInputs.cache
