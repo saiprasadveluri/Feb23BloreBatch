@@ -1,0 +1,2 @@
+C:\Users\Administrator\source\repos\FoodDelivery\FoodDelivery\obj\Debug\FoodDelivery.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\FoodDelivery\FoodDelivery\obj\Debug\FoodDelivery.csproj.CoreCompileInputs.cache
