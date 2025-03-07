@@ -1,0 +1,7 @@
+C:\Users\Administrator\Documents\C#\TaskManagerADOo\TaskManagerADOo\bin\Debug\TaskManagerADOo.exe.config
+C:\Users\Administrator\Documents\C#\TaskManagerADOo\TaskManagerADOo\bin\Debug\TaskManagerADOo.exe
+C:\Users\Administrator\Documents\C#\TaskManagerADOo\TaskManagerADOo\bin\Debug\TaskManagerADOo.pdb
+C:\Users\Administrator\Documents\C#\TaskManagerADOo\TaskManagerADOo\obj\Debug\TaskManagerADOo.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\C#\TaskManagerADOo\TaskManagerADOo\obj\Debug\TaskManagerADOo.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\C#\TaskManagerADOo\TaskManagerADOo\obj\Debug\TaskManagerADOo.exe
+C:\Users\Administrator\Documents\C#\TaskManagerADOo\TaskManagerADOo\obj\Debug\TaskManagerADOo.pdb
