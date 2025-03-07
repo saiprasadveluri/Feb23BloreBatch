@@ -1,0 +1,2 @@
+C:\Users\Administrator\Documents\C#\RetailStore\RetailStore\obj\Debug\RetailStore.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\C#\RetailStore\RetailStore\obj\Debug\RetailStore.csproj.CoreCompileInputs.cache
