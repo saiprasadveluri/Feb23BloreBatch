@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\bin\Debug\TaskManagerADO.exe.config
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\bin\Debug\TaskManagerADO.exe
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\bin\Debug\TaskManagerADO.pdb
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\obj\Debug\TaskManagerADO.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\obj\Debug\TaskManagerADO.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\obj\Debug\TaskManagerADO.exe
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\obj\Debug\TaskManagerADO.pdb
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\TaskManagerADO\TaskManagerADO\obj\Debug\TaskMana.50204AE3.Up2Date
