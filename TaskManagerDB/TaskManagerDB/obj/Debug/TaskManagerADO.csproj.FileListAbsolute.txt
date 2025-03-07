@@ -1,0 +1,7 @@
+C:\Users\Administrator\source\repos\TaskManagerDB\TaskManagerDB\bin\Debug\TaskManagerDB.exe.config
+C:\Users\Administrator\source\repos\TaskManagerDB\TaskManagerDB\bin\Debug\TaskManagerDB.exe
+C:\Users\Administrator\source\repos\TaskManagerDB\TaskManagerDB\bin\Debug\TaskManagerDB.pdb
+C:\Users\Administrator\source\repos\TaskManagerDB\TaskManagerDB\obj\Debug\TaskManagerADO.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\TaskManagerDB\TaskManagerDB\obj\Debug\TaskManagerADO.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\TaskManagerDB\TaskManagerDB\obj\Debug\TaskManagerDB.exe
+C:\Users\Administrator\source\repos\TaskManagerDB\TaskManagerDB\obj\Debug\TaskManagerDB.pdb
