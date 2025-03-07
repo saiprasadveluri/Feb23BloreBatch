@@ -1,0 +1,7 @@
+C:\Users\Administrator\source\repos\TaskManagerApp\TaskManagerApp\bin\Debug\TaskManagerApp.exe.config
+C:\Users\Administrator\source\repos\TaskManagerApp\TaskManagerApp\bin\Debug\TaskManagerApp.exe
+C:\Users\Administrator\source\repos\TaskManagerApp\TaskManagerApp\bin\Debug\TaskManagerApp.pdb
+C:\Users\Administrator\source\repos\TaskManagerApp\TaskManagerApp\obj\Debug\TaskManagerApp.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\TaskManagerApp\TaskManagerApp\obj\Debug\TaskManagerApp.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\TaskManagerApp\TaskManagerApp\obj\Debug\TaskManagerApp.exe
+C:\Users\Administrator\source\repos\TaskManagerApp\TaskManagerApp\obj\Debug\TaskManagerApp.pdb
