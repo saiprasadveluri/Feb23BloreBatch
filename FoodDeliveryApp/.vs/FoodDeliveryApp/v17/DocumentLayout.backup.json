@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\source\\repos\\FoodDeliveryApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AED9FF8F-E901-440B-B827-736C4113B24E}|FoodDeliveryApp.csproj|c:\\users\\administrator\\source\\repos\\fooddeliveryapp\\dataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED9FF8F-E901-440B-B827-736C4113B24E}|FoodDeliveryApp.csproj|solutionrelative:dataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AED9FF8F-E901-440B-B827-736C4113B24E}|FoodDeliveryApp.csproj|C:\\Users\\Administrator\\source\\repos\\FoodDeliveryApp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED9FF8F-E901-440B-B827-736C4113B24E}|FoodDeliveryApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AED9FF8F-E901-440B-B827-736C4113B24E}|FoodDeliveryApp.csproj|c:\\users\\administrator\\source\\repos\\fooddeliveryapp\\businesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED9FF8F-E901-440B-B827-736C4113B24E}|FoodDeliveryApp.csproj|solutionrelative:businesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BusinessLayer.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\FoodDeliveryApp\\BusinessLayer.cs",
+              "RelativeDocumentMoniker": "BusinessLayer.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\FoodDeliveryApp\\BusinessLayer.cs",
+              "RelativeToolTip": "BusinessLayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T07:09:18.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataAccessLayer.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\FoodDeliveryApp\\DataAccessLayer.cs",
+              "RelativeDocumentMoniker": "DataAccessLayer.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\FoodDeliveryApp\\DataAccessLayer.cs",
+              "RelativeToolTip": "DataAccessLayer.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAwHkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T06:16:06.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\FoodDeliveryApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\FoodDeliveryApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwFgAAAB5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T06:15:26.649Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
