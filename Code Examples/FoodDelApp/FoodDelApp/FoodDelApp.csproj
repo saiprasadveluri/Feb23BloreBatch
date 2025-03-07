@@ -47,6 +47,7 @@
     <Compile Include="DataAccessLayer.cs" />
     <Compile Include="Data\MenuItemDTO.cs" />
     <Compile Include="Data\OrderDTO.cs" />
+    <Compile Include="Data\OrderLineData.cs" />
     <Compile Include="Data\OrderLineItemDTO.cs" />
     <Compile Include="Data\RestaurantDTO.cs" />
     <Compile Include="Data\UserDTO.cs" />

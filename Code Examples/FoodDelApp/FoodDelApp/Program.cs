@@ -26,7 +26,7 @@ namespace FoodDelApp
             }
             while(true)
             {
-                Console.WriteLine("Options: \n 0: Exit \n 1: Add New User \n 2: Add New Restaurant");
+                Console.WriteLine("Options: \n 0: Exit \n 1: Add New User \n 2: Add New Restaurant \n 3: Add Menu Item \n 4: Place Order");
                 int opt = int.Parse(Console.ReadLine());                
                 switch (opt)
                 {
@@ -44,6 +44,12 @@ namespace FoodDelApp
                     case 2:
                         AddNewRestaurant();
                         break;
+                    case 3:
+                        AddMenuItem();
+                        break;
+                     case 4:
+                        PlaceOrder();
+                        break;
                     default:
                         Console.WriteLine("Wrong Option...");
                         break;
@@ -52,6 +58,82 @@ namespace FoodDelApp
             
         }
 
+        private static void AddMenuItem()
+        {
+            Console.WriteLine("Res Id");
+            long RIDInp = long.Parse(Console.ReadLine());
+            List<RestaurantDTO> restaurantDTOs = bl.ListMyRestaurants();
+            RestaurantDTO curRst=restaurantDTOs.Find(r => r.RID == RIDInp);
+            if (curRst == null)
+            {
+                Console.WriteLine("You are Not owner of the selected Restaurant....");
+                return;
+            }
+            Console.WriteLine("Menu Name: ");
+            string nm = Console.ReadLine();
+            Console.WriteLine("Price: ");
+            double price = double.Parse(Console.ReadLine());
+            Console.WriteLine("Food Type: [VEG/NON-VEG]: ");
+            string ftype=Console.ReadLine();
+            MenuItemDTO mitm = new MenuItemDTO()
+            {
+                MenuName = nm,
+                RID = RIDInp,
+                UnitPrice = price,
+                FoodType = ftype
+            };
+           bool status= bl.AddMenuItem(mitm);
+            if (status) {
+                Console.WriteLine("Success in Adding Menu Item");
+            }
+            else
+            {
+                Console.WriteLine("Error In adding menu Item");
+            }
+
+        }
+        private static void PlaceOrder()
+        {
+            Console.WriteLine("Res Id");
+            long RID=long.Parse(Console.ReadLine());
+            List<OrderLineData> orderMenuList= new List<OrderLineData>();
+            List<MenuItemDTO> list = bl.GetRestaurentMenu(RID);
+            if(list.Count>0)
+            {
+                while (true)
+                {
+                    foreach (MenuItemDTO item in list)
+                    {
+                        Console.WriteLine($"{item.MID} - {item.MenuName}");
+                    }
+                    Console.WriteLine("Select Menu ID. 0 for End");
+                    long MnuId = long.Parse(Console.ReadLine());
+                    if(MnuId==0)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Select Quantity");
+                    int qty=int.Parse(Console.ReadLine());
+
+                    OrderLineData cur = new OrderLineData()
+                    {
+                        MenuId = MnuId,
+                        Qty = qty,
+                    };
+                    orderMenuList.Add(cur);
+                }
+                bool Status=bl.PlaceOrder(RID, orderMenuList);
+                if(Status)
+                {
+                    Console.WriteLine("Success in placing Order...");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to place order");
+                }
+            }
+            
+        }
         private static void AddNewRestaurant()
         {
             Console.WriteLine("New User Restaurant: ");

@@ -54,6 +54,74 @@ namespace FoodDelApp
                 return false;
         }
 
+        public List<UserDTO> GetRestaurantOwnersList()
+        {
+            return dal.GetRestaurantOwnersList();
+        }
+
+        public List<RestaurantDTO> ListMyRestaurants()
+        {
+            return ListRestaurantsByOwner(loggedInUser.UserId);
+        }
+        public List<RestaurantDTO> ListRestaurantsByOwner(long OwnerId)
+        {
+            return dal.ListRestaurantsByOwner(OwnerId);
+        }
+
+        public List<RestaurantDTO> ListRestaurantsNearMe()
+        {
+            return ListRestaurantsByLocation(loggedInUser.Location);
+        }
+
+        public List<RestaurantDTO> ListRestaurantsByLocation(string UserLocacation)
+        {
+            return dal.ListRestaurantsByLocation(UserLocacation);
+        }
+        public List<MenuItemDTO> GetRestaurentMenu(long RID)
+        {
+            return dal.GetRestaurentMenu(RID);
+        }
+        public List<MenuItemDTO> GetRestaurentMenu(string fltr,long RID)
+        {
+            List<MenuItemDTO> items = GetRestaurentMenu(RID);
+            List<MenuItemDTO> fitems=items.Where(i=>i.FoodType== fltr).ToList();
+            return fitems;
+        }
+
+        public bool PlaceOrder(long RID, List<OrderLineData> menuLst)
+        {
+            try
+            {
+                long NewOrderId;
+                dal.BeginTrans();
+                bool OrderInitiated = dal.InitOrder(RID, loggedInUser.UserId,out NewOrderId);
+                if (OrderInitiated)
+                {
+                    foreach(OrderLineData mitm in menuLst)
+                    {
+                       bool tempStatus= dal.OrderMenuItem(NewOrderId, mitm.MenuId, mitm.Qty);
+                        if(tempStatus==false)
+                        {
+                            dal.EndTransaction(false);
+                            return false;
+                        }
+                    }
+                    dal.EndTransaction(true);
+                    return true;
+                }
+            }
+            catch(Exception ex)
+            {
+                dal.EndTransaction(false);
+            }
+            dal.EndTransaction(false);
+            return false;
+        }
+
+        public bool AddMenuItem(MenuItemDTO itm)
+        {
+            return dal.AddMenuItem(itm);
+        }
         private bool IsInRole(UserTypeEnum reqRole)
         {
             if (loggedInUser != null)
@@ -76,5 +144,7 @@ namespace FoodDelApp
             }
             return false;
         }
+
+       
     }
 }

@@ -9,12 +9,30 @@ namespace FoodDelApp
     {
         const string ConString = "Data Source=.;Initial Catalog=MFoodDelDB;Integrated Security=SSPI";
         SqlConnection con = null;
+        SqlTransaction trans = null;
         public DataAccessLayer()
         {
             con = new SqlConnection(ConString);
             con.Open();
         }
 
+        public void BeginTrans()
+        {
+            trans = con.BeginTransaction();
+        }
+
+        public void EndTransaction(bool commit)
+        {
+            if(trans!=null)
+            {
+                if (commit)
+                    trans.Commit();
+                else
+                    trans.Rollback();
+
+                trans = null;
+            }
+        }
         public void CloseApp()
         {
             if (con != null)
@@ -89,5 +107,144 @@ namespace FoodDelApp
             }
         }
 
+        public List<UserDTO> GetRestaurantOwnersList()
+        {
+            List<UserDTO> OwnersList= new List<UserDTO>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM UserInfo where RoleName='{UserTypeEnum.OWNER}'";
+            SqlDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+               
+                UserDTO user = new UserDTO();
+                user.UserId = reader.GetInt64(0);
+                user.Name = reader.GetString(1);
+                OwnersList.Add(user);
+            }
+            reader.Close();
+            return OwnersList;
+        }
+
+        public List<RestaurantDTO> ListRestaurantsByLocation(string UserLocacation)
+        {
+            List<RestaurantDTO> RstList = new List<RestaurantDTO>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM Restaurents where Location='{UserLocacation}'";
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                RestaurantDTO restaurant = new RestaurantDTO()
+                {
+                    RID= reader.GetInt64(0),
+                    Name= reader.GetString(1),
+                };
+                RstList.Add(restaurant);
+            }
+            reader.Close();
+            return RstList;
+        }
+
+        public List<MenuItemDTO> GetRestaurentMenu(long RID)
+        {
+            List<MenuItemDTO> menuList = new List<MenuItemDTO>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM MenuItem where RID={RID}";
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                MenuItemDTO mitem = new MenuItemDTO()
+                {
+                    MID = reader.GetInt64(0),
+                    MenuName = reader.GetString(1),
+                    
+                    UnitPrice = double.Parse(reader.GetDecimal(3).ToString()),
+
+                    FoodType = reader.GetString(4),
+                };
+                menuList.Add(mitem);
+            }
+            reader.Close();
+            return menuList;
+        }
+        public List<RestaurantDTO> ListRestaurantsByOwner(long OwnerId)
+        {
+            List<RestaurantDTO> RstList = new List<RestaurantDTO>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM Restaurents where OwnerId={OwnerId}";
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                RestaurantDTO restaurant = new RestaurantDTO()
+                {
+                    RID = reader.GetInt64(0),
+                    Name = reader.GetString(1),
+                };
+
+                RstList.Add(restaurant);
+
+            }
+            reader.Close();
+            return RstList;
+        }
+
+        public bool AddMenuItem(MenuItemDTO itm)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"INSERT INTO MenuItem (MenuName,RID,UnitPrice,FoodType) VALUES('{itm.MenuName}',{itm.RID},{itm.UnitPrice},'{itm.FoodType}')";
+            int RowsEffected = cmd.ExecuteNonQuery();
+            if (RowsEffected > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+
+        public bool OrderMenuItem(long OrderID,long MID,int Qty)
+        {
+            if (trans != null)
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"INSERT INTO OrderLineItems (ORDERID,MenuId,Qty) VALUES({OrderID},{MID},{Qty})";
+                cmd.Transaction = trans;
+                int RowsEffected = cmd.ExecuteNonQuery();
+                if (RowsEffected > 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            return false;
+        }
+
+        public bool InitOrder(long RID, long UserID,out long NewOrderId)
+        {
+            NewOrderId = 0;
+            if (trans != null)
+            {
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"INSERT INTO Orders (RID,OrderBy,Status,OrderDate) VALUES({RID},{UserID},'ORDERED','{DateTime.Now}');SELECT SCOPE_IDENTITY();";
+                cmd.Transaction= trans;
+                SqlDataReader sqlDataReader = cmd.ExecuteReader();
+                NewOrderId = 0;
+                if (sqlDataReader.Read())
+                {
+                    NewOrderId = Convert.ToInt64(sqlDataReader[0]);
+                }
+                sqlDataReader.Close();
+                return NewOrderId != 0;
+            }
+            return false;
+        }
     }
 }
