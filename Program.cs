@@ -1,285 +1,269 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace FoodDeliveryApp
+namespace TaskManagerADO
 {
     internal class Program
     {
-        internal static DataAccessLayer dal = new DataAccessLayer();
-        internal static User loggedInUser = null;
-
-        public static void Main(string[] args)
+        static DataAccessLayer dal = new DataAccessLayer();
+        //static Businesslayer business = new Businesslayer();
+        static void Main(string[] args)
         {
-            while (true)
+            try
             {
-                if (loggedInUser == null)
-                {
-                    Login();
-                }
-                else
-                {
-                    Console.WriteLine("Select an option:");
-                    Console.WriteLine("1. Add User");
-                    Console.WriteLine("2. Add Restaurant");
-                    Console.WriteLine("3. Remove Restaurant");
-                    Console.WriteLine("4. Assign Owner to Restaurant");
-                    Console.WriteLine("5. Add Menu Item");
-                    Console.WriteLine("6. Search Restaurant by Location");
-                    Console.WriteLine("7. Filter Items by Preference");
-                    Console.WriteLine("8. Place Order");
-                    Console.WriteLine("9. Update Order Status");
-                    Console.WriteLine("10. Logout");
 
-                    var choice = Console.ReadLine();
-
-                    switch (choice)
-                    {
-                        case "1":
-                            AddUser();
-                            break;
-                        case "2":
-                            AddRestaurant();
-                            break;
-                        case "3":
-                            RemoveRestaurant();
-                            break;
-                        case "4":
-                            AssignOwner();
-                            break;
-                        case "5":
-                            AddMenuItem();
-                            break;
-                        case "6":
-                            SearchRestaurantByLocation();
-                            break;
-                        case "7":
-                            FilterItemsByPreference();
-                            break;
-                        case "8":
-                            PlaceOrder();
-                            break;
-                        case "9":
-                            UpdateOrderStatus();
-                            break;
-                        case "10":
-                            loggedInUser = null;
-                            break;
-                        default:
-                            Console.WriteLine("Invalid choice. Please try again.");
-                            break;
-                    }
+                dal.OpenConnection();
+                Console.WriteLine("Email:");
+                string Email = Console.ReadLine();
+                Console.WriteLine("Password:");
+                string Password = Console.ReadLine();
+                UserDTO usr = dal.LoginUser(Email, Password);
+                if (usr != null)
+                {
+                    Console.WriteLine($"Welcome{usr.Email}");
+                    Console.WriteLine("Select an operation:");
+                    Console.WriteLine("1. List Users");
+                    Console.WriteLine("2. Add User");
+                    int choice = int.Parse(Console.ReadLine());
                 }
+                    //Add New User
+
+                Console.WriteLine("1 - List Users 2- Add Users");
+                int opts = int.Parse(Console.ReadLine());
+                switch (opts)
+                {
+                    case 1:
+                        List<UserDTO> users=dal.ListUsers();
+                        Console.WriteLine($"User Count: {users.Count}");
+                        break;
+                    case 2:
+                        string Name = Console.ReadLine();
+                        string dept = Console.ReadLine();
+                        long RId = long.Parse(Console.ReadLine());
+                        string eml = Console.ReadLine();
+                        string pwd = Console.ReadLine();
+
+                        UserDTO usrObj = new UserDTO();
+                        usrObj.Name = Name;
+                        usrObj.Dept = dept;
+                        usrObj.RoleId = RId;
+                        usrObj.Email = eml;
+                        usrObj.Password = pwd;
+                        bool status = dal.AddUser(usrObj);
+                        if (status)
+                        {
+                            Console.WriteLine("Success in Adding user");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error In operation");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Wrong option");
+                        break;
+                }
+
+
+                //DataAccessLayerDC dalObj= new DataAccessLayerDC();
+
+                //List<UserDTO> userList=dalObj.ListUsers();
+
+                //Console.WriteLine("Users List: ");
+                //foreach (UserDTO user in userList)
+                //{
+                //    Console.WriteLine(user.Name);
+                //}
+                //
+
+                // dalObj.UpdateUserRole(5, 3);
+                //string usrXml=dalObj.GetUserJson();
+                //Console.WriteLine(usrXml);
             }
+            finally
+            {
+                //business.CloseApp();
+            }
+            //    DataAccessLayer dal = new DataAccessLayer();
+            //    dal.OpenConnection();
+            //    List<UserDTO> lst = dal.ListUsers();
+            //    //List<UserDTO> olist=lst.OrderBy(u=>u.Name).ToList();//LINQ query
+            //    foreach (UserDTO user in lst)
+            //    {
+            //        Console.WriteLine(user.Name);
+            //    }
+            //    //User Input
+            //    Console.WriteLine("Name: ");
+            //    string name = Console.ReadLine();
+
+            //    Console.WriteLine("Dept: ");
+            //    string dept = Console.ReadLine();
+
+            //    Console.WriteLine("RoleId: ");
+            //    int roleid = int.Parse(Console.ReadLine());
+
+            //    UserDTO newUser = new UserDTO();
+            //    newUser.Name = name;
+            //    newUser.Department = dept;
+            //    newUser.RoleId = roleid;
+
+            //    bool Success = dal.AddUser(newUser);
+            //    if (Success)
+            //    {
+            //        Console.WriteLine("User added...");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Failed to add user");
+            //    }
+
+            //    dal.CloseConnection();
+            //}
+            //catch(Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+
+            //string strCon = "Data Source=.;Initial Catalog=MTMDb;Integrated Security=SSPI";//Connection string.
+            //con=new SqlConnection(strCon);
+            //con.Open();
+            //Console.WriteLine("Connection Open SUCCESS...");
+            ////Execute Commands....
+            ////1. Multiple Rows: Select * from Users
+
+            ////3. No Retun: Insert Into ....
+            ///*GetUserCount();
+            //AddUser();
+            //Console.WriteLine("After Adding New User: ");
+            //GetUserCount();*/
+            //ListUsers();
+            ////AddProject();
+            //ProjectsByPM();
+            //con.Close();
         }
 
-        private static void Login()
+        /*public static void ListUsers()
         {
-            Console.Write("Enter email: ");
-            var email = Console.ReadLine();
-            Console.Write("Enter password: ");
-            var password = Console.ReadLine();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT * FROM USERS";
 
-            loggedInUser = dal.Login(email, password);
-
-            if (loggedInUser == null)
+            //MULTIPLE NUMBER OF ROWS
+            SqlDataReader reader=cmd.ExecuteReader();
+            
+            //Seq, Forw, Readonly access to result set
+            while (reader.Read())//Progress One row at a time.
             {
-                Console.WriteLine("Invalid email or password. Would you like to register? (yes/no)");
-                var register = Console.ReadLine();
-                if (register.ToLower() == "yes")
+                long UserId = reader.GetInt64(0);
+                string Name= reader.GetString(1);
+                string Dept= reader.GetString(2);
+                long RoleId= reader.GetInt64(3);
+                Console.WriteLine($"User Id: {UserId} - Name: {Name} - Department: {Dept} - RoleId: {RoleId}");                
+            }
+            reader.Close();
+        }
+        public static void AddUser()
+        {
+            //User Input
+            Console.WriteLine("Name: ");
+            string name=Console.ReadLine();
+
+            Console.WriteLine("Dept: ");
+            string dept = Console.ReadLine();
+
+            Console.WriteLine("RoleId: ");
+            int roleid = int.Parse(Console.ReadLine());
+
+            //Command Object
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"INSERT INTO USERS(Name,Dept,RoleId) VALUES('{name}','{dept}',{roleid})";
+
+            //Executing Command
+            int RowsEffected=cmd.ExecuteNonQuery();
+            Console.WriteLine("User Added...");
+
+        }
+        public static void GetUserCount()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;//Pass Open Connection Object
+            cmd.CommandText = "Select Count(*) from Users";
+            //2. Scalar Value :
+            object res = cmd.ExecuteScalar();
+
+            int UserCount = Convert.ToInt32(res);
+            Console.WriteLine($"User Count: {UserCount}");
+        }
+
+        //Add New Project
+        public static void AddProject()
+        {
+            Console.WriteLine("Add New Project");
+            Console.WriteLine("Project Title:");
+            string title=Console.ReadLine();
+            Console.WriteLine("Enter PM Id");
+            long PMID=long.Parse(Console.ReadLine());
+            Console.WriteLine("Project Status:");
+            string ProjStatus=Console.ReadLine();
+            
+            SqlCommand cmd=new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"INSERT INTO PROJECTS(Title,PM,Status) VALUES('{title}',{PMID},'{ProjStatus}')";
+            int RowsEfected=cmd.ExecuteNonQuery();
+            Console.WriteLine("New Project Added");
+        }
+
+        public static void ProjectsByPM()
+        {
+            Console.WriteLine("Enter PM ID:");
+            long PmId=long.Parse(Console.ReadLine());
+
+            SqlCommand cmd=new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT * FROM PROJECTS WHERE PM=@PId";//Prepared Statements.
+            SqlParameter p1 = new SqlParameter("@PId", PmId);            
+            cmd.Parameters.Add(p1);
+
+            SqlDataReader reader= cmd.ExecuteReader();
+            
+            if(reader.HasRows)
+            {
+                while (reader.Read())
                 {
-                    RegisterUser(email, password);
+                    string ProjTitle = reader.GetString(1);
+                    string ProjStatus = reader.GetString(3);
+                    Console.WriteLine($"Project Title: {ProjTitle} - Status: {ProjStatus}");
                 }
             }
             else
             {
-                Console.WriteLine($"Welcome, {loggedInUser.username}!");
+                Console.WriteLine("No Projects assigned...");
             }
-        }
+            reader.Close();
+        }*/
 
-        private static void RegisterUser(string email, string password)
+        public static string GetPassword()
         {
-            Console.Write("Enter username: ");
-            var username = Console.ReadLine();
-            Console.Write("Enter user role (admin/owner/user): ");
-            var userRole = Console.ReadLine();
-
-            var user = new User
+            var pass = string.Empty;
+            ConsoleKey key;
+            do
             {
-                username = username,
-                user_role = userRole,
-                email = email,
-                password = password
-            };
-            Program.dal.AddUser(user);
-            Console.WriteLine($"User {username} registered successfully.");
-            loggedInUser = user;
-        }
+                var keyInfo = Console.ReadKey(intercept: true);
+                key = keyInfo.Key;
 
-        private static void AddRestaurant()
-        {
-            if (loggedInUser.user_role != "admin" && loggedInUser.user_role != "owner")
-            {
-                Console.WriteLine("Only admins and owners can add restaurants.");
-                return;
-            }
-
-            Console.Write("Enter restaurant name: ");
-            var name = Console.ReadLine();
-            Console.Write("Enter restaurant location: ");
-            var location = Console.ReadLine();
-
-            var admin = new Admin(loggedInUser.userid);
-            admin.AddRestaurant(name, location);
-        }
-
-        private static void RemoveRestaurant()
-        {
-            Console.Write("Enter restaurant ID to remove: ");
-            var restoId = int.Parse(Console.ReadLine());
-
-            var admin = new Admin(loggedInUser.userid);
-            admin.RemoveRestaurant(restoId);
-        }
-
-        private static void AssignOwner()
-        {
-            Console.Write("Enter restaurant ID: ");
-            var restoId = int.Parse(Console.ReadLine());
-            Console.Write("Enter owner ID: ");
-            var ownerId = int.Parse(Console.ReadLine());
-
-            var admin = new Admin(loggedInUser.userid);
-            admin.AssignOwner(restoId, ownerId);
-        }
-
-        private static void AddMenuItem()
-        {
-            try
-            {
-                Console.Write("Enter restaurant ID: ");
-                var restoId = int.Parse(Console.ReadLine());
-                Console.Write("Enter item name: ");
-                var itemName = Console.ReadLine();
-                Console.Write("Enter item price: ");
-                var price = int.Parse(Console.ReadLine());
-
-                var owner = new Owner(loggedInUser.userid);
-                owner.AddMenuItem(restoId, itemName, price);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-        }
-
-        private static void SearchRestaurantByLocation()
-        {
-            Console.Write("Enter location: ");
-            var location = Console.ReadLine();
-
-            var user = new User(loggedInUser.userid);
-            user.SearchRestaurantByLocation(location);
-        }
-
-        private static void FilterItemsByPreference()
-        {
-            Console.Write("Enter food preference: ");
-            var preference = Console.ReadLine();
-
-            var user = new User(loggedInUser.userid);
-            user.FilterItemsByPreference(preference);
-        }
-
-        private static void PlaceOrder()
-        {
-            Console.Write("Enter restaurant ID: ");
-            var restoId = int.Parse(Console.ReadLine());
-            Console.Write("Enter item IDs (comma separated): ");
-            var itemIds = Console.ReadLine().Split(',').Select(int.Parse).ToList();
-
-            var user = new User(loggedInUser.userid);
-            user.PlaceOrder(restoId, itemIds);
-        }
-
-        private static void UpdateOrderStatus()
-        {
-            Console.Write("Enter order number: ");
-            var orderNo = int.Parse(Console.ReadLine());
-            Console.Write("Enter new status: ");
-            var status = Console.ReadLine();
-
-            var user = new User(loggedInUser.userid);
-            Program.dal.UpdateOrderStatus(orderNo, status);
-            Console.WriteLine($"Order status updated to {status}.");
-        }
-
-        private static void AddUser()
-        {
-            Console.Write("Enter username: ");
-            var username = Console.ReadLine();
-            Console.Write("Enter user role (admin/owner/user): ");
-            var userRole = Console.ReadLine();
-            Console.Write("Enter email: ");
-            var email = Console.ReadLine();
-            Console.Write("Enter password: ");
-            var password = Console.ReadLine();
-
-            var user = new User
-            {
-                username = username,
-                user_role = userRole,
-                email = email,
-                password = password
-            };
-            Program.dal.AddUser(user);
-            Console.WriteLine($"User {username} added successfully.");
-        }
-    }
-
-    public class Admin : User
-    {
-        public Admin(int userId) : base(userId) { }
-
-        public void AddRestaurant(string name, string location)
-        {
-            var restaurant = new Restaurant
-            {
-                resto_name = name,
-                resto_location = location
-            };
-            Program.dal.AddRestaurant(restaurant);
-            Console.WriteLine($"Restaurant {name} added successfully.");
-        }
-
-        public void RemoveRestaurant(int restoId)
-        {
-            Program.dal.RemoveRestaurant(restoId);
-            Console.WriteLine($"Restaurant removed successfully.");
-        }
-
-        public void AssignOwner(int restoId, int ownerId)
-        {
-            Program.dal.AssignOwner(restoId, ownerId);
-            Console.WriteLine($"Owner assigned to restaurant successfully.");
-        }
-    }
-
-    public class Owner : User
-    {
-        public Owner(int userId) : base(userId) { }
-
-        public void AddMenuItem(int restoId, string itemName, int price)
-        {
-            var menu = new Menu
-            {
-                item_name = itemName,
-                price = price,
-                resto_id = restoId
-            };
-            Program.dal.AddMenuItem(menu);
-            Console.WriteLine($"Menu item {itemName} added successfully.");
+                if (key == ConsoleKey.Backspace && pass.Length > 0)
+                {
+                    Console.Write("\b \b");
+                    pass = pass.Substring(0, pass.Length - 1);
+                }
+                else if (!char.IsControl(keyInfo.KeyChar))
+                {
+                    Console.Write("*");
+                    pass += keyInfo.KeyChar;
+                }
+            } while (key != ConsoleKey.Enter);
+            return pass;
         }
     }
 }
-
