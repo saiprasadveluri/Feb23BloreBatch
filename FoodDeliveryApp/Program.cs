@@ -142,6 +142,30 @@ namespace FoodDeliveryApp
                                                     Console.WriteLine("You are not authorized to perform this operation");
                                                 }
                                                 break;
+
+                                            case 4:
+                                                if ((bl.LoggedInUser.role).ToLower() == "owner")
+                                                {
+                                                    Console.WriteLine("Enter Restaurant ID :");
+                                                    long restaurantid = Convert.ToInt64(Console.ReadLine());
+                                                    Console.WriteLine("Enter Menu Item :");
+                                                    string menuitem = Console.ReadLine();
+                                                    Console.WriteLine("Enter Price :");
+                                                    double price = Convert.ToDouble(Console.ReadLine());
+                                                    if (dal.AddMenuItem(restaurantid, menuitem, price))
+                                                    {
+                                                        Console.WriteLine("Menu Item Added Successfully");
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Unable to add Menu Item");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("You are not authorized to perform this operation");
+                                                }
+                                                break;
                                         }
                                     }
                                     else

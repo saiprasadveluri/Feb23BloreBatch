@@ -41,6 +41,17 @@ namespace FoodDeliveryApp
         }
 
 
+        public bool AddMenuItems(string itemname, string itemdescription, double price, long restaurantid)
+        {
+            MenuItems menuItems = new MenuItems();
+            menuItems.itemname = itemname;
+            menuItems.itemdescription = itemdescription;
+            menuItems.price = price;
+            menuItems.restaurantid = restaurantid;
+            return dal.AddMenuItems(menuItems);
+        }
+
+
 
 
 
