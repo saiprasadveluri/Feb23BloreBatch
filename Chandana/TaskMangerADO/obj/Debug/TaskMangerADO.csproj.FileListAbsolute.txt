@@ -1,0 +1,7 @@
+C:\Users\Administrator\source\repos\TaskMangerADO\TaskMangerADO\bin\Debug\TaskMangerADO.exe.config
+C:\Users\Administrator\source\repos\TaskMangerADO\TaskMangerADO\bin\Debug\TaskMangerADO.exe
+C:\Users\Administrator\source\repos\TaskMangerADO\TaskMangerADO\bin\Debug\TaskMangerADO.pdb
+C:\Users\Administrator\source\repos\TaskMangerADO\TaskMangerADO\obj\Debug\TaskMangerADO.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\TaskMangerADO\TaskMangerADO\obj\Debug\TaskMangerADO.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\TaskMangerADO\TaskMangerADO\obj\Debug\TaskMangerADO.exe
+C:\Users\Administrator\source\repos\TaskMangerADO\TaskMangerADO\obj\Debug\TaskMangerADO.pdb
