@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\app1c#\FoodDeliveryAggregateApp\FoodDeliveryAggregateApp\obj\Debug\FoodDeliveryAggregateApp.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\app1c#\FoodDeliveryAggregateApp\FoodDeliveryAggregateApp\obj\Debug\FoodDeliveryAggregateApp.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\app1c#\FoodDeliveryAggregateApp\FoodDeliveryAggregateApp\bin\Debug\FoodDeliveryAggregateApp.exe.config
+C:\Users\Administrator\Desktop\app1c#\FoodDeliveryAggregateApp\FoodDeliveryAggregateApp\bin\Debug\FoodDeliveryAggregateApp.exe
+C:\Users\Administrator\Desktop\app1c#\FoodDeliveryAggregateApp\FoodDeliveryAggregateApp\bin\Debug\FoodDeliveryAggregateApp.pdb
+C:\Users\Administrator\Desktop\app1c#\FoodDeliveryAggregateApp\FoodDeliveryAggregateApp\obj\Debug\FoodDeliveryAggregateApp.exe
+C:\Users\Administrator\Desktop\app1c#\FoodDeliveryAggregateApp\FoodDeliveryAggregateApp\obj\Debug\FoodDeliveryAggregateApp.pdb
