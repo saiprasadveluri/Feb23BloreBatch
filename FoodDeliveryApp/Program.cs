@@ -146,13 +146,15 @@ namespace FoodDeliveryApp
                                             case 4:
                                                 if ((bl.LoggedInUser.role).ToLower() == "owner")
                                                 {
-                                                    Console.WriteLine("Enter Restaurant ID :");
-                                                    long restaurantid = Convert.ToInt64(Console.ReadLine());
-                                                    Console.WriteLine("Enter Menu Item :");
-                                                    string menuitem = Console.ReadLine();
+                                                    Console.WriteLine("Item Name :");
+                                                    string itemname = Console.ReadLine();
+                                                    Console.WriteLine("Category :");
+                                                    string category = Console.ReadLine();
                                                     Console.WriteLine("Enter Price :");
                                                     double price = Convert.ToDouble(Console.ReadLine());
-                                                    if (dal.AddMenuItem(restaurantid, menuitem, price))
+                                                    Console.WriteLine("Restaurant Id :");
+                                                    long restaurantid = Convert.ToInt64(Console.ReadLine());
+                                                    if (bl.AddMenuItems(itemname, category, price, restaurantid))
                                                     {
                                                         Console.WriteLine("Menu Item Added Successfully");
                                                     }

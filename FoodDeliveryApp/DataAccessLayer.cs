@@ -168,6 +168,32 @@ namespace FoodDeliveryApp
                 return false;
             }
         }
+
+
+        public bool AddMenuItems(MenuItems menuItems)
+        {
+            cmd.Connection = Conn;
+            cmd.CommandText = "INSERT INTO MENUITEMS(menuitemname, price, category, restaurantid) VALUES(@menuitemname, @price, @category, @restaurantid)";
+            cmd.Parameters.Add(new SqlParameter("@menuitemname", menuItems.menuitemname));
+            cmd.Parameters.Add(new SqlParameter("@price", menuItems.price));
+            cmd.Parameters.Add(new SqlParameter("@categor", menuItems.category));
+            cmd.Parameters.Add(new SqlParameter("@restaurantid", menuItems.restaurantid));
+            int res = cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            if (res > 0)
+            {
+                cmd.CommandText = "SELECT menuitemid FROM MENUITEMS WHERE menuitemname = @name";
+                cmd.Parameters.Add(new SqlParameter("@name", menuItems.menuitemname));
+                long menuitemid = Convert.ToInt64(cmd.ExecuteScalar());
+                menuItems.menuitemid = menuitemid;
+                cmd.Parameters.Clear();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     
 
@@ -197,7 +223,7 @@ namespace FoodDeliveryApp
         public long menuitemid { get; set; }
         public string menuitemname { get; set; }
         public double price { get; set; }
-        public string categor { get; set; }
+        public string category { get; set; }
         public long restaurantid { get; set; }
 
     }
