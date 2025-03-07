@@ -79,7 +79,7 @@ namespace FoodDeliveryApp
                                                 break;
 
                                             case 1:
-                                                if ((bl.LoggedInUser.role).ToLower() == "owner")
+                                                if ((bl.LoggedInUser.role).ToLower()== "admin")
                                                 {
                                                     Console.WriteLine("Enter Restaurant :");
                                                     string restaurantname = Console.ReadLine();
@@ -102,7 +102,7 @@ namespace FoodDeliveryApp
                                                 break;
 
                                             case 2:
-                                                if ((bl.LoggedInUser.role).ToLower() == "owner")
+                                                if ((bl.LoggedInUser.role).ToLower() == "admin")
                                                 {
                                                     Console.WriteLine("Enter Restaurant ID :");
                                                     long restaurantid = Convert.ToInt64(Console.ReadLine());
@@ -113,6 +113,28 @@ namespace FoodDeliveryApp
                                                     else
                                                     {
                                                         Console.WriteLine("Unable to remove Restaurant");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("You are not authorized to perform this operation");
+                                                }
+                                                break;
+
+                                            case 3:
+                                                if ((bl.LoggedInUser.role).ToLower() == "admin")
+                                                {
+                                                    Console.WriteLine("Enter Restaurant ID :");
+                                                    long restaurantid = Convert.ToInt64(Console.ReadLine());
+                                                    Console.WriteLine("Enter Owner ID :");
+                                                    long ownerid = Convert.ToInt64(Console.ReadLine());
+                                                    if (dal.AssignOwner(restaurantid, ownerid))
+                                                    {
+                                                        Console.WriteLine("Owner Assigned Successfully");
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Unable to assign Owner");
                                                     }
                                                 }
                                                 else

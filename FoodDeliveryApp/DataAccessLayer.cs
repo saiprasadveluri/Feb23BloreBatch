@@ -149,6 +149,25 @@ namespace FoodDeliveryApp
                 return false;
             }
         }
+
+
+        public bool AssignOwner(long restaurantid, long ownerid)
+        {
+            cmd.Connection = Conn;
+            cmd.CommandText = "UPDATE RESTAURANTS SET ownerid = @ownerid WHERE restaurantid = @restaurantid";
+            cmd.Parameters.Add(new SqlParameter("@ownerid", ownerid));
+            cmd.Parameters.Add(new SqlParameter("@restaurantid", restaurantid));
+            int res = cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            if (res > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     
 
