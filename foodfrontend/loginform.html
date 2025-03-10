@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- this is external css-->
+    <link rel="stylesheet" type="text/css" href="site.css" />
+    <!-- this is embeded or internal css-->
+    <!-- <style>
+        h3 {
+            color: blue;
+        }
+
+        input {
+            width: 250px;
+            font-family: Calibri;
+            font-size: 20px;
+        }
+
+        input[type=password] {
+            background-color: red;
+            color: yellow;
+        }
+        #chkrem{
+            height:30px;
+        }
+
+    </style> -->
+</head>
+<body>
+    <div>
+        <!-- <input type="email" id="uemail" name="uemail" placeholder="enter email"style="color:red;font-weight:600;font-family:Arial;font-size:xx-large" />
+    this is inline css-->
+        <h3>Login Form</h3>
+        <form action="processlogin.html" method="post">
+            <div class="flex-box">
+                <div>
+                    <input type="email" id="uemail" name="uemail" placeholder="enter email" required />
+                </div>
+                <div class="decorated">
+                    <input type="password" id="upwd" name="upwd" placeholder="enter password" required />
+                </div>
+                <div>
+                    <input type="checkbox" id="chkrem" name="chkrem" />remember me
+                </div>
+                <div>
+                    <select>
+                        <option>Admin</option>
+                        <option>Owner</option>
+                        <option>User</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="submit" value="submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
