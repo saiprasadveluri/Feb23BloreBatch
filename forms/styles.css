@@ -1,0 +1,32 @@
+body {
+    background-color: palegreen;
+}
+
+input[type="submit"] {
+    background-color: black;
+    color: red;
+}
+#checkin{
+    height: 30px;
+    
+}
+.decorated{
+    padding-bottom: 5px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: black;
+}
+.flex-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+  
+    background-color: lightblue;
+}
+table thead tr{
+background-color: lightblue;
+
+}
+
