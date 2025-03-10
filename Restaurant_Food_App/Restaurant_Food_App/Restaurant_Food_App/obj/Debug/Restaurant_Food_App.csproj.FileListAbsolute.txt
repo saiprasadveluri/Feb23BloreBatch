@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\democode\Restaurant_Food_App\Restaurant_Food_App\obj\Debug\Restaurant_Food_App.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\democode\Restaurant_Food_App\Restaurant_Food_App\obj\Debug\Restaurant_Food_App.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\democode\Restaurant_Food_App\Restaurant_Food_App\bin\Debug\Restaurant_Food_App.exe.config
+C:\Users\Administrator\Desktop\democode\Restaurant_Food_App\Restaurant_Food_App\bin\Debug\Restaurant_Food_App.exe
+C:\Users\Administrator\Desktop\democode\Restaurant_Food_App\Restaurant_Food_App\bin\Debug\Restaurant_Food_App.pdb
+C:\Users\Administrator\Desktop\democode\Restaurant_Food_App\Restaurant_Food_App\obj\Debug\Restaurant_Food_App.exe
+C:\Users\Administrator\Desktop\democode\Restaurant_Food_App\Restaurant_Food_App\obj\Debug\Restaurant_Food_App.pdb

@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f43f;
+}
+ 
+header {
+    background: #af2b2b;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+ 
+ 
+section {
+    padding: 20px;
+    background: white;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+ 
+h2 {
+    color: #333;
+}
+ 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+ 
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+ 
+th {
+    background: #333;
+    color: white;
+}
+ 
+button {
+    background: #ff5555;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+ 
+button:hover {
+    background: #cc4444;
+}
+ 
+input {
+    padding: 8px;
+    margin: 5px;
+    width: 90%;
+}
+ 
+form {
+    margin-top: 20px;
+}
+.container{
+text-align: center;
+padding-inline-start: 10px;
+border-color: blue;
+}
+h3{
+    color: rgb(101, 189, 113);
+}
+input{
+    width: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+    font-size: x-large;        
+}
+input[type=password]{
+    background-color: red;
+    color: yellow;
+}
+input[type=email]{
+    background-color: green;
+    color: yellow;
+}
+.decorated{
+    padding-bottom: 10px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: darkcyan;
+}
+
+#chkRem{
+    color: antiquewhite;
+    height: 20px;
+}
+
