@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--<link rel="stylesheet" type="text/css" href="../CSS/style.css" />-->
+</head>
+<body>
+    <h3>Add New User</h3>
+    <hr />
+    <div>
+        <input type="text" id="unm" name="unm" placeholder="User Display Name" required />
+    </div>
+    <div>
+        <input type="email" id="uemail" name="uemail" placeholder="User Email" required />
+    </div>
+    <div>
+        <input type="password" id="upassword" name="upassword" placeholder="User Password" required />
+    </div>
+    <div>
+        <select id="uloc" name="uloc">
+            <option value="HYD">Hyderabad</option>
+            <option value="CHN">Chennai
+            </option>
+            <option value="BLR">Bangalore
+            </option>
+        </select>
+    </div>
+    <div>
+        <select id="urole" name="urole">
+            <option value="ADMIN">ADMIN</option>
+            <option value="CHN">OWNER
+            </option>
+            <option value="BLR">USER
+            </option>
+        </select>
+    </div>
+    <div>
+        <input type="radio" name="act" />Active <br />
+        <input type="radio" name="act" />In-Active
+    </div>
+    <div>
+        <input type="submit" value="Add New User" />
+    </div>
+</body>
+</html>

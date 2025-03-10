@@ -1,0 +1,42 @@
+﻿
+.decorated{
+   padding-bottom:10px;
+   border-style:dashed;
+   border-width:2px;
+   border-color:darkslategrey;
+
+}
+h3 {
+    color: blue;
+
+}
+
+input {
+    width: 150px;
+    font-family: Calibri;
+    font-size: 20px;
+}
+
+    input[type=password] {
+        background-color: red;
+        color: yellow;
+    }
+
+.flex-box{
+    display:flex;
+    align-content:center;
+    align-items:center;
+    
+    flex-direction:column;
+}
+#chkRem {
+    height: 30px;
+}
+
+table{
+    width:100%;
+}
+
+table tr{
+    background-color:lightgray;
+}
