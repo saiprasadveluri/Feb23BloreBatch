@@ -1,16 +1,16 @@
-﻿using System;
+﻿using FoodDeliveryApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodDeliveryApp
+namespace FoodDelApp
 {
     public class BusinessLayer
     {
         DataAccessLayer dal;
         UserDTO loggedInUser;
-
         public BusinessLayer()
         {
             dal = new DataAccessLayer();
@@ -18,14 +18,20 @@ namespace FoodDeliveryApp
 
         public void CloseApp()
         {
-            dal.Close();
+            dal.CloseApp();
             loggedInUser = null;
         }
-
         public bool Authenticate(string Email, string Password)
         {
             loggedInUser = dal.Login(Email, Password);
-            return loggedInUser != null;
+            if (loggedInUser != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool AddNewRestaurant(ResturantDTO restaurant)
@@ -40,7 +46,6 @@ namespace FoodDeliveryApp
             else
                 return false;
         }
-
         public bool AddNewUser(UserDTO user)
         {
             if (IsInRole(UserTypeEnum.ADMIN))
@@ -58,7 +63,6 @@ namespace FoodDeliveryApp
         {
             return ListRestaurantsByOwner(loggedInUser.Userid);
         }
-
         public List<ResturantDTO> ListRestaurantsByOwner(long OwnerId)
         {
             return dal.ListRestaurantsByOwner(OwnerId);
@@ -69,19 +73,17 @@ namespace FoodDeliveryApp
             return ListRestaurantsByLocation(loggedInUser.Location);
         }
 
-        public List<ResturantDTO> ListRestaurantsByLocation(string UserLocation)
+        public List<ResturantDTO> ListRestaurantsByLocation(string UserLocacation)
         {
-            return dal.ListRestaurantsByLocation(UserLocation);
+            return dal.ListRestaurantsByLocation(UserLocacation);
         }
-
-        public List<MenuDTO> GetRestaurantMenu(long RID)
+        public List<MenuDTO> GetRestaurentMenu(long RID)
         {
-            return dal.GetRestaurantMenu(RID);
+            return dal.GetRestaurentMenu(RID);
         }
-
-        public List<MenuDTO> GetRestaurantMenu(string fltr, long RID)
+        public List<MenuDTO> GetRestaurentMenu(string fltr, long RID)
         {
-            List<MenuDTO> items = GetRestaurantMenu(RID);
+            List<MenuDTO> items = GetRestaurentMenu(RID);
             List<MenuDTO> fitems = items.Where(i => i.FoodType == fltr).ToList();
             return fitems;
         }
@@ -95,10 +97,10 @@ namespace FoodDeliveryApp
                 bool OrderInitiated = dal.InitOrder(RID, loggedInUser.Userid, out NewOrderId);
                 if (OrderInitiated)
                 {
-                    foreach (OrderLineData mitm in menuLst)
+                    foreach (OrderlistDTO mitm in menuLst)
                     {
-                        bool tempStatus = dal.OrderMenuItem(NewOrderId, mitm.MenuId, mitm.Qty);
-                        if (!tempStatus)
+                        bool tempStatus = dal.OrderMenuItem(NewOrderId, mitm.Menuid, mitm.Qty);
+                        if (tempStatus == false)
                         {
                             dal.EndTransaction(false);
                             return false;
@@ -108,8 +110,10 @@ namespace FoodDeliveryApp
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                // Log the exception or handle it as needed
+                Console.WriteLine(ex.Message);
                 dal.EndTransaction(false);
             }
             dal.EndTransaction(false);
@@ -120,7 +124,6 @@ namespace FoodDeliveryApp
         {
             return dal.AddMenuItem(itm);
         }
-
         private bool IsInRole(UserTypeEnum reqRole)
         {
             if (loggedInUser != null)
@@ -138,7 +141,8 @@ namespace FoodDeliveryApp
             string ExistingRole = dal.GetUserRole(UserId);
             if (ExistingRole != null)
             {
-                return ExistingRole == reqRole.ToString();
+                if (ExistingRole == reqRole.ToString())
+                    return true;
             }
             return false;
         }

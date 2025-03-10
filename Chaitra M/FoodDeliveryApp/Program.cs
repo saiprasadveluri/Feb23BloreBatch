@@ -1,4 +1,5 @@
 ﻿using System;
+using FoodDelApp;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -7,56 +8,49 @@ using System.Threading.Tasks;
 
 namespace FoodDeliveryApp
 {
-    class Program
+    internal class Program
     {
+        static BusinessLayer bl = new BusinessLayer();
+
         static void Main(string[] args)
         {
-            static BusinessLayer bl = new BusinessLayer();
-            static void Main(string[] args)
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
+            bool authenticated = bl.Authenticate(email, password);
+            if (!authenticated)
             {
-                Console.Write("Email: ");
-                string email = Console.ReadLine();
-                Console.Write("Password: ");
-                string Password = Console.ReadLine();
-                bool Authenticated = bl.Authenticate(email, Password);
-                if (!Authenticated)
-                {
-                    Console.WriteLine("No Access to application");
-                    return;
-                }
-                while (true)
-                {
-                    Console.WriteLine("Options: \n 0: Exit \n 1: Add New User \n 2: Add New Restaurant \n 3: Add Menu Item \n 4: Place Order");
-                    int opt = int.Parse(Console.ReadLine());
-                    switch (opt)
-                    {
-                        case 0:
-                            {
-                                bl.CloseApp();
-                                return;
-                            }
-                            break;
-                        case 1:
-                            {
-                                AddNewUser();
-                            }
-                            break;
-                        case 2:
-                            AddNewRestaurant();
-                            break;
-                        case 3:
-                            AddMenuItem();
-                            break;
-                        case 4:
-                            PlaceOrder();
-                            break;
-                        default:
-                            Console.WriteLine("Wrong Option...");
-                            break;
-                    }
-                }
-
+                Console.WriteLine("No Access to application");
+                return;
             }
+            while (true)
+            {
+                Console.WriteLine("Options: \n 0: Exit \n 1: Add New User \n 2: Add New Restaurant \n 3: Add Menu Item \n 4: Place Order");
+                int opt = int.Parse(Console.ReadLine());
+                switch (opt)
+                {
+                    case 0:
+                        bl.CloseApp();
+                        return;
+                    case 1:
+                        AddNewUser();
+                        break;
+                    case 2:
+                        AddNewRestaurant();
+                        break;
+                    case 3:
+                        AddMenuItem();
+                        break;
+                    case 4:
+                        PlaceOrder();
+                        break;
+                    default:
+                        Console.WriteLine("Wrong Option...");
+                        break;
+                }
+            }
+        }
 
         private static void AddMenuItem()
         {
@@ -79,7 +73,7 @@ namespace FoodDeliveryApp
             {
                 Menuname = nm,
                 Rid = RIDInp,
-                UnitPrice = price,
+                UnitPrice = (decimal)price,
                 FoodType = ftype
             };
             bool status = bl.AddMenuItem(mitm);
@@ -91,20 +85,20 @@ namespace FoodDeliveryApp
             {
                 Console.WriteLine("Error In adding menu Item");
             }
-
         }
+
         private static void PlaceOrder()
         {
             Console.WriteLine("Res Id");
             long RID = long.Parse(Console.ReadLine());
-            List<OrderlineDTO> orderMenuList = new List<OrderlineDTO>();
+            List<OrderlistDTO> orderMenuList = new List<OrderlistDTO>();
             List<MenuDTO> list = bl.GetRestaurentMenu(RID);
             if (list.Count > 0)
             {
                 while (true)
                 {
                     foreach (MenuDTO item in list)
-                    {
+                    {                                                                                                                                                                                                                                                                                
                         Console.WriteLine($"{item.MenuId} - {item.Menuname}");
                     }
                     Console.WriteLine("Select Menu ID. 0 for End");
@@ -116,15 +110,15 @@ namespace FoodDeliveryApp
                     Console.WriteLine("Select Quantity");
                     int qty = int.Parse(Console.ReadLine());
 
-                    OrderlistData cur = new OrderlistData()
+                    OrderlistDTO cur = new OrderlistDTO()
                     {
-                        MenuId = MnuId,
+                        Menuid = MnuId,
                         Qty = qty,
                     };
                     orderMenuList.Add(cur);
                 }
-                bool Status = bl.PlaceOrder(RID, orderMenuList);
-                if (Status)
+                bool status = bl.PlaceOrder(RID, orderMenuList);
+                if (status)
                 {
                     Console.WriteLine("Success in placing Order...");
                 }
@@ -133,9 +127,7 @@ namespace FoodDeliveryApp
                     Console.WriteLine("Failed to place order");
                 }
             }
-
         }
-
 
         private static void AddNewRestaurant()
         {
@@ -156,8 +148,8 @@ namespace FoodDeliveryApp
                 Ownerid = ownerId
             };
 
-            bool Status = bl.AddNewRestaurant(newRestaurant);
-            if (Status == false)
+            bool status = bl.AddNewRestaurant(newRestaurant);
+            if (status == false)
             {
                 Console.WriteLine("Error In Adding New Restaurant");
             }
@@ -167,7 +159,7 @@ namespace FoodDeliveryApp
             }
         }
 
-        private static void AddNewUser()
+        private  static void AddNewUser()
         {
             Console.WriteLine("New User Data: ");
             Console.Write("Name: ");
@@ -189,9 +181,8 @@ namespace FoodDeliveryApp
                 Location = location,
             };
 
-
-            bool Status = bl.AddNewUser(obj);
-            if (Status == false)
+            bool status = bl.AddNewUser(obj);
+            if (status == false)
             {
                 Console.WriteLine("Error In Adding New User");
             }
@@ -200,8 +191,5 @@ namespace FoodDeliveryApp
                 Console.WriteLine("Success in Adding New User");
             }
         }
-    }
-
-}
     }
 }
