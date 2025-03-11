@@ -1,0 +1,7 @@
+C:\Users\Administrator\source\repos\FoodDeliveryApp1\FoodDeliveryApp1\bin\Debug\FoodDeliveryApp1.exe.config
+C:\Users\Administrator\source\repos\FoodDeliveryApp1\FoodDeliveryApp1\bin\Debug\FoodDeliveryApp1.exe
+C:\Users\Administrator\source\repos\FoodDeliveryApp1\FoodDeliveryApp1\bin\Debug\FoodDeliveryApp1.pdb
+C:\Users\Administrator\source\repos\FoodDeliveryApp1\FoodDeliveryApp1\obj\Debug\FoodDeliveryApp1.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\FoodDeliveryApp1\FoodDeliveryApp1\obj\Debug\FoodDeliveryApp1.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\FoodDeliveryApp1\FoodDeliveryApp1\obj\Debug\FoodDeliveryApp1.exe
+C:\Users\Administrator\source\repos\FoodDeliveryApp1\FoodDeliveryApp1\obj\Debug\FoodDeliveryApp1.pdb
