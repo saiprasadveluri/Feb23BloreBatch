@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="adminsheet.css">
+</head>
+<body>
+    <header class="top-header">
+        <div class="logo">MyLogo</div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <!--<li><a href="#services">Services</a></li>-->
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="admin-greeting"> Hello, Admin</h1>
+        <div class="container">
+            <div class="box">
+                <h3>User List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Location</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Admin</td>
+                            <td>USA</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Doe</td>
+                            <td>Admin</td>
+                            <td>UK</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>John Smith</td>
+                            <td>Admin</td>
+                            <td>Canada</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div>
+                    <form action="AddUser.html" method="post"><button>Add User</button></form>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Restaurant List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Restaurant Name</th>
+                            <th>Location</th>
+                            <th>Owner</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bistro Bella</td>
+                            <td>USA</td>
+                            <td>John Doe</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Café Royale</td>
+                            <td>UK</td>
+                            <td>Jane Doe</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>Maple Delight</td>
+                            <td>Canada</td>
+                            <td>John Smith</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <div>
+                    <form action="AddRestaurant.html" method="post"><button>Add Restaurant</button></form>
+                </div>
+
+            </div>
+            <div class="box">
+                <h3>Order List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>User ID</th>
+                            <th>Restaurant</th>
+                            <th>Payment Details</th>
+                            <th>Delivered</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>john_doe</td>
+                            <td>Bistro Bella</td>
+                            <td>Credit Card</td>
+                            <td>Yes</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>jane_doe</td>
+                            <td>Café Royale</td>
+                            <td>PayPal</td>
+                            <td>No</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>john_smith</td>
+                            <td>Maple Delight</td>
+                            <td>Debit Card</td>
+                            <td>Yes</td>
+                            <td><button>Edit</button> <button>Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <form action="AddOrder.html" method="post"><button>Add Order</button></form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+</body>
+</html>

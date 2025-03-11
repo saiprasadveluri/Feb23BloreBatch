@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Input Form</title>
+    <link rel="stylesheet" href="adminsheet.css">
+</head>
+<body>
+    <h2>Order Input Form</h2>
+    <div class="container">
+        <form action="submit_form.php" method="post" class="box">
+            <label for="orderNumber">Order Number:</label><br>
+            <input type="text" id="orderNumber" name="orderNumber" required><br><br>
+
+            <label for="customerName">Customer Name:</label><br>
+            <input type="text" id="customerName" name="customerName" required><br><br>
+
+            <label for="orderDate">Order Date:</label><br>
+            <input type="date" id="orderDate" name="orderDate" required><br><br>
+
+            <label for="itemsOrdered">Items Ordered:</label><br>
+            <textarea id="itemsOrdered" name="itemsOrdered" rows="4" required></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+

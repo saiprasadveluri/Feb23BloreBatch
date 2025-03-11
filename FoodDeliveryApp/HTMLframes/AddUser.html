@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Form</title>
+    <link rel="stylesheet" href="adminsheet.css">
+</head>
+<body>
+    <h2>User Input Form</h2>
+    <div class="container"">
+        <form action="submit_form.php" method="post" class="box">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <label for="role">User Role (optional):</label><br>
+            <input type="text" id="role" name="role"><br><br>
+
+            <label for="location">Location:</label><br>
+            <input type="text" id="location" name="location" required><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
