@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Update User</title>
+</head>
+<body>
+    <h3>Update User</h3>
+    <form action="processUpdateUser.html" method="post">
+        <div>
+            <input type="text" id="uname" name="uname" placeholder="Enter Name" required>
+        </div>
+        <div>
+            <input type="text" id="uemail" name="uemail" placeholder="Enter Email" required>
+        </div>
+        <div>
+            <input type="password" id="upwd" name="upassword" placeholder="Enter Password" required>
+        </div>
+        <div>
+            <select id="urole" name="Role" required>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+                <option value="owner">Owner</option>
+            </select>
+        </div>
+        <div>
+            <select id="ulocation" name="Location" required>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Bangalore">Bangalore</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Update User">
+        </div>
+    </form>
+</body>
+</html>

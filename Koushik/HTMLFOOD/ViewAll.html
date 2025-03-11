@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>View All</title>
+</head>
+<body>
+    <h3>All Users</h3>
+    <form method="post" action="/deleteUsers">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+            <!-- Example row, replace with dynamic content -->
+            <tr>
+                <td>John Doe</td>
+                <td>john@example.com</td>
+                <td>User</td>
+                <td>Hyderabad</td>
+                <td><input type="checkbox" name="deleteUser" value="john@example.com" /></td>
+            </tr>
+        </table>
+        <button type="submit">Delete Selected Users</button>
+    </form>
+
+    <h3>All Restaurants</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Type</th>
+        </tr>
+        <!-- Example row, replace with dynamic content -->
+        <tr>
+            <td>Pizza Place</td>
+            <td>Hyderabad</td>
+            <td>Italian</td>
+        </tr>
+    </table>
+</body>
+</html>
