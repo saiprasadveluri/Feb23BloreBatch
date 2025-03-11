@@ -1,0 +1,99 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+ 
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+}
+ 
+h3 {
+    color: #666;
+    text-align: center;
+}
+ 
+.flex-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+ 
+input[type="email"],
+input[type="password"] {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+ 
+input[type="checkbox"] {
+    margin: 10px 0;
+}
+ 
+input[type="submit"] {
+    width: 320px;
+    padding: 10px;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+ 
+    input[type="submit"]:hover {
+        background-color: #4cae4c;
+    }
+
+input[type=password] {
+    background-color: white;
+    color: black;
+}
+
+/*h3 {
+    color: blue;
+}
+
+#password {
+    background-color: red;
+    color: yellow;
+}
+
+#chkbox {
+    height: 30px;
+}
+
+input[type=password] {
+    background-color: red;
+    color: yellow;
+}
+
+input[type=checkbox] {
+    height: 30px;
+}
+
+input[type=email] {
+    background-color: blue;
+    color: green;
+}
+
+.decorated {
+    padding-bottom: 10px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: darkslategrey;
+}
+
+.flex {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}*/

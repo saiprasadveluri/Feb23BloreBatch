@@ -1,0 +1,77 @@
+﻿<h1 class="font-bold bg-secondary text-light text-center text-align-center">Admin Dashboard</h1>
+<hr />
+<div class="row text-align-center">
+    <h5 class="text-start">User List</h5>
+    <div class="text-end">
+        <asp:Button ID="Button1" runat="server" Text="Add New User" class="btn btn-primary" />
+    </div>
+</div>
+<table class="table table-bordered table-striped" style="background-color: cyan; width: 100%; text-align: center;">
+    <thead class="bg-secondary text-light">
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John Doe</td>
+            <td>Developer</td>
+            <td>HYD</td>
+            <td>
+                <asp:Button ID="Button7" class="btn btn-danger" runat="server" Text="Delete" />
+                <asp:Button ID="Button8" class="btn btn-warning" runat="server" Text="Edit" />
+            </td>
+        </tr>
+        <tr class="bg-pink">
+            <td>Jane Smith</td>
+            <td>Designer</td>
+            <td>DEL</td>
+            <td>
+                <asp:Button ID="Button5" class="btn btn-danger" runat="server" Text="Delete" />
+                <asp:Button ID="Button6" class="btn btn-warning" runat="server" Text="Edit" />
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<br />
+<div class="row text-align-center">
+    <h5 class="text-start">Restaurant List </h5>
+    <div class="text-end">
+        <asp:Button ID="Button2" runat="server" Text="Add New Restaurant" class="btn btn-primary" />
+    </div>
+</div>
+<table class="table table-bordered table-striped" style="background-color: cyan; width: 100%; text-align: center;">
+    <thead class="bg-secondary text-light">
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Owner</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>A2B</td>
+            <td>Chennai</td>
+            <td>Ravi</td>
+            <td>
+                <asp:Button ID="Delete" class="btn btn-danger" runat="server" Text="Delete" />
+                <asp:Button ID="Edit" class="btn btn-warning" runat="server" Text="Edit" />
+            </td>
+        </tr>
+        <tr class="bg-pink">
+            <td>HaldiRam</td>
+            <td>Bangalore</td>
+            <td>Tiru</td>
+            <td>
+                <asp:Button ID="Button3" class="btn btn-danger" runat="server" Text="Delete" />
+                <asp:Button ID="Button4" class="btn btn-warning" runat="server" Text="Edit" />
+            </td>
+        </tr>
+
+    </tbody>
+</table>
