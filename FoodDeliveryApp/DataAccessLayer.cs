@@ -46,6 +46,7 @@ namespace FoodDeliveryApp
                 return false;
             }
         }
+
         public bool AddUser(Users user)
         {
             cmd.Connection = Conn;
@@ -65,6 +66,36 @@ namespace FoodDeliveryApp
                 cmd.Parameters.Add(new SqlParameter("@email", user.email));
                 long userid = Convert.ToInt64(cmd.ExecuteScalar());
                 user.userid = userid;
+                cmd.Parameters.Clear();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        
+
+        public bool AddOrder(Order order)
+        {
+            cmd.Connection = Conn;
+            cmd.CommandText = "INSERT INTO ORDERS(orderid, status, payment, orderdetails, userid, restaurantid) VALUES(@orderid, @status, @payment, @orderdetails, @userid, @restaurantid)";
+
+            cmd.Parameters.Add(new SqlParameter("@orderid", order.orderid));
+            cmd.Parameters.Add(new SqlParameter("@status", order.status));
+            cmd.Parameters.Add(new SqlParameter("@payment", order.payment));
+            cmd.Parameters.Add(new SqlParameter("@orderdetails", order.orderdetails));
+            cmd.Parameters.Add(new SqlParameter("@userid", order.userid));
+            cmd.Parameters.Add(new SqlParameter("@restaurantid", order.restaurantid));
+            int res = cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            if (res > 0)
+            {
+                cmd.CommandText = "SELECT orderid FROM ORDERS WHERE orderid = @orderid";
+                cmd.Parameters.Add(new SqlParameter("@orderid", order.orderid));
+                long orderid = Convert.ToInt64(cmd.ExecuteScalar());
+                order.orderid = orderid;
                 cmd.Parameters.Clear();
                 return true;
             }
@@ -149,6 +180,24 @@ namespace FoodDeliveryApp
                 return false;
             }
         }
+
+        public bool RemoveOrder(long orderid)
+        {
+            cmd.Connection = Conn;
+            cmd.CommandText = "DELETE FROM ORDERS WHERE orderid = @orderid";
+            cmd.Parameters.Add(new SqlParameter("@orderid", orderid));
+            int res = cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            if (res > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
 
         public bool AssignOwner(long restaurantid, long ownerid)

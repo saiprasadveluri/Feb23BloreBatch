@@ -35,10 +35,33 @@ namespace FoodDeliveryApp
             return dal.AddRestaurant(restaurant);
         }
 
+        public bool AddOrder(string status, string payment, string orderdetails, long userid, long restaurantid)
+        {
+            // Create a new instance of the Order class
+            Order order = new Order
+            {
+                status = status,
+                payment = payment,
+                orderdetails = orderdetails,
+                userid = userid,
+                restaurantid = restaurantid
+            };
+
+            // Call the Data Access Layer (DAL) method to add the order
+            return dal.AddOrder(order);
+        }
+
+
         public bool RemoveRestaurant(long restaurantid)
         {
             return dal.RemoveRestaurant(restaurantid);
         }
+
+        public bool RemoveOrder(long orderid)
+        {
+            return dal.RemoveOrder(orderid);
+        }
+
 
 
         public bool AddMenuItems(string itemname, string category, double price, long restaurantid)
