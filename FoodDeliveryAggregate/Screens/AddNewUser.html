@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>Add New User</title>
+	<link rel="stylesheet" type="text/css" href="site.css" />
+	<script>
+		function handleFormSubmit(event) {
+			event.preventDefault();
+			alert('Form submitted: ' + event.target.action);
+		}
+	</script>
+</head>
+<body>
+	<h3 class="mainHeading">Add New User</h3>
+	<hr />
+	<div width="100%" style="text-align:end;padding-right:20px;">
+		<a href="AdminDashboard.html">Go To Dashboard</a>
+	</div>
+	<form action="AddNewUserHandler" method="post" onsubmit="handleFormSubmit(event)">
+		<div class="flex-box">
+			<div class="leftMargin divBorder">
+				<div>
+					<label for="unm">Display Name:</label>
+					<input type="text" id="unm" name="unm" placeholder="User Display Name" required />
+				</div>
+				<div>
+					<label for="uemail">Email:</label>
+					<input type="email" id="uemail" name="uemail" placeholder="User Email" required />
+				</div>
+				<div>
+					<label for="upassword">Password:</label>
+					<input type="password" id="upassword" name="upassword" placeholder="Password" required />
+				</div>
+				<div>
+					<label for="uloc">Location:</label>
+					<select id="uloc" name="uloc">
+						<option value="">Select</option>
+						<option value="HYD">Hyderabad</option>
+						<option value="CHN">Chennai</option>
+						<option value="BLR">Bangalore</option>
+					</select>
+				</div>
+				<div>
+					<label for="urole">User Role:</label>
+					<select id="urole" name="urole">
+						<option value="">Select</option>
+						<option value="ADMIN">ADMIN</option>
+						<option value="OWNER">OWNER</option>
+						<option value="USER">USER</option>
+					</select>
+				</div>
+				<div>
+					<input type="submit" value="Add New User" />
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Add Menu Item</title>
+    <link rel="stylesheet" type="text/css" href="sitee.css" />
+</head>
+<body>
+    <h3 class="mainHeading">Add Menu Item</h3>
+    <hr />
+    <div width="100%" style="text-align:end;padding-right:20px;">
+        <a href="AdminDashboard.html">Go To Dashboard</a>
+    </div>
+    <form action="AddMenuItemHandler" method="post">
+        <div class="flex-box">
+            <div class="leftMargin divBorder">
+                <div>
+                    <label for="resId">Restaurant ID:</label>
+                    <input type="text" id="resId" name="resId" placeholder="Restaurant ID" required />
+                </div>
+                <div>
+                    <label for="menuName">Menu Name:</label>
+                    <input type="text" id="menuName" name="menuName" placeholder="Menu Name" required />
+                </div>
+                <div>
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" name="price" placeholder="Price" required />
+                </div>
+                <div>
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" placeholder="Category" required />
+                </div>
+                <div>
+                    <input type="submit" value="Add Menu Item" />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Add New Restaurant</title>
+    <link rel="stylesheet" type="text/css" href="site.css"/>
+</head>
+<body>
+    <h3>Add New Restaurant</h3>
+    <hr/>
+    <form action="AddRestaurantHandler" method="post">
+        <div>
+            <input type="text" id="name" name="name" placeholder="Restaurant Name" required/>
+        </div>
+        <div>
+            <input type="text" id="location" name="location" placeholder="Location" required/>
+        </div>
+        <div>
+            <input type="number" id="ownerId" name="ownerId" placeholder="Owner ID" required/>
+        </div>
+        <div>
+            <input type="submit" value="Add New Restaurant"/>
+        </div>
+    </form>
+</body>
+</html>

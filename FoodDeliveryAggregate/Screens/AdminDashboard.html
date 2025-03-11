@@ -1,0 +1,132 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="sitee.css" />
+</head>
+<body>
+    <h3 class="mainHeading">Admin Dashboard</h3>
+    <hr />
+    <label class="sideHeading">User List</label>
+    <div width="100%" style="text-align:end;padding-right:20px;"><a href="AddNewUser.html">Add New User</a></div>
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mary</td>
+                    <td>ADMIN</td>
+                    <td>HYD</td>
+                    <td><a href="DeleteUser?Id=10">Delete</a> | <a href="EditUser?Id=10">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>Ravi</td>
+                    <td>Owner</td>
+                    <td>CHN</td>
+                    <td><a href="DeleteUser?Id=11">Delete</a> | <a href="EditUser?Id=11">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <label class="sideHeading">Restaurant List</label>
+    <div width="100%" style="text-align:end;padding-right:20px;"><a href="AddNewRestaurant.html">Add New Restaurant</a></div>
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Owner</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A2B</td>
+                    <td>Chennai</td>
+                    <td>Ravi</td>
+                    <td><a href="DeleteRestaurant?Id=10">Delete</a> | <a href="EditRestaurant?Id=10">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>Haldirams</td>
+                    <td>Bangalore</td>
+                    <td>Shyam</td>
+                    <td><a href="DeleteRestaurant?Id=11">Delete</a> | <a href="EditRestaurant?Id=11">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <label class="sideHeading">Menu Item List</label>
+    <div width="100%" style="text-align:end;padding-right:20px;"><a href="AddMenuItem.html">Add Menu Item</a></div>
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Biryani</td>
+                    <td>200</td>
+                    <td>Veg</td>
+                    <td><a href="DeleteMenuItem?Id=1">Delete</a> | <a href="EditMenuItem?Id=1">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>Pasta</td>
+                    <td>150</td>
+                    <td>Veg</td>
+                    <td><a href="DeleteMenuItem?Id=2">Delete</a> | <a href="EditMenuItem?Id=2">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <label class="sideHeading">Place Order List</label>
+    <div width="100%" style="text-align:end;padding-right:20px;"><a href="AddOrder.html">Add Order</a></div>
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Restaurant ID</th>
+                    <th>Item Name</th>
+                    <th>Status</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>1</td>
+                    <td>Biryani</td>
+                    <td>Pending </td>
+                    <td>2</td>
+                    <td><a href="DeleteOrder?Id=101">Delete</a> | <a href="EditOrder?Id=101">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td> 2</td>
+                    <td>Pasta</td>
+                    <td>Delivered</td>
+                    <td>1</td>
+                    <td><a href="DeleteOrder?Id=102">Delete</a> | <a href="EditOrder?Id=102">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
