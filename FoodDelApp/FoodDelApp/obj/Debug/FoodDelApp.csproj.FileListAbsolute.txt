@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\FoodDelApp\FoodDelApp\bin\Debug\FoodDelApp.exe.config
+C:\Users\Administrator\Desktop\FoodDelApp\FoodDelApp\bin\Debug\FoodDelApp.exe
+C:\Users\Administrator\Desktop\FoodDelApp\FoodDelApp\bin\Debug\FoodDelApp.pdb
+C:\Users\Administrator\Desktop\FoodDelApp\FoodDelApp\obj\Debug\FoodDelApp.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\FoodDelApp\FoodDelApp\obj\Debug\FoodDelApp.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\FoodDelApp\FoodDelApp\obj\Debug\FoodDelApp.exe
+C:\Users\Administrator\Desktop\FoodDelApp\FoodDelApp\obj\Debug\FoodDelApp.pdb
