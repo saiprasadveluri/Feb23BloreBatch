@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <h3 class="mainHeading">Add New User</h3>
+    <hr />
+    <div width="100%" style="text-align:end;padding-right:20px;"><a href="AdminDashboard.html">Go To Dashboard</a></div>
+    <form>
+        <div class="flex-box ">
+            <div class="leftMargin divBorder">
+                <div>
+                    <lable for="unm">
+                        Display Name:
+                    </lable>
+                    <input type="text" id="unm" name="unm" placeholder="User Display Name" required />
+                </div>
+                <div>
+                    <lable for="uemail">
+                        Email:
+                    </lable>
+                    <input type="email" id="uemail" name="uemail" placeholder="User Email" required />
+                </div>
+                <div>
+                    <lable for="upassword">
+                        Password:
+                    </lable>
+                    <input type="password" id="upassword" name="upassword" placeholder="Password" required />
+                </div>
+                <div>
+                    <lable for="uloc">
+                        Location:
+                    </lable>
+                    <select id="uloc" name="uloc">
+                        <option value="">Select</option>
+                        <option value="HYD">Hyderabad</option>
+                        <option value="CHN">Chennai</option>
+                        <option value="BLR">Bangalore</option>
+                    </select>
+                </div>
+                <div>
+                    <lable for="urole">
+                        User Role:
+                    </lable>
+                    <select id="urole" name="urole">
+                        <option value="">Select</option>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="OWNER">OWNER</option>
+                        <option value="USER">USER</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="submit" value="Add New User" />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
