@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food App User</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Food App</h1>
+    </header>
+    <main>
+        <section id="user-profile">
+            <h2>User Profile</h2>
+            <form id="profile-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+        <section id="order-history">
+            <h2>Order History</h2>
+            <ul id="orders-list">
+                <!-- Order items will be dynamically inserted here -->
+            </ul>
+        </section>
+    </main>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
