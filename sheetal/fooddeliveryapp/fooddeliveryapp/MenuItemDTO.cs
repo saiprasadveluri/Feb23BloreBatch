@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace fooddeliveryapp.Data
+namespace FoodDelApp.Data
 {
     public class MenuItemDTO
     {
-        public long itemid { get; set; }
-        public string itemname { get; set; }
-        public string ingredients { get; set; }
-        public long restid { get; set; }
-        public decimal price { get; set; }
-
+        public long MID { get; set; }
+        public string MenuName { get; set; }
+        public long RID { get; set; }
+        public double UnitPrice { get; set; }
+        public string FoodType { get; set; }
     }
 }

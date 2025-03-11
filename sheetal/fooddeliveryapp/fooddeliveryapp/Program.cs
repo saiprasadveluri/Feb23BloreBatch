@@ -1,41 +1,39 @@
-﻿using fooddeliveryapp.Data;
+﻿using FoodDelApp.Data;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static fooddeliveryapp.BusinessLayer;
 
-namespace fooddeliveryapp
+namespace FoodDelApp
 {
     internal class Program
     {
-        //static DataAccessLayer dal = new DataAccessLayer();
-        static BusinessLayer Business = new BusinessLayer();
+        static BusinessLayer bl = new BusinessLayer();
         static void Main(string[] args)
         {
-            //dal.OpenConnection();
-            Console.Write("username: ");
-            string username = Console.ReadLine();
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
             Console.Write("Password: ");
-            string password = Console.ReadLine();//GetPassword();
-            bool Authenticated = Business.Authenticate(username, password);
+            string Password = Console.ReadLine();
+            bool Authenticated = bl.Authenticate(email, Password);
             if (!Authenticated)
             {
-                Console.WriteLine("\nNot Authorized to access the application");
+                Console.WriteLine("No Access to application");
                 return;
             }
-
-            //Add New User
             while (true)
             {
-                Console.WriteLine("Options: \n 0: Exit \n 1: Add New User \n 2: Add New Restaurant");
+                Console.WriteLine("Options: \n 0: Exit \n 1: Add New User \n 2: Add New Restaurant \n 3: Add Menu Item \n 4: Place Order");
                 int opt = int.Parse(Console.ReadLine());
                 switch (opt)
                 {
                     case 0:
                         {
-                            Business.CloseApp();
+                            bl.CloseApp();
                             return;
                         }
                         break;
@@ -45,34 +43,119 @@ namespace fooddeliveryapp
                         }
                         break;
                     case 2:
-                            AddNewRestaurant();
+                        AddNewRestaurant();
+                        break;
+                    case 3:
+                        AddMenuItem();
+                        break;
+                    case 4:
+                        PlaceOrder();
                         break;
                     default:
                         Console.WriteLine("Wrong Option...");
                         break;
                 }
             }
+
+        }
+
+        private static void AddMenuItem()
+        {
+            Console.WriteLine("Res Id");
+            long RIDInp = long.Parse(Console.ReadLine());
+            List<RestaurantDTO> restaurantDTOs = bl.ListMyRestaurants();
+            RestaurantDTO curRst = restaurantDTOs.Find(r => r.RID == RIDInp);
+            if (curRst == null)
+            {
+                Console.WriteLine("You are Not owner of the selected Restaurant....");
+                return;
+            }
+            Console.WriteLine("Menu Name: ");
+            string nm = Console.ReadLine();
+            Console.WriteLine("Price: ");
+            double price = double.Parse(Console.ReadLine());
+            Console.WriteLine("Food Type: [VEG/NON-VEG]: ");
+            string ftype = Console.ReadLine();
+            MenuItemDTO mitm = new MenuItemDTO()
+            {
+                MenuName = nm,
+                RID = RIDInp,
+                UnitPrice = price,
+                FoodType = ftype
+            };
+            bool status = bl.AddMenuItem(mitm);
+            if (status)
+            {
+                Console.WriteLine("Success in Adding Menu Item");
+            }
+            else
+            {
+                Console.WriteLine("Error In adding menu Item");
+            }
+
+        }
+        private static void PlaceOrder()
+        {
+            Console.WriteLine("Res Id");
+            long RID = long.Parse(Console.ReadLine());
+            List<OrderLineData> orderMenuList = new List<OrderLineData>();
+            List<MenuItemDTO> list = bl.GetRestaurentMenu(RID);
+            if (list.Count > 0)
+            {
+                while (true)
+                {
+                    foreach (MenuItemDTO item in list)
+                    {
+                        Console.WriteLine($"{item.MID} - {item.MenuName}");
+                    }
+                    Console.WriteLine("Select Menu ID. 0 for End");
+                    long MnuId = long.Parse(Console.ReadLine());
+                    if (MnuId == 0)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Select Quantity");
+                    int qty = int.Parse(Console.ReadLine());
+
+                    OrderLineData cur = new OrderLineData()
+                    {
+                        MenuId = MnuId,
+                        Qty = qty,
+                    };
+                    orderMenuList.Add(cur);
+                }
+                bool Status = bl.PlaceOrder(RID, orderMenuList);
+                if (Status)
+                {
+                    Console.WriteLine("Success in placing Order...");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to place order");
+                }
+            }
+
         }
         private static void AddNewRestaurant()
         {
             Console.WriteLine("New User Restaurant: ");
 
             Console.Write("Name: ");
-            string rname = Console.ReadLine();
+            string name = Console.ReadLine();
 
             Console.Write("Location: ");
             string location = Console.ReadLine();
 
             Console.WriteLine("Owner Id: ");
-            long ownerid = long.Parse(Console.ReadLine());
-            RestaurantDTO newrest = new RestaurantDTO()
+            long ownerId = long.Parse(Console.ReadLine());
+            RestaurantDTO newRestaurant = new RestaurantDTO()
             {
-                rname = rname,
-                location = location,
-                ownerid = ownerid
+                Name = name,
+                Location = location,
+                OwnerId = ownerId
             };
 
-            bool Status = Business.AddNewRestaurant(newrest);
+            bool Status = bl.AddNewRestaurant(newRestaurant);
             if (Status == false)
             {
                 Console.WriteLine("Error In Adding New Restaurant");
@@ -85,41 +168,68 @@ namespace fooddeliveryapp
         private static void AddNewUser()
         {
             Console.WriteLine("New User Data: ");
-            Console.Write("Username: ");
-            string username = Console.ReadLine();
-            
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
             Console.Write("Password: ");
             string password = Console.ReadLine();
-
-            Console.Write("Role Name(admin, user, owner): ");
-            string role = Console.ReadLine();
-
-            Console.Write("address: ");
-            string address = Console.ReadLine();
-
-            Console.Write("preferences: ");
-            string preferences = Console.ReadLine();
-
-            UserDTO obj = new UserDTO()
+            Console.Write("Role Name: ");
+            string roleName = Console.ReadLine();
+            Console.Write("Location: ");
+            string location = Console.ReadLine();
+            UserDTO user = new UserDTO()
             {
-                username = username,
-                password = password,
-                role = role,
-                address = address,
-                preferences = preferences
+                Name = name,
+                Email = email,
+                Password = password,
+                RoleName = roleName,
+                Location = location,
             };
 
-            bool Status = Business.AddNewUser(obj);
-            if (Status == false)
-            {
-                Console.WriteLine("Error In Adding New User");
-            }
-            else
-            {
-                Console.WriteLine("Success in Adding New User");
-            }
+             = bl.AddNewUser(user);
+            
         }
+        private static void UpdateUserDetails()
+        {
+            Console.Write("Enter User ID to update: ");
+            if (!long.TryParse(Console.ReadLine(), out long userId))
+            {
+                Console.WriteLine("Invalid User ID.");
+                return;
+            }
 
+            Console.Write("New Name (leave empty to keep current): ");
+            string newName = Console.ReadLine();
+
+            Console.Write("New Password (leave empty to keep current): ");
+            string newPassword = Console.ReadLine();
+
+            Console.Write("New Location (leave empty to keep current): ");
+            string newLocation = Console.ReadLine();
+
+            Console.Write("New Role (Admin/Owner/Customer) (leave empty to keep current): ");
+            string newRole = Console.ReadLine();
+
+            if (!string.IsNullOrWhiteSpace(newRole))
+            {
+                Console.WriteLine("Invalid role. Please enter 'Admin', 'Owner', or 'Customer'.");
+                return;
+            }
+
+            UserDTO updatedUser = new UserDTO()
+            {
+                UserId = userId,
+                Name = string.IsNullOrWhiteSpace(newName) ? null : newName,
+                Password = string.IsNullOrWhiteSpace(newPassword) ? null : newPassword,
+                Location = string.IsNullOrWhiteSpace(newLocation) ? null : newLocation,
+                RoleName = string.IsNullOrWhiteSpace(newRole) ? null : newRole
+            };
+
+            bool status = bl.UpdateUser(updatedUser);
+            Console.WriteLine(status ? "User details updated successfully." : "Error updating user details.");
+        }
 
     }
 }
+

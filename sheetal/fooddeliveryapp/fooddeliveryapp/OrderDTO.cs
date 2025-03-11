@@ -4,18 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace fooddeliveryapp.Data
+namespace FoodDelApp.Data
 {
-    class OrderDTO
+    public class OrderDTO
     {
-
-        public long orderid { get; set; }
-        public long restid { get; set; }
-        public long userid { get; set; }
-        public long itemid { get; set; }
-        public string itemname { get; set; }
-        public long qty { get; set; }
-        public string status { get; set; }
-        public decimal total { get; set; }
+        public long OID { get; set; }
+        public long RID { get; set; }
+        public long OrderBy { get; set; }
+        public long OrderDate { get; set; }
+        public long OrderStatus { get; set; }
     }
 }

@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodDelApp
+namespace FoodDelApp.Data
 {
-    public enum UserTypeEnum
+    public class OrderLineData
     {
-        ADMIN = 1,
-        OWNER = 2,
-        USER = 3
+        public long MenuId { get; set; }
+        public int Qty { get; set; }
     }
 }
