@@ -1,13 +1,11 @@
-﻿using fooddeliveryapp.Data;
+﻿using FoodDelApp.Data;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace fooddeliveryapp
+namespace FoodDelApp
 {
     public class BusinessLayer
     {
@@ -23,9 +21,9 @@ namespace fooddeliveryapp
             dal.CloseApp();
             loggedInUser = null;
         }
-        public bool Authenticate(string username, string Password)
+        public bool Authenticate(string Email, string Password)
         {
-            loggedInUser = dal.Login(username, Password);
+            loggedInUser = dal.Login(Email, Password);
             if (loggedInUser != null)
             {
                 return true;
@@ -40,7 +38,7 @@ namespace fooddeliveryapp
         {
             if (IsInRole(UserTypeEnum.ADMIN))
             {
-                if (IsInRole(restaurant.ownerid, UserTypeEnum.OWNER))
+                if (IsInRole(restaurant.OwnerId, UserTypeEnum.OWNER))
                     return dal.AddNewRestaurant(restaurant);
                 else
                     return false;
@@ -56,11 +54,80 @@ namespace fooddeliveryapp
                 return false;
         }
 
+        public List<UserDTO> GetRestaurantOwnersList()
+        {
+            return dal.GetRestaurantOwnersList();
+        }
+
+        public List<RestaurantDTO> ListMyRestaurants()
+        {
+            return ListRestaurantsByOwner(loggedInUser.UserId);
+        }
+        public List<RestaurantDTO> ListRestaurantsByOwner(long OwnerId)
+        {
+            return dal.ListRestaurantsByOwner(OwnerId);
+        }
+
+        public List<RestaurantDTO> ListRestaurantsNearMe()
+        {
+            return ListRestaurantsByLocation(loggedInUser.Location);
+        }
+
+        public List<RestaurantDTO> ListRestaurantsByLocation(string UserLocacation)
+        {
+            return dal.ListRestaurantsByLocation(UserLocacation);
+        }
+        public List<MenuItemDTO> GetRestaurentMenu(long RID)
+        {
+            return dal.GetRestaurentMenu(RID);
+        }
+        public List<MenuItemDTO> GetRestaurentMenu(string fltr, long RID)
+        {
+            List<MenuItemDTO> items = GetRestaurentMenu(RID);
+            List<MenuItemDTO> fitems = items.Where(i => i.FoodType == fltr).ToList();
+            return fitems;
+        }
+
+        public bool PlaceOrder(long RID, List<OrderLineData> menuLst)
+        {
+            try
+            {
+                long NewOrderId;
+                dal.BeginTrans();
+                bool OrderInitiated = dal.InitOrder(RID, loggedInUser.UserId, out NewOrderId);
+                if (OrderInitiated)
+                {
+                    foreach (OrderLineData mitm in menuLst)
+                    {
+                        bool tempStatus = dal.OrderMenuItem(NewOrderId, mitm.MenuId, mitm.Qty);
+                        if (tempStatus == false)
+                        {
+                            dal.EndTransaction(false);
+                            return false;
+                        }
+                    }
+                    dal.EndTransaction(true);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                dal.EndTransaction(false);
+            }
+            dal.EndTransaction(false);
+            return false;
+        }
+
+        public bool AddMenuItem(MenuItemDTO itm)
+        {
+            return dal.AddMenuItem(itm);
+        }
         private bool IsInRole(UserTypeEnum reqRole)
         {
             if (loggedInUser != null)
             {
-                return loggedInUser.role == reqRole.ToString();
+                return loggedInUser.RoleName == reqRole.ToString();
             }
             else
             {
@@ -78,5 +145,47 @@ namespace fooddeliveryapp
             }
             return false;
         }
+
+        
+        public bool UpdateUser(UserDTO updatedUser)
+        {
+            return dal.UpdateUser(updatedUser); // Calls DataAccessLayer
+        }
+        public bool UpdateRestaurant(RestaurantDTO updatedRestaurant)
+        {
+            return dal.UpdateRestaurant(updatedRestaurant); // Calls DataAccessLayer
+        }
+
+        public bool UpdateMenu(long MID, string newMenuName)
+        {
+            return dal.UpdateMenu(MID, newMenuName); // Calls DataAccessLayer
+        }
+
+        public bool UpdateOrder(long OrderID, string newStatus)
+        {
+            return dal.UpdateOrder(OrderID, newStatus); // Calls DataAccessLayer
+        }
+
+
+
+        public bool DeleteUser(long UserId)
+        {
+            return dal.DeleteUser(UserId); // Calls DataAccessLayer
+        }
+        public bool DeleteRestaurant(long RestaurantId)
+        {
+            return dal.DeleteRestaurant(RestaurantId); // Calls DataAccessLayer
+        }
+
+        public bool DeleteOrder(long OrderID)
+        {
+            return dal.DeleteOrder(OrderID); // Calls DataAccessLayer
+        }
+
+        public bool DeleteMenuItem(long MenuID)
+        {
+            return dal.DeleteMenuItem(MenuID); // Calls DataAccessLayer
+        }
+
     }
 }
