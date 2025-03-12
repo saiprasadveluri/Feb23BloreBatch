@@ -1,0 +1,72 @@
+﻿@model MMVCDemoApp1.Models.AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+
+<p>
+    <a asp-action="AddNewUser" class="btn btn-primary">Add New User</a>
+    
+</p>
+
+<h3>Users</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Location</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.UserList)
+        {
+            <tr>
+                <td><a asp-action="EditUser" asp-route-id="@user.UserId">@user.Name</a></td>
+                <td>@user.Email</td>
+                <td>@user.RoleName</td>
+                <td>@user.Location</td>
+                <td>
+                    <form asp-action="DeleteUser" method="post">
+                        <input type="hidden" name="userId" value="@user.UserId" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Restaurants</h3>
+<a asp-action="AddNewRestaurant" class="btn btn-primary">Add New Restaurant</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Owner</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var restaurant in Model.RList)
+        {
+            <tr>
+                <td><a asp-action="EditRestaurant" asp-route-id="@restaurant.RID">@restaurant.Name</a></td>
+                <td>@restaurant.Location</td>
+                <td>@restaurant.OwnerId</td>
+                <td>
+                    <form asp-action="DeleteRestaurant" method="post">
+                        <input type="hidden" name="Id" value="@restaurant.RID" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

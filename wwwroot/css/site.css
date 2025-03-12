@@ -1,0 +1,64 @@
+h3 {
+    color: blue;
+}
+
+input, select {
+    width: 100%;
+    font-family: Calibri;
+    font-size: 18px;
+}
+
+div {
+    padding-bottom: 10px;
+}
+
+.flex-box {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.leftMargin {
+    width: 75%;
+}
+
+table {
+    width: 100%
+}
+
+    table thead tr {
+        background-color: darkslategrey;
+        color: white;
+    }
+
+    table tbody tr:nth-child(even) {
+        background-color: lightgrey;
+    }
+
+.divTable {
+    height: 200px;
+    overflow-x: auto;
+    overflow-y: scroll;
+    background-color: lightcyan;
+    margin-bottom: 20px;
+}
+
+.divBorder {
+    border-style: solid;
+    border-width: 2px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sideHeading {
+    font-size: 20px;
+}
+
+.mainHeading {
+    background-color: darkslategrey;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}

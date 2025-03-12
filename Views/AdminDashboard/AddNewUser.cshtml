@@ -1,0 +1,31 @@
+﻿@model FoodDelApp.DTOs.UserDTO
+
+@{
+    ViewData["Title"] = "Add New User";
+}
+
+<h2>Add New User</h2>
+
+<form asp-action="AddNewUser" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RoleName"></label>
+        <input asp-for="RoleName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Location"></label>
+        <input asp-for="Location" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add User</button>
+</form>
