@@ -1,12 +1,18 @@
-﻿using FoodDelApp;
+using FoodDelApp;
 using FoodDelApp.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using MMVCDemoApp1.Models;
+//using MMVCDemoApp1.Data;
 
 namespace MMVCDemoApp1.Controllers
 {
     public class AdminDashboardController : Controller
     {
+
+
+
+
+
         public IActionResult Index()
         {
             BusinessLayer bl = new BusinessLayer();
@@ -76,10 +82,21 @@ namespace MMVCDemoApp1.Controllers
         public IActionResult EditRestaurant(RestaurantDTO restaurant)
         {
             BusinessLayer bl = new BusinessLayer();
-            bl.UpdateRestaurant(restaurant);
-            return RedirectToAction("Index");
+            bool isUpdated = bl.UpdateRestaurant(restaurant);
+            if (isUpdated)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // Handle the error case, e.g., show an error message
+                ModelState.AddModelError("", "Unable to save changes. Please try again.");
+                return View(restaurant);
+            }
         }
 
+
+        
         [HttpPost]
         public IActionResult DeleteUser(int userId)
         {
