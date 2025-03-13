@@ -1,0 +1,35 @@
+﻿@using FoodDelApp.Data
+@model AddRestaurantInputModel
+@{
+}
+<h3 class="mainHeading">Add New Restaurant</h3>
+<hr />
+<div width="100%" style="text-align:end;padding-right:20px;"><a href="/AdminDashboard/Index">Go To Dashboard</a></div>
+<form method="post">
+    <div class="flex-box ">
+        <div class="leftMargin divBorder">
+            <div>
+                <lable for="unm">
+                    Name:
+                </lable>               
+                @Html.TextBoxFor(m=>m.rnm)
+            </div>
+            <div>
+                <lable for="loc">
+                    Location:
+                </lable>                
+                @Html.TextBoxFor(m=>m.loc)
+            </div>
+            <div>                
+            <div>
+                <lable for="rowner">
+                    Owner:
+                </lable>
+                @Html.DropDownListFor(m=>m.rowner,Model.owners)
+            </div>
+            <div>
+                <input type="submit" value="Add New Restaurant" />
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,53 @@
+﻿@using FoodDelApp.Data
+@model OrderSummaryViewModel
+<h3 class="mainHeading">Order Summary</h3>
+<hr />
+<div class="divTable">
+    <table>
+        <thead>
+            <tr>               
+                <th>
+                    Item Name
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Item Total
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (OrderLineData itm in Model.OrderdLineItems)
+            {
+                <tr>                    
+                    <td>
+                        @itm.MenuName
+                    </td>
+                    <td>
+                        @itm.Qty
+                    </td>
+                    <td>
+                        @itm.UnitTotal
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td colspan="3">Order Total : @Model.OrderTotal</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <table style="width:100%">
+        <tr>
+            <td>
+                <a href="ConfirmOrder">Confirm Order</a>
+            </td>
+            <td>
+                <a href="Index?Id=@Model.RID">Change Order</a>
+            </td>
+        </tr>
+    </table>
+</div>
+

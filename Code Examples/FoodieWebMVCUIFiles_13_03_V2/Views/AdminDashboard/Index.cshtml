@@ -1,0 +1,100 @@
+﻿@using FoodDelApp.Data
+@model AdminDashboardViewModel
+
+@{
+}
+<h3 class="mainHeading">Admin Dashboard</h3>
+<hr />
+<label class="sideHeading">User List</label>
+<div width="100%" style="text-align:end;padding-right:20px;"><a href="/AdminDashboard/AddNewUser">Add New User</a></div>
+<div class="divTable">
+    <table>
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Role
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(UserDTO itm in Model.UserList)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="chkDel" value="@itm.UserId"/>
+                    </td>
+                    <td>
+                        <a href="/AdminDashboard/EditUser?Id=@itm.UserId">@itm.Name</a>                        
+                    </td>
+                    <td>
+                        @itm.RoleName
+                    </td>
+                    <td>
+                        @itm.Location
+                    </td>
+                    <td>
+                        <div>
+                            <a href="/AdminDashboard/DeleteUser?Id=@itm.UserId">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }           
+
+        </tbody>
+    </table>
+</div>
+<label class="sideHeading">Restaurent List</label>
+<div width="100%" style="text-align:end;padding-right:20px;"><a href="/AdminDashboard/AddRestaurant">Add New Restaurant</a></div>
+<div class="divTable">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Owner
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (RestaurantDTO itm in Model.Restaurants)
+            {
+                <tr>
+                    <td>
+                        @itm.Name
+                    </td>
+                    <td>
+                        @itm.Location
+                    </td>
+                    <td>
+                        @itm.OwnerName
+                    </td>
+                    <td>
+                        <div>
+                            <a href="/AdminDashboard/DeleteRestaurant?Id=@itm.RID">Delete</a> | <a href="/AdminDashboard/EditRestaurant?Id=@itm.RID">Edit</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

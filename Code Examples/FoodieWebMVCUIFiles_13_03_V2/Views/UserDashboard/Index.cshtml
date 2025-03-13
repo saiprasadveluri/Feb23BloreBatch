@@ -1,0 +1,87 @@
+﻿@using FoodDelApp.Data
+@model UserDashboardViewModel
+
+@{
+}
+<h3 class="mainHeading">User Dashboard</h3>
+<hr />
+
+<label class="sideHeading">Restaurants Near Me</label>
+<div class="divTable">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (RestaurantDTO itm in Model.Restaurants)
+            {
+                <tr>
+                    <td>
+                        @itm.Name
+                    </td>
+                    <td>
+                        @itm.Location
+                    </td>
+                    <td>
+                        <div>
+                            <a href="/Orders/Index?Id=@itm.RID">Order Food</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<label class="sideHeading">My Orders</label>
+<div class="divTable">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Restaurant Name
+                </th>
+                <th>
+                    Order Date
+                </th>
+                <th>
+                    Order Status
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (OrderDTO itm in Model.MyOrders)
+            {
+                <tr>
+                    <td>
+                        @itm.RestaurantName
+                    </td>
+                    <td>
+                        @itm.OrderDate
+                    </td>
+                    <td>
+                        @itm.OrderStatus
+                    </td>
+                    <td>
+                        <div>
+                            <a href="/Orders/ViewDetails?Id=@itm.OID">View Details</a> | <a href="/Orders/RateOrder?Id=@itm.OID">Rate Order</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

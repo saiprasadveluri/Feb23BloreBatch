@@ -1,0 +1,51 @@
+﻿@using FoodDelApp.Data
+@model MenuListViewModel
+@{
+}
+<h3 class="mainHeading">Manage Menu</h3>
+<hr />
+<div width="100%" style="text-align:end;padding-right:20px;"></div>
+
+<label class="sideHeading">Menu List</label>
+<div class="divTable">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    FoodType
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (MenuItemDTO itm in Model.Items)
+            {
+                <tr>
+                    <td>
+                        @itm.MenuName
+                    </td>
+                    <td>
+                        @itm.FoodType
+                    </td>
+                    <td>
+                        @itm.UnitPrice
+                    </td>
+                    <td>
+                        <div>
+                            <a href="/MenuManager/Delete?Id=@itm.MID">Delete</a> | <a href="/MenuManager/Edit?Id=@itm.MID">Edit</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,30 @@
+﻿@model AddNewUserViewModel
+@{
+}
+<h3 class="mainHeading">Edit User</h3>
+<form method="post">
+    <div class="flex-box ">
+        <div class="leftMargin divBorder">
+            <div>
+                <label>Display Name:</label>
+                @Html.TextBoxFor(m => m.DisplayName)
+            </div>
+            <div>
+                <label>Email:</label>
+                @Html.TextBoxFor(m => m.Email, null, new { Type = "email", disabled = "disabled" })
+            </div>
+            <div>
+                <label>RoleName</label>
+                @Html.DropDownListFor(m=>m.RoleName,Model.RolesList)                
+            </div>
+            <div>
+                <label>Location</label>
+                @Html.TextBoxFor(m => m.Location)
+            </div>
+            <input type="hidden" value="@Model.UserId" name="UserId"/>
+            <div>
+                <input type="submit" value="Edit User" />
+            </div>
+        </div>
+    </div>
+</form>
