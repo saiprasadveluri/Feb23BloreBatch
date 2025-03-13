@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+﻿@using FoodDelApp.Data
+@model OrderViewModel
+@{
+}
+<h3 class="mainHeading">Select Items</h3>
+<hr />
+<div width="100%" style="text-align:end;padding-right:20px;"></div>
+
+<label class="sideHeading">Menu List</label>
+<form asp-action="OrderSummary" asp-controller="Orders" method="post">
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        FoodType
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Qty
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (MenuItemDTO itm in Model.MenuItems)
+                {
+                    <tr>
+                        <td>
+                            @itm.MenuName
+                        </td>
+                        <td>
+                            @itm.FoodType
+                        </td>
+                        <td>
+                            @itm.UnitPrice
+                        </td>
+                        <td>
+                            <div>
+                                <input type="hidden" name="mids" value="@itm.MID" />
+                                <input type="number" min="0" max="4" name="qty_@itm.MID" value="0" />
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <input type="hidden" name="RID" value="@Model.RID" />
+        <input type="submit" value="Place Order" />
+    </div>
+</form>
