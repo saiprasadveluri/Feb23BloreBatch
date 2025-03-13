@@ -1,0 +1,41 @@
+﻿﻿@using FoodDelApp.Data﻿
+@using MMVCDemoApp1.Models
+@model AddNewUserViewModel
+@{
+}
+<h3 class="mainHeading">Add New User</h3>
+<form method="post">
+    <div class="flex-box ">
+        <div class="leftMargin divBorder">
+         <div>
+                <label>DisplayName:</label>
+                @Html.TextBoxFor(m => m.DisplayName)
+        </div>
+        <div>
+        <label>Email:</label>
+        @Html.TextBoxFor(m => m.Email,null,new {Type="email"})
+    </div>
+    <div>
+        <label>Password</label>
+                @Html.TextBoxFor(m => m.Password, null, new { Type = "password" })
+    </div>
+
+    <div>
+        <label>RoleName</label>
+        <select name="RoleName">
+            <option value="ADMIN">Admin</option>
+            <option value="OWNER">Owner</option>
+            <option value="USER">User</option>
+        </select>
+    </div>
+    <div>
+        <label>Location</label>
+                @Html.TextBoxFor(m => m.Location)
+    </div>
+
+    <div>
+        <input type="submit" value="Add New User" />
+    </div>
+    </div>
+    </div>
+</form>

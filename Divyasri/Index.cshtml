@@ -1,0 +1,19 @@
+﻿@model WebApplication3.Models.UserDashboardViewModel
+
+<h2>Welcome, @Model.User.Name</h2>
+
+<h3>Your Orders</h3>
+<ul>
+    @foreach (var order in Model.Orders)
+    {
+        <li>@order.OrderDate - @order.Status - <a href="@Url.Action("ViewOrder", new { orderId = order.OrderId })">View</a></li>
+    }
+</ul>
+
+<h3>Nearby Restaurants</h3>
+<ul>
+    @foreach (var restaurant in Model.NearbyRestaurants)
+    {
+        <li>@restaurant.Name - @restaurant.Location - <a href="@Url.Action("ViewMenu", new { restaurantId = restaurant.RID })">View Menu</a></li>
+    }
+</ul>

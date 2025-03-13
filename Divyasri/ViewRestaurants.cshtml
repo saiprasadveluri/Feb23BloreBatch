@@ -1,0 +1,12 @@
+﻿
+
+@@model List<WebApplication3.Models.RestaurantDTO>
+
+<h2>Restaurants Near You</h2>
+
+<ul>
+    @foreach (var restaurant in Model)
+    {
+        <li>@restaurant.Name - @restaurant.Location - <a href="@Url.Action("ViewMenu", new { restaurantId = restaurant.RID })">View Menu</a></li>
+    }
+</ul>

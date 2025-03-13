@@ -1,0 +1,19 @@
+﻿@@model List<WebApplication3.Models.MenuItemDTO>
+
+    <h2>Menu</h2>
+
+    <form method="post" asp-action="PlaceOrder">
+        <input type="hidden" name="restaurantId" value="@ViewBag.RestaurantId" />
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    @item.MenuName - @item.UnitPrice
+                    <input type="number" name="orderLines[@item.MenuID].QTY" min="0" />
+                    <input type="hidden" name="orderLines[@item.MenuID].MenuId" value="@item.MenuID" />
+                </li>
+            }
+        </ul>
+        <input type="submit" value="Place Order" />
+    </form>
+
