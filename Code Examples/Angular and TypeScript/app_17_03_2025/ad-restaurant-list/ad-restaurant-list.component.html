@@ -1,0 +1,45 @@
+<div class="row">
+<div class="col-lg-12">
+    <h3>Restaurant List</h3>
+</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <th>
+                        Owner
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let r of restList">
+                    <td>
+                        {{r.name}}
+                    </td>
+                    <td>
+                        {{r.location}}
+                    </td>
+                    <td>
+                        {{r.owner}}
+                    </td>
+                    <td>
+                        <div>
+                            <a href="DeleteRestaurant?Id=10">Delete</a> | <a href="EditRestaurant?Id=10">Edit</a>
+                        </div>
+                    </td>
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h3>User List</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Role
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of userList">
+                    <td>
+                        {{u.name}}
+                    </td>
+                    <td>
+                        {{u.role}}
+                    </td>
+                    <td>
+                        {{u.location}}
+                    </td>
+                    <td>
+                        <div>
+                            <a href="DeleteUser?Id=10">Delete</a> | <a href="EditUser?Id=10">Edit</a>
+                        </div>
+                    </td>
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+</div>
