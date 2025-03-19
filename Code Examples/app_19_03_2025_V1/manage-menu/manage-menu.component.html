@@ -1,0 +1,51 @@
+<h2>Menu List</h2>
+<table class="table table-striped">
+    <tr>
+        <td>
+            Dish Name
+        </td>
+        <td>
+            Dish Type
+        </td>
+        <td>
+            Price
+        </td>
+    </tr>
+    <tr *ngFor="let mi of restMenuitems">
+        <td>{{mi.dishname}}</td>
+        <td>{{mi.dishtype}}</td>
+        <td>{{mi.price}}</td>
+    </tr>
+</table>
+
+
+
+
+
+
+<hr/>
+<form #frm=ngForm (ngSubmit)="OnFormSubmit(frm)">
+<div class="form-group">
+    <label for="dishName" class="form-control">Name</label>
+    <input type="text" name="dishName" #dishName ngModel required class="form-control"/>
+    <div *ngIf="frm.touched && dishName.value.length==0">
+        <span>Please eneter name</span>
+    </div>
+</div>
+<div class="form-group">
+    <label for="price" class="form-control">Price</label>
+    <input type="number" min="10" step="1" name="price" ngModel required class="form-control"/>
+</div>
+<div class="form-group">
+    <label for="dishType" class="form-control" required>Dish Type</label>
+    <select id="dishType" name="dishType" class="form-control" ngModel>
+        <option value="VEG">VEG</option>
+        <option value="NON-VEG">NON-VEG</option>
+        <option value="JAIN">JAIN</option>
+    </select>
+</div>
+<div class="form-group">
+    
+    <button [disabled]="!frm.touched ||(frm.touched && !frm.valid)" type="submit" class="form-control">Add New Dish</button>
+</div>
+</form>

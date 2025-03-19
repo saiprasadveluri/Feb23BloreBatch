@@ -1,0 +1,10 @@
+<h3>User List</h3>
+<div *ngFor="let uobj of namesArray">
+  <div *ngIf="uobj.age>18">
+    <app-useritem [udata]="uobj"></app-useritem>
+  </div>
+</div>
+<div>
+    <app-adduser (AddUserEvent)="AddUserToArray($event)"></app-adduser>
+</div>
+
