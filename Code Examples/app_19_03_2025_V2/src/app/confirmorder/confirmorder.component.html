@@ -1,0 +1,25 @@
+<h2>Order Confirmation</h2>
+<table class="table table-striped">
+    <tr>
+        <td>
+            DishId
+        </td>
+        <td>
+            Name
+        </td>
+        <td>
+            Qty
+        </td>
+    </tr>
+    <tr *ngFor="let obj of orders">
+        <td>
+            {{obj.id}}
+        </td>
+        <td>
+            {{obj.name}}
+        </td>
+        <td>
+            {{obj.qty}}
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,16 @@
+<form [formGroup]="myForm" (ngSubmit)="PlaceOrder()">
+    <ng-container formArrayName="frmArr">
+        <ng-container *ngFor="let frmGrp of Sections.controls;let i=index">           
+            <ng-container [formGroup]="CurGroup(i)">
+                <div>
+                    <input type="text" formControlName="dname" readonly/>
+                    <input type="text" formControlName="dprice" readonly/>
+                    <input type="number" formControlName="qty" min="1" value="0"/>
+                </div>                
+            </ng-container>
+        </ng-container>
+    </ng-container>
+    <div>
+        <button type="submit">Order</button>
+    </div>
+</form>

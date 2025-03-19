@@ -1,0 +1,47 @@
+<h2>Menu List</h2>
+<table class="table table-striped">
+    <tr>
+        <td>
+            Dish Name
+        </td>
+        <td>
+            Dish Type
+        </td>
+        <td>
+            Price
+        </td>
+    </tr>
+    <tr *ngFor="let mi of restMenuitems">
+        <td>{{mi.dishname}}</td>
+        <td>{{mi.dishtype}}</td>
+        <td>{{mi.price}}</td>
+    </tr>
+</table>
+<hr/>
+<h2>Add New Menu Item</h2>
+<form [formGroup]="frmMenuGroup" (ngSubmit)="OnNewDishAdd()">
+<div>
+    <label for="menuName" class="form-control">Name:</label>
+    <input type="text" formControlName="dishName" class="form-control"/>
+    <div *ngIf="IsControlNotValid('dishName')">Dish Name is mandatory</div>
+</div>
+
+<div>
+    <label for="dishType" class="form-control">Type:</label>
+    <select formControlName="dishType" class="form-control">
+        <option value="VEG">VEG</option>
+        <option value="NON-VEG">NON-VEG</option>
+        <option value="JAIN">JAIN</option>
+    </select>
+    <div *ngIf="IsControlNotValid('dishType')">Dish Type is mandatory</div>
+</div>
+
+<div>
+    <label for="dishPrice" class="form-control">Price:</label>
+    <input type="number" min="10" formControlName="dishPrice" class="form-control"/>
+    <div *ngIf="IsControlNotValid('dishPrice')">Dish Price is mandatory</div>
+</div>
+<div>
+    <button type="submit" class="form-control" [disabled]="!IsFormValid()">Add New Dish</button>
+</div>
+</form>
