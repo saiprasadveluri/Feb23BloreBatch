@@ -1,0 +1,48 @@
+{
+    "UserInfo":[
+        {
+            "id":1,
+            "name":"Sai",
+            "email":"sai@sai.com",
+            "password":"123456",
+            "Desgn":"ADMIN" 
+        }
+    ],
+    "ProjectInfo":[        
+            {
+                "id":"1",
+                "name":"Task Manager",
+                "status":"ACTIVE",
+                "pm":"1"
+            }        
+    ],
+    "ProjectTeam":
+    [
+        {
+            "id":"1",
+            "pid":"1",
+            "usid":"1",
+            "role":"DEV"
+        }
+
+    ],
+    "Task":[
+        {
+            "id":"1",
+            "projid":"1",
+            "taskType":"ACTIVITY",
+            "title":"Analysis",
+            "description":"Analysis of the requirement and deliver flowchart",
+            "assignedTo":"1"
+        }        
+    ],
+    "Comments":[
+        {
+            "id":"1",
+            "taskId":"1",
+            "commentBy":"1",
+            "title":"Initial Comment",
+            "description":"Also prepare the psudocode and UML"
+        }
+    ]
+}
