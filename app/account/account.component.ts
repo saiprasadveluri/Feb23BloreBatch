@@ -1,60 +1,64 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MydataService } from '../mydata.service';
-import { Aduser } from '../aduser';
+import { Component } from '@angular/core';
+import { FormBuilder,FormControl,FormGroup, Validators } from '@angular/forms';
+import { DBAccessService } from '../dbaccess.service';
+import { UserInfo } from '../user-info';
 import { Router } from '@angular/router';
-import { MychangeemitterService } from '../mychangeemitter.service';
-
+ 
+ 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
-export class AccountComponent implements OnInit{
-email:string='';
-password:string='';
-msg:string='';
-
-constructor(private srv:MydataService,private route:Router,private src:MychangeemitterService)
+export class AccountComponent {
+//form to get input from user
+frmGroup:FormGroup;
+constructor (private fb:FormBuilder,private srv:DBAccessService,private router:Router)
 {
-  this.src.EmitEvent(false);
+  this.frmGroup=fb.group({
+    uemail: new FormControl('',[Validators.required]),
+    upassword:new FormControl('',[Validators.required]),
+   
+ 
+  });
 }
-  ngOnInit(): void {
-    
-  }
-OnLogin()
+OnLoginClick()
 {
-  this.srv.getUserList().subscribe(
-    {
-      next:(res)=>{
-        var AllUsers:Aduser[]=<Aduser[]>res;
-        var curUsers=AllUsers.filter(u=>{return (u.email==this.email && u.password==this.password)});
-        if(curUsers.length>0)
+ 
+  var uemail=this.frmGroup.controls['uemail'].value;
+  var upassword=this.frmGroup.controls['upassword'].value;
+  //console.log(uemail);
+  this.srv.GetAllUsers().subscribe({
+    next:(res)=>{
+      var AllUsers=< UserInfo[]>res;
+      console.log(AllUsers);
+      var FilterObj=AllUsers.find((u)=>(u.email==uemail && u.password==upassword));
+      if(FilterObj === undefined)
         {
-            var LoggedInUser=curUsers[0];
-            sessionStorage.setItem("LoggedInUser",JSON.stringify(LoggedInUser));
-            
-            this.src.EmitEvent(true);
-
-            switch(LoggedInUser.role.toUpperCase())
-            {             
+          console.error('Invalid login credentials');
+        }
+      else
+        {
+          sessionStorage.setItem('LoggedinUserData',JSON.stringify(FilterObj));
+          switch(FilterObj.role.toUpperCase())
+          {
               case 'ADMIN':
-                  this.route.navigate(['admindashboard']);
-                break;
-                case 'OWNER':
-                  this.route.navigate(['ownerdashboard']);
+                  this.router.navigate(['admindashboard']);
                   break;
-                  case 'USER':
-                    this.route.navigate(['userdashboard']);
-                    break;
-            }            
-            this.msg="Login success";
+              case 'PM':
+                  this.router.navigate(['pmdashboard']);
+                  break;
+              case 'MEMBER':
+                  this.router.navigate(['memberdashboard']);
+                  break;
+          }            
         }  
-        else{
-          this.msg="Login failed";
-        }      
-      },
-      error:(err)=>{this.msg="Error In Fetching data"}
+                 
+            },
+            error:(err)=>{
+ 
+            }
+          }
+        );
+      }
     }
-  );
-}
-}
