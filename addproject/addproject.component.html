@@ -1,0 +1,30 @@
+<p>addproject works!</p>
+<form [formGroup]="frmGroup" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" />
+      
+    </div>
+  
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" />
+      
+    </div>
+
+    <div>
+        <select formControlName="status">
+            <option value="done">DONE</option>
+            <option value="DEVELPOELK">DEVELOPER</option>
+            <option value="QA" >QA</option>
+        </select>
+    </div>
+    
+  
+    <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  </form>
