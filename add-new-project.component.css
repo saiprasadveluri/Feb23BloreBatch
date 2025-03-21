@@ -1,0 +1,20 @@
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #6200ea; /* Purple color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3700b3; /* Darker purple on hover */
+}
+
+button:active {
+  background-color: #290b73; /* Even darker purple when clicked */
+}

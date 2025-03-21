@@ -1,0 +1,27 @@
+<h3 style="text-align: center; color: purple;">Create Task</h3>
+
+<form [formGroup]="frmGroup" (ngSubmit)="OnCreateTask()" style="max-width: 500px; margin: auto;">
+  <div>
+    <label for="title">Task Title:</label>
+    <input id="title" formControlName="title" type="text" required />
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description" required></textarea>
+  </div>
+  <div>
+    <label for="tasktype">Task Type:</label>
+    <select id="tasktype" formControlName="tasktype" required>
+      <option value="Bug">Bug</option>
+      <option value="Feature">Feature</option>
+      <option value="Improvement">Improvement</option>
+    </select>
+  </div>
+  <div>
+    <label for="assignedto">Assign To:</label>
+    <select id="assignedto" formControlName="assignedto" required>
+      <option *ngFor="let member of members" [value]="member.id">{{ member.name }}</option>
+    </select>
+  </div>
+  <button type="submit" [disabled]="frmGroup.invalid">Create Task</button>
+</form>

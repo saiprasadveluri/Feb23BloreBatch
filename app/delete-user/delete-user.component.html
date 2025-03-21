@@ -1,0 +1,8 @@
+<h3 style="text-align: center; color: purple;">Delete Users</h3>
+
+<div *ngFor="let user of users" style="text-align: center; margin-top: 20px;">
+  <p>{{ user.name }} ({{ user.email }})</p>
+  <button (click)="DeleteUser(user.id)" style="padding: 10px 20px; font-size: 14px; background-color: red; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Delete
+  </button>
+</div>

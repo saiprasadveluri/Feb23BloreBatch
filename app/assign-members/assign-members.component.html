@@ -1,0 +1,9 @@
+<h3 style="text-align: center; color: purple;">Assign Members</h3>
+
+<div style="text-align: center;">
+  <label for="members">Select Members:</label>
+  <select id="members" multiple [(ngModel)]="selectedMembers">
+    <option *ngFor="let member of availableMembers" [value]="member.id">{{ member.name }} ({{ member.role }})</option>
+  </select>
+  <button (click)="AssignMembers()">Assign</button>
+</div>

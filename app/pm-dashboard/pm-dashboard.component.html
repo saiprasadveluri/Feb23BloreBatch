@@ -1,0 +1,74 @@
+<!-- <div style="text-align: center; margin-top: 50px;">
+  <h1 style="color: purple;">PROJECT MANAGER DASHBOARD</h1>
+
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 30px;">
+ 
+    <div style="background-color: rgb(255, 230, 230); padding: 20px; border-radius: 10px; width: 200px; text-align: center;">
+      <button (click)="ShowMyProjects()" style="padding: 10px 20px; font-size: 16px; color: rgb(187, 10, 78);">View My Projects</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="showProjects" style="margin-top: 50px;">
+    <h2 style="color: purple;">My Projects</h2>
+    <table style="width: 80%; margin: 0 auto; border-collapse: collapse; text-align: left;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid black; padding: 8px;">Project ID</th>
+          <th style="border: 1px solid black; padding: 8px;">Project Name</th>
+          <th style="border: 1px solid black; padding: 8px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td style="border: 1px solid black; padding: 8px;">{{ project.id }}</td>
+          <td style="border: 1px solid black; padding: 8px;">{{ project.name }}</td>
+          <td style="border: 1px solid black; padding: 8px;">
+            <button (click)="GetMembersByProject(project.id!)" style="padding: 5px 10px;">View Members</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+ 
+  <div *ngIf="members.length > 0" style="margin-top: 50px;">
+    <h2 style="color: purple;">Project Members</h2>
+    <table style="width: 80%; margin: 0 auto; border-collapse: collapse; text-align: left;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid black; padding: 8px;">Member ID</th>
+          <th style="border: 1px solid black; padding: 8px;">Member Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of members">
+          <td style="border: 1px solid black; padding: 8px;">{{ member.id }}</td>
+          <td style="border: 1px solid black; padding: 8px;">{{ member.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+
+<div *ngIf="showProjects" style="margin-top: 50px;">
+  <h2 style="color: purple;">My Projects</h2>
+  <table style="width: 80%; margin: 0 auto; border-collapse: collapse; text-align: left;">
+    <thead>
+      <tr>
+        <th style="border: 1px solid black; padding: 8px;">Project ID</th>
+        <th style="border: 1px solid black; padding: 8px;">Project Name</th>
+        <th style="border: 1px solid black; padding: 8px;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <td style="border: 1px solid black; padding: 8px;">{{ project.id }}</td>
+        <td style="border: 1px solid black; padding: 8px;">{{ project.name }}</td>
+        <td style="border: 1px solid black; padding: 8px;">
+          <button (click)="GetMembersByProject(project.id!)" style="padding: 5px 10px;">View Members</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
