@@ -1,0 +1,58 @@
+<h1>Admin Dashboard</h1>
+
+<!-- Section for navigation buttons -->
+<div>
+  <button (click)="NavigateToAddNewUser()">Add New User</button>
+  <button (click)="NavigateToAddNewProject()">Add New Project</button>
+</div>
+
+
+
+<!-- Section to display all users -->
+<h2>All Users</h2>
+<table border="1" style="width: 20%; text-align: left;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Loop through the users array and display each user -->
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <!-- Delete button for users -->
+        <button (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Section to display all projects -->
+<h2>All Projects</h2>
+<table border="1" style="width: 20%; text-align: left;">
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Project Manager</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Loop through the projects array and display each project -->
+    <tr *ngFor="let project of projects">
+      <td>{{ project.name }}</td>
+      <td>{{ project.pm }}</td>
+      <td>
+   <!-- Delete button for users -->
+   <button (click)="deleteProject(project.id)">Delete</button>
+      
+      </td>
+    </tr>
+  </tbody>
+</table>

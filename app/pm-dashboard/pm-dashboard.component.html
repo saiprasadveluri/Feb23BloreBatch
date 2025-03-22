@@ -1,0 +1,110 @@
+<h1>Project Manager Dashboard</h1>
+
+<!-- Section to display PM's projects -->
+<h2>My Projects</h2>
+<table border="1" style="width: 20%; text-align: left;" *ngIf="projects.length > 0; else noProjects">
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.name }}</td>
+      <td>
+        <button (click)="loadProjectMembers(project.id)">View Members</button>
+        <button (click)="selectProject(project.id)">Assign Members</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Message when no projects are assigned to the PM -->
+<ng-template #noProjects>
+  <p>No projects are assigned to you.</p>
+</ng-template>
+
+<!-- Section to display members of the selected project -->
+<h2>Project Members</h2>
+<table border="1" style="width: 20%; text-align: left;" *ngIf="projectMembers.length > 0; else noMembers">
+  <thead>
+    <tr>
+      <th>Member Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of projectMembers">
+      <td>{{ member.name }}</td>
+      <td>{{ member.role }}</td>
+      <button (click)="removeMember(member.memId)">Remove</button>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Message when no members are available for the selected project -->
+<ng-template #noMembers>
+  <p>Select a project to view its members or no members are assigned to this project.</p>
+</ng-template>
+
+<!-- Section to assign members to the selected project -->
+<h2>Assign Members</h2>
+<div *ngIf="selectedProjectId">
+  <form (ngSubmit)="assignMember()">
+    <div>
+      <select [(ngModel)]="selectedMemberId" name="member" required>
+        <option value="" disabled selected>Select a Member</option>
+        <option *ngFor="let user of availableUsers" [value]="user.id">{{ user.name }} ({{ user.role }})</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Assign</button>
+    </div>
+  </form>
+</div>
+<h2>Create Task</h2>
+<div *ngIf="selectedProjectId">
+  <form (ngSubmit)="createTask()">
+    <div>
+      <input type="text" [(ngModel)]="taskTitle" name="taskTitle" placeholder="Enter Task Title" required />
+    </div>
+    <div>
+      <textarea [(ngModel)]="taskDescription" name="taskDescription" placeholder="Enter Task Description" required></textarea>
+    </div>
+    <div>
+      <select [(ngModel)]="selectedTaskAssignee" name="taskAssignee" required>
+        <option value="" disabled selected>Select a Member</option>
+        <option *ngFor="let member of projectMembers" [value]="member.memId">{{ member.name }} ({{ member.role }})</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Create Task</button>
+    </div>
+  </form>
+</div>
+<!-- Section to display tasks of the selected project -->
+<h2>Project Tasks</h2>
+<table border="1" style="width: 50%; text-align: left;" *ngIf="tasks.length > 0; else noTasks">
+  <thead>
+    <tr>
+      <th>Task Title</th>
+      <th>Description</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.assignedto }}</td>
+      <td>{{ task.status }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Message when no tasks are available for the selected project -->
+<ng-template #noTasks>
+  <p>No tasks are available for this project.</p>
+</ng-template>
