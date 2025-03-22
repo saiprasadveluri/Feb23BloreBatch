@@ -1,0 +1,15 @@
+<h3>Welcome !!</h3>
+<form [formGroup]="frmGroup" (ngSubmit)="OnLoginClick()">
+    <div>
+        <input types="email" formControlName="uemail"/>
+
+    </div>
+    <div>
+        <input types="password" formControlName="upassword"/>
+        
+    </div>
+    <div>
+        <button types="submit">Log IN</button>
+        
+    </div>
+</form>

@@ -1,0 +1,83 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+ 
+  /* Dashboard Heading */
+  p {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #0e6ac0;
+    margin-bottom: 20px;
+  }
+ 
+  /* Button Container */
+  button {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #165ee4;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+  }
+ 
+  /* Button Hover Effect */
+  button:hover {
+    background-color: #0e70f0;
+    transform: scale(1.05);
+  }
+ 
+  /* Button Focus Effect */
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+ 
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    button {
+      width: 90%;
+      font-size: 14px;
+    }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+ 
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+ 
+  th {
+    background-color: #106dd8;
+    color: white;
+    font-weight: bold;
+  }
+ 
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+ 
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+ 
+ 

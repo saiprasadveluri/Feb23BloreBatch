@@ -1,0 +1,50 @@
+<h1>Admin Dashboard</h1>
+<hr />
+ 
+<div>
+  <!-- Buttons for Navigation -->
+  <button (click)="NavigateToAddUser()">Add New User</button>
+  <button (click)="NavigateToAddNewProject()">Add New Project</button>
+</div>
+ 
+<!-- Display Users -->
+<h2>List of Users</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <!-- <td>
+        <button (click)="deleteUser(user.id)">Delete</button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
+ 
+<h2>List of Projects</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Project Id</th>
+      <th>Project Name</th>
+      <th>Project Mangaer Id to Whom the project is assigned:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.id }}</td>
+      <td>{{ project.name }}</td>
+      <td>{{ project.PM }}</td>
+    </tr>
+  </tbody>
+ 
+</table>
+ 

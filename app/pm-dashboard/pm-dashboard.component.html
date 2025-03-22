@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Project Manager Dashboard</h1>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <div *ngIf="loggedInUser">
+    <h2>Welcome, {{ loggedInUser?.name }}</h2>
+
+    <div class="projects-section">
+      <h3>Your Projects</h3>
+      <ul>
+        <li *ngFor="let project of projects">
+          <span>{{ project.name }}</span>
+          <button (click)="viewProjectMembers(project.id)">View Members</button>
+          <button (click)="manageTasks(project.id)">Manage Tasks</button>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="projId" class="members-section">
+      <h3>Project Members</h3>
+      <ul>
+        <li *ngFor="let member of members">
+          <span>{{ getUserName(member.memid) }} ({{ getUserRole(member.memid) }})</span>
+          <button (click)="removeMember(member.id)">Remove</button>
+        </li>
+      </ul>
+      <div>
+        <label for="assignMember">Assign Member:</label>
+        <select id="assignMember" (change)="assignMember($event.target.value)">
+          <option *ngFor="let user of users" [value]="user.id">{{ user.name }} ({{ user.role }})</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="projId" class="tasks-section">
+      <h3>Project Tasks</h3>
+      <ul>
+        <li *ngFor="let task of tasks">
+          <span>{{ task.name }} - {{ task.status }}</span>
+        </li>
+      </ul>
+      <div>
+        <button (click)="createTask({ id: '', title: 'New Task', tasktype: 'General', assignedto: '', projId: projId, status: 'Pending' })">Create Task</button>
+      </div>
+    </div>
+  </div>
+</div>

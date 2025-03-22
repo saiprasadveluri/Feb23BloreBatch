@@ -1,0 +1,33 @@
+.container {
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.projects-section, .members-section, .tasks-section {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-left: 10px;
+}
+
+label {
+  margin-right: 10px;
+}
