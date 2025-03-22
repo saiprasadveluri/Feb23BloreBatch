@@ -1,0 +1,68 @@
+<h2>Project Manager DashBoard</h2>
+<hr/>
+<h3>Project Lists</h3>
+<table >
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>PM</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of pmprojects">
+            <td>{{p.name}}</td>
+            <td>{{p.pm}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr/>
+<h3>Project Members</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Project Id</th>
+            <th>Member Id</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pm of projectmember">
+            <td>{{getprojectname(pm.projectid)}}</td>
+            <td>{{getname(pm.memberid)}}</td>
+            <td>
+                <div>
+                    <button *ngIf="pm.id" (click)="DeleteMember(pm.id)">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="NavigateToAddNewMember()">Add Member</button>
+<hr/>
+<h3>Project Tasks</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Project Id</th>
+            <th>Project Title</th>
+            <th>Description</th>
+            <th>Task Type</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pt of tasks">
+            <td>{{getprojectname(pt.projectid)}}</td>
+            <td>{{pt.title}}</td>
+            <td>{{pt.description}}</td>
+            <td>{{pt.tasktype}}</td>
+            <td>{{getTasksname(pt.assignedto)}}</td>
+            <td>{{pt.status}}</td>
+            
+        </tr>
+    </tbody>
+    <button (click)="NavigateToAddNewTask()">Add Task</button>
+</table>

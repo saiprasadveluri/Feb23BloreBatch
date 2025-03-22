@@ -1,0 +1,44 @@
+<h2>Assigned Tasks</h2>
+<hr/>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Task Type</th>
+                <th>Assigned By</th>
+                <th>Status</th>
+                <th>Comments</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>{{getProjectName(task.projectid)}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.tasktype}}</td>
+                <td>{{getAssignedBy(task.assignedto)}}</td>
+                <td>{{task.status}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let comment of getCommentsForTask(task.id||'') ">{{comment.description}}(by{{comment.commentedby}})</li>
+                    </ul>
+                </td>
+                <td>
+                    <button (click)="closeTask(task)">Close Task</button>
+                    <div>
+                        <form [formGroup]="qaForms[task.id||'']" (ngSubmit)="reassignTaskToDev(task)">
+                            <select formControlName="devUser">
+                                <option *ngFor="let dev of devUsers" [value]="dev.id">{{dev.name}}</option>
+                            </select>
+                            <button type="submit">Reassign</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

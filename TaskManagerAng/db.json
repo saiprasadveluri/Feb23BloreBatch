@@ -1,0 +1,121 @@
+{
+  "UserInfo": [
+    {
+      "id": "1",
+      "name": "ADMIN",
+      "email": "admin@admin.com",
+      "password": "admin",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "name": "Sirisha",
+      "email": "siri@siri",
+      "password": "123",
+      "role": "PM"
+    },
+    {
+      "id": "a3c6",
+      "name": "Navachandu",
+      "email": "nava@nava",
+      "password": "123",
+      "role": "QA"
+    },
+    {
+      "id": "f922",
+      "name": "Vinay Kumar",
+      "email": "vinay@vinay",
+      "password": "123",
+      "role": "DEVELOPER"
+    },
+    {
+      "id": "35c0",
+      "name": "Manoj Kumar",
+      "email": "manu@manu",
+      "password": "123",
+      "role": "PM"
+    },
+    {
+      "id": "4991",
+      "name": "Ruchitha",
+      "email": "ruchi@ruchi",
+      "password": "123",
+      "role": "PM"
+    },
+    {
+      "id": "bdef",
+      "name": "Koushik Goud",
+      "email": "kou@kou",
+      "password": "123",
+      "role": "DEVELOPER"
+    },
+    {
+      "id": "1721",
+      "name": "Naina",
+      "email": "naina@naina",
+      "password": "123",
+      "role": "QA"
+    }
+  ],
+  "ProjectInfo": [
+    {
+      "id": "1",
+      "name": "Taskmanager",
+      "pm": "1"
+    },
+    {
+      "id": "6ee9",
+      "name": "Food Delivery App",
+      "pm": "2"
+    },
+    {
+      "id": "a632",
+      "name": "Bank Management App",
+      "pm": "2"
+    },
+    {
+      "id": "bc25",
+      "name": "Railway App",
+      "pm": "35c0"
+    }
+  ],
+  "projectMember": [
+    {
+      "id": "4074",
+      "projectid": "a632",
+      "memberid": "a3c6"
+    },
+    {
+      "id": "7b41",
+      "projectid": "6ee9",
+      "memberid": "1721"
+    }
+  ],
+  "Task": [
+    
+    {
+      "id": "3bc9",
+      "projectid": "a632",
+      "title": "Something",
+      "description": "prepare the url",
+      "tasktype": "Activity",
+      "assignedto": "a3c6",
+      "status": "ACTIVE"
+    }
+    
+  ],
+  "Comment": [
+    {
+      "id": "1",
+      "taskid": "1",
+      "commentedby": "Something",
+      "descrption": "Work in Progress"
+    },
+    {
+      "id": "93ad",
+      "taskid": "3bc9",
+      "commentedby": "a3c6",
+      "description": "Prepare the url"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+/* Header Styles */
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+select.form-control {
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button.btn-submit {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+button.btn-submit:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Task Container Styles */
+.tasks-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tasks-header {
+    margin-bottom: 20px;
+}
+
+.tasks-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.tasks-header p {
+    margin: 5px 0 0;
+    color: #666;
+}
