@@ -1,0 +1,27 @@
+<h1>Manage Members</h1>
+
+
+
+<!-- Dropdown to select a developer -->
+<label for="projid">Select project:</label>
+    <select id="projid" formControlName="projid">
+        <option value="3795">3795</option>
+        <option value="1">1</option>
+        <option value="ff8f">ff8f</option>
+        <option value="2504">2504</option>
+      </select>
+
+<!-- Dropdown to select a QA -->
+<div>
+  <select formControlName="memid">
+      <option value="1">1</option>
+      <option value="f9b5">f9b5</option>
+      <option value="d317">d317</option>
+      <option value="80e6">80e6</option>
+       <option value="c555">c555</option>
+</select>
+
+<!-- Button to add the selected members to the selected project -->
+<div>
+  <button (click)="onAddMembers()">Add Members</button>
+</div>

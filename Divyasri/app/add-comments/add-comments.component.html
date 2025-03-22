@@ -1,0 +1,25 @@
+<p>add-comments works!</p>
+<h2> Add New comment</h2><hr/>
+<form [formGroup]="frmGroup" (ngSubmit)="onAddClick()">
+    <div>
+        <select formControlName="taskid">
+            <option value="1">1</option>
+            
+</select>
+    </div>
+    <div>
+        <select formControlName="Commentedby">
+            <option value="1">1</option>
+           
+</select>
+    </div>
+    <div>
+        <input type="description" formControlName="description"/>
+
+    </div>
+   
+
+    <div>
+        <button type="submit">Add</button>
+    </div>
+</form>

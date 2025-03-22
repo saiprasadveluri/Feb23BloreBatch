@@ -1,0 +1,17 @@
+
+<h1>Add Project Members</h1>
+<form [formGroup]="frmGroup" (ngSubmit)="onAddClick()">
+  <div>
+    <label for="projid">Project ID:</label>
+    <input id="projid" formControlName="projid" type="text" />
+  </div>
+  <div>
+    <label for="memid">Select Member:</label>
+    <select id="memid" formControlName="memid">
+      <option *ngFor="let user of availableUsers" [value]="user.id">
+        {{ user.name }} ({{ user.role }})
+      </option>
+    </select>
+  </div>
+  <button type="submit" [disabled]="frmGroup.invalid">Add Member</button>
+</form>

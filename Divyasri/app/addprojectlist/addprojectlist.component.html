@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Project List</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table" style="border-collapse: collapse; ">
+            <thead>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                       name
+                    </th>
+                    <th>
+                       pm
+                    </th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+             
+                    <tr *ngFor="let p of  projectList">
+                        <td >
+                            {{p.id}}
+                        </td>
+                        <td >
+                            {{p.name}}
+                        </td>
+                        <td >
+                            {{p.pm}}
+                        </td>
+                    
+                        <td>
+                           
+                            
+                        </td>
+                    </tr>                
+                </tbody>
+            </table>
+        </div>
+    </div>

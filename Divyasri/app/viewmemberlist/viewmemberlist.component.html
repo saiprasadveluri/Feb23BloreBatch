@@ -1,0 +1,17 @@
+<h2>Members Assigned to Project: {{ projectId }}</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Member ID</th>
+      <th>Member Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of memberList">
+      <td>{{ member.memid }}</td>
+      <td>{{ member.name }}</td>
+      <td>{{ member.role }}</td>
+    </tr>
+  </tbody>
+</table>

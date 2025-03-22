@@ -1,0 +1,26 @@
+<h1>Project Manager Dashboard</h1>
+<button (click)="NavigateToAddNewTask()">Add new Task</button>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Project ID</th>
+      <th>Project Name</th>
+  
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projectList">
+      <td>{{ project.id }}</td>
+      <td>{{ project.name }}</td>
+      <td>
+     
+        <button (click)="viewMembers(project.id)">View Members</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-manage-members></app-manage-members>
+<app-viewtasklist></app-viewtasklist>
+
