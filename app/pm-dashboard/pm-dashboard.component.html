@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h3>PM Dashboard</h3>
+        <button (click)="NavigateToAddNewProject()">Add New Project</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Project ID</th>
+                    <th>Project Name</th>
+                    <th>Assign Member</th>
+                    <th>Assigned Members</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projectList">
+                    <td>{{ project.id }}</td>
+                    <td>{{ project.name }}</td>
+                    <td>
+                        <select [(ngModel)]="project.selectedMemberId">
+                            <option value="" disabled selected>Select Member</option>
+                            <option *ngFor="let member of memberList" [value]="member.id">
+                                {{ member.id }}
+                            </option>
+                        </select>
+                        <button (click)="assignMemberToProject(project.id, project.selectedMemberId)">Assign</button>
+                    </td>
+                    <td>
+                        <button (click)="getAssignedMembers(project.id)">View Members</button>
+                        <ul>
+                            <li *ngFor="let member of project.assignedMembers">
+                                {{ member.id }}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
