@@ -13,6 +13,7 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { AddNewProjectComponent } from './add-new-project/add-new-project.component';
 import { TaskManagementComponent } from './task-management/task-management.component';
 import { CommonModule } from '@angular/common';
+// import { SharedModule } from './shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    //SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

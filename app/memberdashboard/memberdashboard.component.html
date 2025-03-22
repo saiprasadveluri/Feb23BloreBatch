@@ -1,1 +1,107 @@
+<h1>{{user?.role}} Dashboard</h1>
+<h2>Tasks</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Task Name</th>
+        <th>Project ID</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.name }}</td>
+        <td>{{ task.projectId }}</td>
+        <td>{{ task.assignedTo }}</td>
+        <td>{{ task.status }}</td>
+        <td>
+          <button (click)="openCommentModal(task)" class="btn btn-primary btn-sm">Add Comment</button>
+          <button (click)="viewComments(task)" class="btn btn-info btn-sm ml-1">View Comments</button>
+          <select class="form-control form-control-sm ml-1" [(ngModel)]="task.status" (change)="updateTaskStatus(task, task.status)">
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="CLOSED">CLOSED</option>
+          </select>
+          <button (click)="openAssignmentModal(task)" class="btn btn-warning btn-sm ml-1">Assign Task</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<!-- Add Comment Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': selectedTaskForComment ? 'block' : 'none'}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Comment to {{ selectedTaskForComment?.name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="selectedTaskForComment = null">close
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="commentText">Comment:</label>
+          <textarea class="form-control" id="commentText" rows="3" [(ngModel)]="newComment"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="Addcomment()">Add Comment</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View Comments Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': showCommentsModal ? 'block' : 'none'}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Comments for {{ selectedTaskForView?.name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeComments()">close
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let comment of comments">
+            <strong>{{ comment.CommentedBy }}:</strong> {{ comment.description }}
+          </li>
+        </ul>
+        <div *ngIf="comments.length === 0">No comments available for this task.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Task Assignment Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': selectedTask ? 'block' : 'none'}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Assign Task: {{ selectedTask?.name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeAssignmentModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="assignee">Assign to:</label>
+          <select class="form-control" id="assignee" [(ngModel)]="selectedAssignee">
+            <option value="" disabled selected>Select Assignee</option>
+            <option *ngFor="let developer of developers" value="{{developer.id}}">{{developer.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="assignTask()">Assign</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeAssignmentModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

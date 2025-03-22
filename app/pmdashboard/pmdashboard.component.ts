@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TmaccessService } from '../tmaccess.service';
+import { Projectmember } from '../projectmember';
 
 @Component({
   selector: 'app-pmdashboard',
@@ -51,13 +52,13 @@ export class PmdashboardComponent implements OnInit {
 
   loadProjectMembers(projectId: string): void {
     this.selectedProjectId = projectId; // Set the selected project ID
-  
+
     // Ensure userInfo is loaded before mapping project members
     if (this.userInfo.length === 0) {
       console.error('User information is not loaded. Ensure getallusers() is called before this method.');
       return;
     }
-  
+
     this.srv.getProjectMembers(projectId).subscribe({
       next: (members: any[]) => {
         this.projectMembers = members.map(member => {
@@ -78,6 +79,12 @@ export class PmdashboardComponent implements OnInit {
   }
 
   private filterAvailableUsers(): void {
+    if (!this.selectedProjectId) {
+      console.error('No project selected.');
+      this.availableUsers = [];
+      return;
+    }
+
     this.srv.getAllProjectMembers().subscribe({
       next: (allProjectMembers: any[]) => {
         const assignedUserIds = allProjectMembers.map(member => member.memid); // Get IDs of all assigned members
@@ -95,22 +102,41 @@ export class PmdashboardComponent implements OnInit {
   // Add a member to the selected project
   addMemberToProject(): void {
     if (this.selectedProjectId && this.selectedUserId) {
-      const newMember = { projid: this.selectedProjectId, memid: this.selectedUserId };
-      this.srv.addProjectMember(newMember).subscribe({
-        next: () => {
-          console.log('Member added successfully');
-          if (this.selectedProjectId) {
-            this.loadProjectMembers(this.selectedProjectId); // Refresh the members list
-          } else {
-            console.error('Selected project ID is null.');
+      // Fetch the user info for the selected user
+      const selectedUser = this.userInfo.find(user => user.id === this.selectedUserId);
+
+      if (selectedUser) {
+        const newMember: Projectmember = {
+          id: this.generateRandomId(), // Generate a unique ID
+          projid: this.selectedProjectId,
+          memid: this.selectedUserId,
+          name: selectedUser.name,
+          role: selectedUser.role
+        };
+
+        this.srv.addProjectMember(newMember).subscribe({
+          next: () => {
+            console.log('Member added successfully');
+            if (this.selectedProjectId) {
+              this.loadProjectMembers(this.selectedProjectId); // Refresh the members list
+            } else {
+              console.error('Selected project ID is null.');
+            }
+            this.selectedUserId = ''; // Reset the selected user
+          },
+          error: (err) => {
+            console.error('Error adding member to project:', err);
           }
-          this.selectedUserId = ''; // Reset the selected user
-        },
-        error: (err) => {
-          console.error('Error adding member to project:', err);
-        }
-      });
+        });
+      } else {
+        console.error('Selected user not found.');
+      }
     }
+  }
+
+  // Helper method to generate a random ID
+  private generateRandomId(): string {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }
 
   // Navigate to the task management page for a specific project

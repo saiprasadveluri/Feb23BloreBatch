@@ -36,7 +36,7 @@ export class AdmindashboardComponent implements OnInit {
   }
 
   // Method to delete a user
-  deleteUser(userId: number): void {
+  deleteUser(userId: string): void {
     this.srv.deleteUser(userId).subscribe({
       next: () => {
         this.userinfo = this.userinfo.filter(user => user.id !== userId); // Remove the deleted user from the array
