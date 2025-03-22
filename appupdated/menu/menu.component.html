@@ -1,0 +1,8 @@
+<div *ngIf="LogedInFlag==true;else:branch2">
+    <button  (click)="LogoutUser()" >Logout</button>
+</div>
+<ng-template #branch2>
+    <button (click)="LoginUser()">Login</button>
+</ng-template>
+
+

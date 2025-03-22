@@ -1,0 +1,24 @@
+<h2>Add New Restaurant</h2>
+<form #frm="ngForm" (ngSubmit)="OnNewRestaurant(frm)">
+<div class="form-group">
+    <label for="rname" class="form-control" required>name</label>
+    <input type="text" name="rname" ngModel class="form-control" required/>
+    <div *ngIf="(frm.controls['rname'].touched)&& (!(frm.controls['rname']).valid)">
+        <span>Name field is mandatory</span>
+    </div>
+</div>
+<div>
+    <label for="rlocation" class="form-control">Location</label>
+    <input type="text" name="rlocation" ngModel class="form-control" required/>
+    <div *ngIf="(frm.controls['rlocation'].touched)&& (!(frm.controls['rlocation']).valid)">
+        <span>Location field is mandatory</span>
+    </div>
+</div>
+<div>
+    <label for="rowner" class="form-control" required>Owner</label>
+    <input type="number" min="1" step="1" name="rowner" ngModel class="form-control" required/>
+</div>
+<div>
+    <button type="submit" class="form-control" [disabled]="!frm.valid">Add Restaurant</button>
+</div>
+</form>

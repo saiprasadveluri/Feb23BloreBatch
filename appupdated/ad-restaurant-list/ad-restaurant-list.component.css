@@ -1,0 +1,49 @@
+button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .row {
+    margin-bottom: 20px;
+  }
+
+  .col-lg-12 {
+    padding: 0 15px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+  }
+
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-top: 1px solid #dee2e6;
+  }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+
+  button {
+    margin-right: 10px;
+  }
