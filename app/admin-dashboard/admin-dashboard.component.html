@@ -1,0 +1,53 @@
+<h1>Admin Dashboard</h1>
+
+<div class="section">
+  <h2>Users</h2>
+  <button (click)="NavigateToAddNewUser()">Add New User</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <button *ngIf="user.id" (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section">
+  <h2>Projects</h2>
+  <button (click)="NavigateToAddNewProject()">Add New Project</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Project Manager</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.id }}</td>
+      <td>{{ project.Pname }}</td>
+      <td>{{ project.PM }}</td>
+      <td>
+        <button *ngIf="project.id" (click)="deleteProject(project.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
