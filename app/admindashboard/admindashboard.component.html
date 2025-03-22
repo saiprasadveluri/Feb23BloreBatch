@@ -1,3 +1,42 @@
-<p>Admin Dashboard</p>
+<p style="font-size:50px;">Admin Dashboard</p>
 <button (click)="NavigateToAddNewUser()">Add New User</button>
 <button (click)=" NavigateToAddNewProject()">Add New Project</button>
+
+<h3>All Users</h3>
+<table border ="1" style= "width:100%; margin-top :20px; border-collapse: collapse;">
+    <thead>
+        <tr>
+          <th>  User Id</th>
+        
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th></tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+            <td><button (click) = "deleteUser(user.id!)">Delete user</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>All Projects</h3>
+<table border ="1" style= "width:100%; margin-top :20px; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th>Project Id</th>
+            <th>Project Name</th>
+            <th>Project Manager</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let project of projects">
+            <td>{{project.id}}</td>
+            <td>{{project.name}}</td>
+            <td>{{project.pm}}</td>
+        </tr>
+    </tbody>
+</table>

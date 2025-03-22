@@ -32,6 +32,10 @@ export class DBAccessService {
   {
     return this.http.get<ProjectInfo>("http://localhost:3004/Project?="+name);
   }
+  DeleteUser(id:string):Observable<UserInfo>
+  {
+    return this.http.post<UserInfo>("http://localhost:3004/UserInfo",id);
+  }
 }
 
  

@@ -1,0 +1,19 @@
+p{
+    color:brown;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 0cap;
+    box-sizing: border-box;
+    padding :10px;
+    padding-inline: 10px;
+    padding-left: 0;
+    background-color: rgb(238, 230, 227);
+
+}
+:host{
+background-color :cornsilk;
+display:block;
+height:100vh;
+padding:20px;
+}
