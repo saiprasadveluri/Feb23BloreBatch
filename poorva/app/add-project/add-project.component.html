@@ -1,0 +1,14 @@
+<h2>Add New Project</h2>
+<hr/>
+<form [formGroup]="frmGroup" (ngSubmit)="OnAddClick()">
+    <div>
+        <input type="text" placeholder="Project Name" formControlName="name"/>
+    </div>
+    <div>
+        <input type="text" placeholder="PM" formControlName="PM"/>
+    </div>
+    
+    <div>
+        <button type="submit">Add Project</button>
+    </div>
+</form>
