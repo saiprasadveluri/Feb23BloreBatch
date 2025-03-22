@@ -1,0 +1,25 @@
+<div class="add-comment-container">
+    <h2>Add Comment</h2>
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="taskid">Task ID</label>
+        <input id="taskid" type="text" [value]="taskid" disabled />
+      </div>
+      <div>
+        <label for="commentedby">Commented By</label>
+        <input id="commentedby" type="text" [value]="commentedby" disabled />
+      </div>
+      <div>
+        <label for="description">Comment</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          placeholder="Enter your comment"
+        ></textarea>
+        <div *ngIf="commentForm.controls['description'].invalid && commentForm.controls['description'].touched">
+          <small class="error">Comment is required.</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="commentForm.invalid">Submit</button>
+    </form>
+  </div>

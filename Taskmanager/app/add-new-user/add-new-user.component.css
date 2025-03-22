@@ -1,0 +1,95 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  /* Container for the form */
+  .add-user-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header styles */
+  .add-user-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-user-header h2 {
+    font-size: 1.8rem;
+    color: #333333;
+    margin: 0;
+  }
+  
+  .add-user-header p {
+    font-size: 1rem;
+    color: #666666;
+  }
+  
+  /* Form styles */
+  .add-user-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    color: #333333;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Submit button */
+  .btn-submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .add-user-container {
+      padding: 15px;
+    }
+  
+    .form-control,
+    .btn-submit {
+      font-size: 0.9rem;
+    }
+  }

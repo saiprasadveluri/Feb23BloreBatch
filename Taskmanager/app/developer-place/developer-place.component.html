@@ -1,0 +1,56 @@
+<div class="tasks-container">
+  <div class="tasks-header">
+    <h2>My Tasks</h2>
+    <p>Below is the list of tasks assigned to you</p>
+  </div>
+  <table class="tasks-table">
+    <thead>
+      <tr>
+        <th>Project Name</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Task Type</th>
+        <th>Status</th>
+        <th>Comments</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ getProjectName(task.projectid) }}</td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.tasktype }}</td>
+        <td>{{ task.status }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let comment of getCommentsForTask(task.id||'')">
+              {{ comment.description }} (by {{ comment.commentedby }})
+            </li>
+          </ul>
+        </td>
+        <td>
+          <!-- Update Task Status -->
+          <form [formGroup]="taskForms[task.id||'']" (ngSubmit)="updateTaskStatus(task)">
+            <select formControlName="status" class="form-control">
+              <option value="ACTIVE">ACTIVE</option>
+              <option value="NOTACTIVE">NOTACTIVE</option>
+            </select>
+            <button type="submit" class="btn-submit">Update Status</button>
+          </form>
+
+          <!-- Assign to QA Section -->
+          <div *ngIf="task.status === 'NOTACTIVE'">
+            <label for="qaUser">Assign to QA</label>
+            <form [formGroup]="qaForms[task.id||'']" (ngSubmit)="assignTaskToQa(task)">
+              <select id="qaUser" formControlName="qaUser" class="form-control">
+                <option *ngFor="let qa of qaUsers" [value]="qa.id">{{ qa.name }}</option>
+              </select>
+              <button type="submit" class="btn-submit">Assign to QA</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
