@@ -1,0 +1,20 @@
+<div>
+    <table>
+        <thead>
+            <th>Comment Id</th>
+            <th>Task Id</th>
+            <th>Comment By</th>
+            <th>title</th>
+            <th>Description</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let comment of commentlist">
+                <td>{{comment.id}}</td>
+                <td>{{comment.taskid}}</td>
+                <td>{{comment.commentby}}</td>
+                <td>{{comment.title}}</td>
+                <td>{{comment.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

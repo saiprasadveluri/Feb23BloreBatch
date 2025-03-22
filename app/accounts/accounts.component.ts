@@ -53,6 +53,16 @@ export class AccountsComponent {
               this.router.navigate(['memberdashboard']);
               break;
             }
+            case 'DEVELOPER':{
+              console.log("member check");
+              this.router.navigate(['memberdashboard']);
+              break;
+            }
+            case 'QA':{
+              console.log("member check");
+              this.router.navigate(['memberdashboard']);
+              break;
+            }
           }
         }
 

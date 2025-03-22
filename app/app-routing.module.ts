@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountsComponent } from './accounts/accounts.component';
 import { AdminDashBoardComponent } from './admin-dash-board/admin-dash-board.component';
 import { PmDashBoardComponent } from './pm-dash-board/pm-dash-board.component';
-import { MemberDashBoardComponent } from './member-dash-board/member-dash-board.component';
+import { MemberdashboardComponent } from './memberdashboard/memberdashboard.component';
 import { AddnewuserComponent } from './addnewuser/addnewuser.component';
 import { myrouteGuard } from './myroute.guard';
 import { AddnewprojectComponent } from './addnewproject/addnewproject.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:"login", component:AccountsComponent},
   {path:'admindashboard', component:AdminDashBoardComponent, canActivate:[myrouteGuard],data:{reqRole:['ADMIN']}},
   {path:'pmdashboard', component:PmDashBoardComponent,canActivate:[myrouteGuard],data:{reqRole:['PM']}},
-  {path:'memberdashboard', component:MemberDashBoardComponent,canActivate:[myrouteGuard],data:{reqRole:['DEV', 'QA']}},
+  {path:'memberdashboard', component:MemberdashboardComponent,canActivate:[myrouteGuard],data:{reqRole:['DEVELOPER', 'QA']}},
   {path:'addnewuser', component:AddnewuserComponent},
   {path:'addnewproject', component:AddnewprojectComponent},
   {path:'assignmembers/:projectId', component:AssignmembersComponent},

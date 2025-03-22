@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccountsComponent } from './accounts/accounts.component';
 import { AdminDashBoardComponent } from './admin-dash-board/admin-dash-board.component';
 import { PmDashBoardComponent } from './pm-dash-board/pm-dash-board.component';
-import { MemberDashBoardComponent } from './member-dash-board/member-dash-board.component';
 import { AddnewuserComponent } from './addnewuser/addnewuser.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ProjectListComponent } from './project-list/project-list.component';
@@ -17,6 +16,9 @@ import { AddnewprojectComponent } from './addnewproject/addnewproject.component'
 import { PmProjectListComponent } from './pm-project-list/pm-project-list.component';
 import { AssignmembersComponent } from './assignmembers/assignmembers.component';
 import { AddnewtaskComponent } from './addnewtask/addnewtask.component';
+import { MemberdashboardComponent } from './memberdashboard/memberdashboard.component';
+import { MemberTaskListComponent } from './member-task-list/member-task-list.component';
+import { MemberCommentListComponent } from './member-comment-list/member-comment-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,6 @@ import { AddnewtaskComponent } from './addnewtask/addnewtask.component';
     AccountsComponent,
     AdminDashBoardComponent,
     PmDashBoardComponent,
-    MemberDashBoardComponent,
     AddnewuserComponent,
     UserListComponent,
     ProjectListComponent,
@@ -32,6 +33,9 @@ import { AddnewtaskComponent } from './addnewtask/addnewtask.component';
     PmProjectListComponent,
     AssignmembersComponent,
     AddnewtaskComponent,
+    MemberdashboardComponent,
+    MemberTaskListComponent,
+    MemberCommentListComponent,
   ],
   imports: [
     BrowserModule,

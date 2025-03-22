@@ -38,7 +38,7 @@
                     <td>
                         <button *ngIf="p.id!=undefined" (click)="GetTasksForProject(p.id)">Show Tasks</button>
                         <ul *ngIf="selectedProjectId === p.id">
-                            <li *ngFor="let task of selectedProjectTasks">{{task.title}}</li>
+                            <li *ngFor="let task of selectedProjectTasks">{{task.title}} {{task.status}}</li>
                         </ul>
                     </td>
                         <div>

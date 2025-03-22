@@ -51,5 +51,13 @@ export class DbAccessService {
     return this.http.get(`http://localhost:3004/Task?projectId=${projectId}`);
   }
 
+  GetAllTasks():Observable<any>{
+    return this.http.get("http://localhost:3004/Task");
+  }
+
+  GetAllComments():Observable<any>{
+    return this.http.get("http://localhost:3004/Comment");
+  }
+
   
 }

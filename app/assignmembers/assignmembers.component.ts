@@ -22,7 +22,7 @@ export class AssignmembersComponent implements OnInit{
 
   constructor(private route:ActivatedRoute, private srv:DbAccessService, private fb:FormBuilder) { 
     this.assignMemberForm = this.fb.group({
-      selectedUserId: new FormControl(null)
+      selectedUserId: new FormControl('', Validators.required)
     });
   }
 

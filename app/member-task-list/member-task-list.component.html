@@ -1,0 +1,20 @@
+<div>
+    <table>
+        <thead>
+            <th>Task Id</th>
+            <th>Task title</th>
+            <th>Task Type</th>
+            <th>Task Status</th>
+            <th>Project id</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasklist">
+                <td>{{task.id}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.tasktype}}</td>
+                <td>{{task.status}}</td>
+                <td>{{task.projid}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
