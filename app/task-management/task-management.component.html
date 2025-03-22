@@ -1,0 +1,32 @@
+<p>task-management works!</p>
+<h2>Manage Tasks</h2>
+<hr>
+<form [formGroup]="frmGroup" (ngSubmit)="onAddTask()">
+  <div>
+    <input type="text" formControlName="title" placeholder="Task Title">
+  </div>
+  <div>
+    <textarea formControlName="description" placeholder="Task Description"></textarea>
+  </div>
+  <div>
+    <select formControlName="assignedTo">
+      <option value="" disabled selected>Assign To</option>
+      <option *ngFor="let member of members" [value]="member.id">{{ member.name }} ({{ member.role }})</option>
+    </select>
+  </div>
+  <div>
+    <select formControlName="taskType">
+      <option value="Activity">Activity</option>
+      <option value="Bug">Bug</option>
+    </select>
+  </div>
+  <div>
+    <select formControlName="status">
+      <option value="Active">Active</option>
+      <option value="Completed">Completed</option>
+    </select>
+  </div>
+  <div>
+    <button type="submit" [disabled]="frmGroup.invalid">Add Task</button>
+  </div>
+</form>

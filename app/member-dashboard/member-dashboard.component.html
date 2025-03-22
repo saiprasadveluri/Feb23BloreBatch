@@ -1,0 +1,49 @@
+<p>member-dashboard works!</p>
+<div class="task-list">
+  <button (click)="viewTasks()">View Tasks</button>
+  
+  <div *ngIf="showTasks">
+    <h2>My Tasks</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Task Type</th>
+          <th>Status</th>
+          <th>Actions</th>
+          <th>Comment</th>
+          <th>Assign To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.tasktype }}</td>
+          <td>{{ task.status }}</td>
+          <td>
+            <input [(ngModel)]="task.status" name="status-{{task.id}}" placeholder="Enter new status" />
+            <button (click)="task.id && updateTaskStatus(task.id, task.status, task.assignedto)">Update Status</button>
+          
+          </td>
+          <td>
+            <form (ngSubmit)="task.id ? addComment(task.id) : null">
+              <input [(ngModel)]="newComment" name="comment-{{task.id}}" placeholder="Enter comment" />
+              <button type="submit">Add Comment</button>
+            </form>
+          </td>
+          <td>
+            <select [(ngModel)]="task.assignedto" name="assignedto-{{task.id}}">
+              <option *ngFor="let member of projectMembers" [value]="member.id">{{ member.name }}</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngFor="let task of tasks">
+    <p>{{ task.title }}</p>
+
+  </div>
+</div>
