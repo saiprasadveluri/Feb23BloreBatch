@@ -11,33 +11,32 @@ import { Router } from '@angular/router';
 })
 export class AddNewUserComponent {
   frmGroup:FormGroup;
-  constructor(private fb:FormBuilder, private srv:DbAccessService, private router:Router) {
+
+  constructor(private fb:FormBuilder,private srv:DbAccessService,private router:Router){
     this.frmGroup=fb.group({
       name:new FormControl('',[Validators.required]),
       email:new FormControl('',[Validators.required]),
       password:new FormControl('',[Validators.required]),
       role:new FormControl('',[Validators.required])
-    });
+    })
   }
 
-  OnAddUserClick()
-  {
-    var uname=this.frmGroup.controls['name'].value;
-    var uemail=this.frmGroup.controls['email'].value;
-    var upassword=this.frmGroup.controls['password'].value;
-    var urole=this.frmGroup.controls['role'].value;
-    var newObj:UserInfo={
-      name:uname,
-      email:uemail,
-      password:upassword,
-      role:urole
-    };
-    this.srv.AddNewUser(newObj).subscribe({
-      next:(res)=>{
-        console.log("New User Added: "+res.id);
-        this.router.navigate(['admindashboard']);
-      }
-  });
-}
-}
+  OnAddUser():void{
+    var name = this.frmGroup.controls['name'].value;
+    var email = this.frmGroup.controls['email'].value;
+    var password = this.frmGroup.controls['password'].value;
+    var role = this.frmGroup.controls['role'].value.toUpperCase();
 
+    var obj:UserInfo={name:name,email:email,password:password,role:role};
+    this.srv.AddNewUser(obj).subscribe(
+      {
+        next:(res)=>{
+          this.router.navigate(['admindashboard']);
+        },
+        error:()=>{
+
+        }
+      }
+    )
+  }
+}

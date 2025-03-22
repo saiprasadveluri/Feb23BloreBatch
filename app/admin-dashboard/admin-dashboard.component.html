@@ -1,45 +1,18 @@
-<p>Admin Dashboard</p>
-<br/>
-<p>Users list</p>
-<hr/>
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.role }}</td>
-        <td>
-          <button (click)="DeleteUser(user.id || '')">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <hr/>
-  <button (click)="NavigateToAddNewUser()">Add New User</button>
-
-
-<p>Project list</p>
-<hr/>
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Project Manager</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let project of projects">
-        <td>{{ project.name }}</td>
-        <td>{{ project.pm }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <button (click)="NavigateToNewProj()">Add New Project</button>
+<div class="dashboard-container">
+    <div class="dashboard-title">Admin Dashboard</div>
+    
+    <div class="dashboard-content">
+        <app-user-list></app-user-list>
+    </div>
+    <div class="dashboard-header">
+        
+        <button (click)="NavToAddNewUser()">Add New User</button>
+    </div>
+    
+    <div class="dashboard-content">
+        <app-project-list></app-project-list>
+    </div>
+    <div class="dashboard-header">
+        <button (click)="NavToAddNewProject()">Add New Project</button>
+    </div>
+</div>

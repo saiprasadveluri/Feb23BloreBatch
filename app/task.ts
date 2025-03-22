@@ -2,8 +2,8 @@ export interface Task {
     id?:string;
     projid:string;
     title:string;
-    des:string;
+    description:string;
     tasktype:string;
-    asgTo:string;
+    assignedto:string;
     status:string;
 }

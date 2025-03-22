@@ -1,54 +1,76 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserInfo } from './user-info';
 import { Project } from './project';
-import { Projmember } from './projmember';
+import { ProjectMember } from './project-member';
+import { Task } from './task';
+import { Comment } from './comment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbAccessService {
-  GetUserById(pmId: string) {
-    throw new Error('Method not implemented.');
+
+  private apiUrl = 'http://localhost:3004';
+
+  constructor(private http: HttpClient) { }
+
+  GetAllUsers(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/UserInfo`);
   }
 
-  constructor(private http:HttpClient) { 
-
-
-  }
-  AddNewUser(Input:UserInfo): Observable<UserInfo>{
-    return this.http.post<UserInfo>("http://localhost:3004/UserInfo",Input);
+  AddNewUser(obj: UserInfo): Observable<any> {
+    return this.http.post(`${this.apiUrl}/UserInfo`, obj);
   }
 
-  AddNewProject(Input:Project): Observable<Project>{
-    return this.http.post<Project>("http://localhost:3004/Project",Input);
+  GetAllProjects(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/Project`);
   }
 
-  AddNewProjectMember(Input:Projmember): Observable<Projmember>{
-    return this.http.post<Projmember>("http://localhost:3004/ProjectMember",Input);
+  AddNewProject(obj: Project): Observable<any> {
+    return this.http.post(`${this.apiUrl}/Project`, obj);
   }
 
-  GetAllUsers(): Observable<any>{
-    return this.http.get("http://localhost:3004/UserInfo");
-  }
-  DeleteUser(id:string): Observable<any>{
-    return this.http.delete(`http://localhost:3004/UserInfo/${id}`);
+  DeleteUser(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/UserInfo/${id}`);
   }
 
-  GetAllProjects(): Observable<any>{
-    return this.http.get("http://localhost:3004/Project");
+  DeleteProject(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/Project/${id}`);
+  }
+  DeleteProjectMem(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/ProjectMember/${id}`);
   }
 
-  GetProjectById(userId: string): Observable<Project[]> {
-    return this.http.get<Project[]>(`http://localhost:3004/Project?pm=${userId}`);
+  GetAllProjMem(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/ProjectMember`);
   }
   
-  GetAllProjectMembers(): Observable<Projmember[]> {
-    return this.http.get<Projmember[]>("http://localhost:3004/ProjectMember");
+  AddNewProjectMem(obj: ProjectMember): Observable<any> {
+    return this.http.post(`${this.apiUrl}/ProjectMember`, obj);
   }
 
-  GetProjectMembersByProjectId(projectId: string): Observable<Projmember[]> {
-    return this.http.get<Projmember[]>(`http://localhost:3004/ProjectMember?projId=${projectId}`);
+  GetAllTasks(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/Task`);
+  }
+
+  AddTask(obj: Task): Observable<any> {
+    return this.http.post(`${this.apiUrl}/Task`, obj);
+  }
+
+  GetAllComment(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/Comment`);
+  }
+
+  AddComment(obj: Comment): Observable<any> {
+    return this.http.post(`${this.apiUrl}/Comment`, obj);
+  }
+  
+  UpdateTaskAssignedTo(id: string, assignedTo: string): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/Task/${id}`, { assignedto: assignedTo });
+  }
+  UpdateTaskStatus(id:string,Status:string):Observable<any>{
+    return this.http.patch(`${this.apiUrl}/Task/${id}`, { status: Status });
   }
 }
