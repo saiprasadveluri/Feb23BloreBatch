@@ -1,0 +1,72 @@
+<h3>Project Manager DashBoard</h3>
+<table >
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>PM</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of projects">
+            <td>{{p.name}}</td>
+            <td>{{p.pm}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<h3>Project Members</h3>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>ProjectName(ProjectId)</th>
+            <th>MemberName(MemberId)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of prjmems">
+            <td>{{getProjectName(p.projectid)}}</td>
+            <td>{{getUserName(p.memid)}}</td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="NavigateToAddNewMembers()">Add New Members To Projects</button>
+<br>
+<h3>Tasks</h3>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>ProjectId</th>
+            <th>title</th>
+            <th>description</th>
+            <th>tasktype</th>
+            <th>assignedto</th>
+            <th>status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of tsks">
+            <td>{{t.projectid}}</td>
+            <td>{{t.title}}</td>
+            <td>{{t.description}}</td>
+            <td>{{t.tasktype}}</td>
+            <td>{{t.assignedto}}</td>
+            <td>{{t.status}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+     
+     
+ 
+
+
+

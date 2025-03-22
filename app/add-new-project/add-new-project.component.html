@@ -1,0 +1,17 @@
+<h2>ADD NEW PROJECT</h2>
+<hr/>
+
+<form [formGroup]="frmGroup" (ngSubmit)="OnAddClickP()">
+    <div>
+        <input type="text" formControlName="name" placeholder="name">
+    </div>
+    <div>
+        <select formControlName="pm">
+            <option  *ngFor="let u of users"[value]="u.id" >{{u.name}}</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+
+</form>

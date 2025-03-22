@@ -1,0 +1,19 @@
+<h2>ADD NEW PROJECT</h2>
+<hr/>
+
+<form [formGroup]="frmGroup" (ngSubmit)="OnClickAssign()">
+    <div>
+        <select formControlName="projectid">
+            <option  *ngFor="let p of projects"[value]="p.id" >{{p.name}}</option>
+        </select>
+    </div>
+    <div>
+        <select formControlName="memid">
+            <option  *ngFor="let u of users" [value]="u.id" >{{u.name}}</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+
+</form>
