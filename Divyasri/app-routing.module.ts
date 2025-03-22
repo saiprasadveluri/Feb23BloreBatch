@@ -12,6 +12,7 @@ import { AddNewProjectComponent } from './add-new-project/add-new-project.compon
 import { AddprojectlistComponent } from './addprojectlist/addprojectlist.component';
 import { ManageMembersComponent } from './manage-members/manage-members.component';
 import { AddprojectmembersComponent } from './addprojectmembers/addprojectmembers.component';
+import { ViewuserlistComponent } from './viewuserlist/viewuserlist.component';
 
 const routes: Routes = [
   {path:'login',component:AccountComponent},
@@ -21,7 +22,7 @@ const routes: Routes = [
       canActivate:[myrouteGuard],data:{reqRole:['DEV',"QA"]}
     },
   
-    
+    {path:'viewuserlist',component:ViewuserlistComponent},
     {path:'addnewuser',component:AddNewUserComponent},
     {path:'createtask',component:CreatetaskComponent },
     {path:'addnewproject',component:AddNewProjectComponent},

@@ -18,6 +18,7 @@ import { AddprojectlistComponent } from './addprojectlist/addprojectlist.compone
 import { AddProjectMembersComponent } from './add-project-members/add-project-members.component';
 import { ManageMembersComponent } from './manage-members/manage-members.component';
 import { AddprojectmembersComponent } from './addprojectmembers/addprojectmembers.component';
+import { ViewuserlistComponent } from './viewuserlist/viewuserlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { AddprojectmembersComponent } from './addprojectmembers/addprojectmember
     AddNewProjectComponent,
     AddprojectlistComponent,
     AddprojectmembersComponent,
-    ManageMembersComponent
+    ManageMembersComponent,
+    ViewuserlistComponent
  
     
   ],
