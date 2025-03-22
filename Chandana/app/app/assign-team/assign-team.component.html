@@ -1,0 +1,25 @@
+<div *ngIf="projects.length && developers.length && qas.length; else loading">
+  <form [formGroup]="assignForm" (ngSubmit)="onAssignClick()">
+    <label for="project">Project:</label>
+    <select id="project" formControlName="project">
+      <option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</option>
+    </select>
+
+    <label for="developer">Developer:</label>
+    <select id="developer" formControlName="developer">
+      <option *ngFor="let developer of developers" [value]="developer.id">{{ developer.name }}</option>
+    </select>
+
+    <label for="qa">QA:</label>
+    <select id="qa" formControlName="qa">
+      <option *ngFor="let qa of qas" [value]="qa.id">{{ qa.name }}</option>
+    </select>
+
+    <button type="submit">Assign</button>
+  </form>
+
+  <button (click)="navigateToAssignTeam()">Assign Members</button>
+</div>
+<ng-template #loading>
+  <p>Loading data...</p>
+</ng-template>

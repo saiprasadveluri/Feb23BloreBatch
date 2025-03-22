@@ -1,0 +1,33 @@
+<!-- developer-dashboard.component.html -->
+<div class="developer-dashboard">
+    <header class="header">
+      <h1>Developer Dashboard</h1>
+    </header>
+    <main class="content">
+      <h3>My Projects</h3>
+      <ul>
+        <li *ngFor="let project of projects" class="project-item">
+          {{ project.name }}
+          <button (click)="viewProjectDetails(project)">View Details</button>
+        </li>
+      </ul>
+  
+      <div *ngIf="selectedProject" class="project-details">
+        <h2>{{ selectedProject.name }} Details</h2>
+     
+  
+     
+        <div class="comment-section">
+          <h3>Comments</h3>
+          <ul>
+            <li *ngFor="let comment of selectedProject.comments">
+              {{ comment }}
+            </li>
+          </ul>
+          <input [(ngModel)]="newComment" placeholder="Add a comment" />
+          <button (click)="addComment()">Submit</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  
