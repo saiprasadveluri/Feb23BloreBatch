@@ -9,6 +9,12 @@ import { DisplayProjectList } from './display-project-list';
   providedIn: 'root'
 })
 export class DbAccessService {
+  deleteProject(projectId: string) {
+    throw new Error('Method not implemented.');
+  }
+  removeMemberFromProject(payload: { projId: string; memId: string; }) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient) {}
 
   GetAllUsers(): Observable<any> {
@@ -46,4 +52,14 @@ export class DbAccessService {
   getProjectsForPM(pmId: string): Observable<any[]> {
     return this.http.get<any[]>(`http://localhost:3004/Project?pmId=${pmId}`);
   }
+
+  assignProjectToPm(payload: { projId: string; pmId: string }): Observable<any> {
+    return this.http.put(`http://localhost:3004/Project/${payload.projId}`, { pmId: payload.pmId });
+  }
+
+  getTasksByPmId(pmId: string): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:3004/Tasks?pmId=${pmId}`);
+  }
+
+ 
 }

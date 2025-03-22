@@ -7,23 +7,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdmindashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { PmDashboardComponent } from './pm-dashboard/pm-dashboard.component';
 import { MemberDashboardComponent } from './member-dashboard/member-dashboard.component';
 import { AddnewuserComponent } from './addnewuser/addnewuser.component';
 import { AddNewProjectComponent } from './add-new-project/add-new-project.component';
 import { DisplayProjectListComponent } from './display-project-list/display-project-list.component';
+// import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountComponent,
-    AdminDashboardComponent,
+    AdmindashboardComponent,
     PmDashboardComponent,
     MemberDashboardComponent,
     AddnewuserComponent,
     AddNewProjectComponent,
-    DisplayProjectListComponent
+    DisplayProjectListComponent,
+    // TaskComponent
   ],
   imports: [
     BrowserModule,

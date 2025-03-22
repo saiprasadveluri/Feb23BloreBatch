@@ -1,0 +1,40 @@
+<h2> Add New Task</h2><hr/>
+<form [formGroup]="frmGroup" (ngSubmit)="onAddClick()">
+    <label for="projid">Select project:</label>
+    <select id="projid" formControlName="projid">
+        <option value="3795">3795</option>
+        <option value="1">1</option>
+        <option value="ff8f">ff8f</option>
+        <option value="17b8">17b8</option>
+      </select>
+    <div>
+        <input type="title" formControlName="title"/>
+ 
+    </div>
+    <div>
+        <select formControlName=" tasktype">
+            <option value="feature">FEATURE</option>
+            <option value="BUG">BUG</option>
+            <option value="Activity">Activity</option>
+</select>
+</div>
+ 
+    <div>
+        <select formControlName="status">
+            <option value="open">OPEN</option>
+            <option value="CLOSED">CLOSED</option>
+            <option value="DEVELOPMENT">DEVELOPMENT</option>
+</select>
+</div>
+   
+    <div>
+        <select formControlName="assignedto">
+            <option value="Dev">DEVELOPER</option>
+            <option value="QA">QA</option>
+           
+</select>
+    </div>
+    <div>
+        <button type="submit">Add Task</button>
+    </div>
+</form>

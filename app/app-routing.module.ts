@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdmindashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { PmDashboardComponent } from './pm-dashboard/pm-dashboard.component';
 import { MemberDashboardComponent } from './member-dashboard/member-dashboard.component';
 import { AddnewuserComponent } from './addnewuser/addnewuser.component';
@@ -11,7 +11,7 @@ import { DisplayProjectListComponent } from './display-project-list/display-proj
 
 const routes: Routes = [
   {path:"login",component:AccountComponent},
-  {path:'admindashboard',component:AdminDashboardComponent,
+  {path:'admindashboard',component:AdmindashboardComponent,
     canActivate:[myrouteGuard],data:{reqRole:['ADMIN']}} ,
   {path:'pmdashboard',component:PmDashboardComponent,
   canActivate:[myrouteGuard],data:{reqRole:['PM']}} ,

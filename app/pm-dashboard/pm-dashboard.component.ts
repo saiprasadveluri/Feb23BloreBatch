@@ -8,8 +8,8 @@ import { DbAccessService } from '../db-access.service';
   styleUrls: ['./pm-dashboard.component.css']
 })
 export class PmDashboardComponent implements OnInit {
-  projectList: any[] = []; // List of projects managed by the PM
-  memberList: any[] = []; // List of all members
+  projectList: any[] = []; // List of projects assigned to the PM
+  memberList: any[] = []; // List of all members filtered by role (DEVELOPER and QA)
 
   constructor(private srv: DbAccessService, private router: Router) {}
 
@@ -21,7 +21,7 @@ export class PmDashboardComponent implements OnInit {
     this.getAllMembers();
   }
 
-  // Fetch the list of projects managed by the logged-in PM
+  // Fetch the list of projects assigned to the logged-in PM
   getProjectsForPM(pmId: string): void {
     this.srv.getProjectsForPM(pmId).subscribe({
       next: (res: any[]) => {
@@ -37,11 +37,12 @@ export class PmDashboardComponent implements OnInit {
     });
   }
 
-  // Fetch the list of all members
+  // Fetch the list of all members filtered by role (DEVELOPER and QA)
   getAllMembers(): void {
     this.srv.GetAllUsers().subscribe({
       next: (res: any[]) => {
-        this.memberList = res;
+        // Filter members to only include those with the roles "DEVELOPER" or "QA"
+        this.memberList = res.filter(member => member.role === 'DEVELOPER' || member.role === 'QA');
       },
       error: (err: any) => {
         console.error('Error fetching members:', err);
