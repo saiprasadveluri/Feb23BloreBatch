@@ -1,0 +1,12 @@
+<h1>Login</h1>
+<form [formGroup]="frmGroup" (ngSubmit)="onSubmit()">
+    <div>
+        <input type="email" formControlName="email"/>
+    </div>
+    <div>
+        <input type="password" formControlName="password"/>
+    </div>
+    <div>
+        <button type="submit" >Submit</button>
+    </div>
+</form>
