@@ -1,0 +1,38 @@
+<p>Project Members</p>
+<hr/>
+<h3>Developer</h3>
+<form [formGroup]="frmGroup" (ngSubmit)="Assign()">
+  <select formControlName="pm">
+    <option *ngFor="let d of dmem" [value]="d.id">{{d.id}}</option>
+</select>
+  <div>
+    <button type="submit">Add Member</button>
+  </div>
+</form>
+<br/>
+<h3>QA</h3>
+<form [formGroup]="frmGroup" (ngSubmit)="Assign()">
+  <select formControlName="pm">
+    <option *ngFor="let q of qmem" [value]="q.id">{{q.id}}</option>
+</select>
+  <div>
+    <button type="submit">Add Member</button>
+  </div>
+</form>
+<br/>
+<p>Members</p>
+<hr/>
+<table>
+  <thead>
+    <tr>
+      <th>Member ID</th>
+      <th>Project ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of members">
+      <td>{{ member.memId }}</td>
+      <td>{{ member.projId }}</td>
+    </tr>
+  </tbody>
+</table>
