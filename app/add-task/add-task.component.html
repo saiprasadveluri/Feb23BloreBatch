@@ -1,0 +1,14 @@
+<!-- <h2>Add New Task</h2> -->
+<form [formGroup]="frmGroup" (ngSubmit)="onAddTaskClick()">
+  <div>
+    <label for="taskName">Task Name:</label>
+    <input id="taskName" formControlName="taskName" type="text">
+  </div>
+  <div>
+    <label for="assigneeId">Assign To:</label>
+    <select id="assigneeId" formControlName="assigneeId">
+      <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+    </select>
+  </div>
+  <button type="submit">Add Task</button>
+</form>

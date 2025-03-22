@@ -1,0 +1,21 @@
+<h2>User Dashboard</h2>
+
+<h3>Your Tasks</h3>
+<div *ngFor="let task of tasks">
+  <p>{{ task.name }} - {{ task.status }}</p>
+  <button (click)="viewComments(task.id)">View Comments</button>
+  <button (click)="reassignTask(task.id, newAssigneeId.value)">Reassign Task</button>
+  <input type="text" placeholder="New Assignee ID" #newAssigneeId>
+</div>
+
+<div *ngIf="selectedTaskId">
+  <h3>Comments</h3>
+  <div *ngFor="let comment of comments">
+    <p>{{ comment.text }}</p>
+  </div>
+
+  <h3>Add Comment</h3>
+  <input type="text" placeholder="Comment" #commentText>
+  <button (click)="addComment(commentText.value)">Add Comment</button>
+</div>
+

@@ -1,26 +1,46 @@
-<h2> Add New User</h2><hr/>
-<form [formGroup]="frmGroup" (ngSubmit)="OnAddClick()">
+<!-- <h2> Add New User</h2><hr/>
+ <form [formGroup]="frmGroup" (ngSubmit)="OnAddClick()">
+     <div>
+         <input type="text" formControlName="name"/>
+  
+     </div>
+     <div>
+         <input type="email" formControlName="email"/>
+  
+     </div>
+     <div>
+         <input type="password" formControlName="password"/>
+  
+     </div>
+     <div>
+         <select formControlName="role">
+             <option value="PM">PM</option>
+             <option value="DEVELOPER">DEVELOPER</option>
+             <option value="QA">QA</option>
+ </select>
+     </div>
+     <div>
+         <button type="submit">Add</button>
+     </div>
+    
+ </form> -->
+
+ <form [formGroup]="frmGroup" (ngSubmit)="onAddClick()">
     <div>
-        <input type="text" formControlName="name"/>
- 
+      <label for="userName">User Name:</label>
+      <input id="userName" formControlName="userName" type="text">
     </div>
     <div>
-        <input type="email" formControlName="email"/>
- 
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email">
     </div>
     <div>
-        <input type="password" formControlName="password"/>
- 
+      <label for="role">Role:</label>
+      <select id="role" formControlName="role">
+        <option value="DEV">Developer</option>
+        <option value="QA">QA</option>
+        <option value="PM">Project Manager</option>
+      </select>
     </div>
-    <div>
-        <select formControlName="role">
-            <option value="PM">PM</option>
-            <option value="DEVELOPER">DEVELOPER</option>
-            <option value="QA">QA</option>
-</select>
-    </div>
-    <div>
-        <button type="submit">Add</button>
-    </div>
-   
-</form>
+    <button type="submit">Add User</button>
+  </form>

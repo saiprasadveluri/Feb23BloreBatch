@@ -1,19 +1,19 @@
 <h3 style="text-align: center; color: purple;">All Projects</h3>
- 
-<table style="width: 100%; border-collapse: collapse; text-align: left;">
-  <thead>
-    <tr>
-      <th style="border: 1px solid rgb(206, 151, 201); padding: 8px;">Project Name</th>
-      <!-- <th style="border: 1px solid black; padding: 8px;">Description</th> -->
-      <th style="border: 1px solid black; padding: 8px;">Assigned PM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let project of projects">
-      <td style="border: 1px solid black; padding: 8px;">{{ project.name }}</td>
-      <!-- <td style="border: 1px solid black; padding: 8px;">{{ project.description }}</td> -->
-      <td style="border: 1px solid black; padding: 8px;">{{ project.pm }}</td>
-    </tr>
-  </tbody>
-</table>
- 
+  
+ <table style="width: 100%; border-collapse: collapse; text-align: left;">
+   <thead>
+     <tr>
+       <th style="border: 1px solid rgb(206, 151, 201); padding: 8px;">Project Name</th>
+       <!-- <th style="border: 1px solid black; padding: 8px;">Description</th> -->
+       <th style="border: 1px solid black; padding: 8px;">Assigned PM</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let project of projects">
+       <td style="border: 1px solid black; padding: 8px;">{{ project.name }}</td>
+       <!-- <td style="border: 1px solid black; padding: 8px;">{{ project.description }}</td> -->
+       <td style="border: 1px solid black; padding: 8px;">{{ project.pm }}</td>
+     </tr>
+   </tbody>
+ </table>
+  

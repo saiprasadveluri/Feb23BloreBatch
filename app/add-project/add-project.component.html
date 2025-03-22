@@ -1,20 +1,34 @@
-<h3 style="text-align: center; color: purple;">Add New Project</h3>
- 
-<form [formGroup]="frmGroup" (ngSubmit)="OnAddProjectClick()" style="max-width: 500px; margin: auto;">
-  <div>
-    <label for="name">Project Name:</label>
-    <input id="name" formControlName="name" type="text" required />
-  </div>
-  <!-- <div>
-    <label for="description">Description:</label>
-    <textarea id="description" formControlName="description" required></textarea>
-  </div> -->
-  <div>
-    <label for="pm">Assign to PM:</label>
-    <select id="pm" formControlName="pm" required>
-      <option *ngFor="let pm of pms" [value]="pm.id">{{ pm.name }}</option>
-    </select>
-  </div>
-  <button type="submit" [disabled]="frmGroup.invalid">Add Project</button>
-</form>
- 
+<!-- <h3 style="text-align: center; color: purple;">Add New Project</h3>
+  
+ <form [formGroup]="frmGroup" (ngSubmit)="OnAddProjectClick()" style="max-width: 500px; margin: auto;">
+   <div>
+     <label for="name">Project Name:</label>
+     <input id="name" formControlName="name" type="text" required />
+   </div>
+   <div>
+     <label for="description">Description:</label>
+     <textarea id="description" formControlName="description" required></textarea>
+   </div> -->
+   <!-- <div>
+     <label for="pm">Assign to PM:</label>
+     <select id="pm" formControlName="pm" required>
+       <option *ngFor="let pm of pms" [value]="pm.id">{{ pm.name }}</option>
+     </select>
+   </div>
+   <button type="submit" [disabled]="frmGroup.invalid">Add Project</button>
+ </form>
+   -->
+
+   <form [formGroup]="frmGroup" (ngSubmit)="onAddProjectClick()" style="max-width: 500px; margin: auto;">
+    <div>
+      <label for="projectName">Project Name:</label>
+      <input id="projectName" formControlName="projectName" type="text">
+    </div>
+    <div>
+      <label for="pmId">Assign PM:</label>
+      <select id="pmId" formControlName="pmId">
+        <option *ngFor="let pm of pms" [value]="pm.id">{{ pm.name }}</option>
+      </select>
+    </div>
+    <button type="submit">Add Project</button>
+  </form>

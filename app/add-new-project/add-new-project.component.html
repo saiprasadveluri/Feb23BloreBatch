@@ -1,4 +1,4 @@
-<h2> Add New Project</h2><hr/>
+<!-- <h2> Add New Project</h2><hr/>
 <form [formGroup]="frmGroup" (ngSubmit)="OnAddProClick()">
     <div>
         <input type="text" formControlName="name"/>
@@ -13,4 +13,18 @@
     <div>
         <button type="submit">Add</button>
     </div>
-</form>
+</form> -->
+
+<form [formGroup]="frmGroup" (ngSubmit)="onAddProClick()">
+    <div>
+      <label for="projectName">Project Name:</label>
+      <input id="projectName" formControlName="projectName" type="text">
+    </div>
+    <div>
+      <label for="pmId">Assign PM:</label>
+      <select id="pmId" formControlName="pmId">
+        <option *ngFor="let pm of pms" [value]="pm.id">{{ pm.name }}</option>
+      </select>
+    </div>
+    <button type="submit">Add Project</button>
+  </form>

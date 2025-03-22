@@ -1,13 +1,13 @@
 <!-- <div style="text-align: center; margin-top: 50px;">
-    <h2 style="color: purple;">ADMIN DASHBOARD</h2>
-   
-    <div style="margin-top: 30px;">
-      <button (click)="NavigateToAddNewUser()" style="margin-right: 10px; padding: 10px 20px; font-size: 16px;">Add New User</button>
-      <button (click)="NavigateToDeleteUser()" style="padding: 10px 20px; font-size: 16px;">Delete User</button>
-    </div>
-  </div> -->
-
-  <div style="text-align: center; margin-top: 50px;">
+     <h2 style="color: purple;">ADMIN DASHBOARD</h2>
+    
+     <div style="margin-top: 30px;">
+       <button (click)="NavigateToAddNewUser()" style="margin-right: 10px; padding: 10px 20px; font-size: 16px;">Add New User</button>
+       <button (click)="NavigateToDeleteUser()" style="padding: 10px 20px; font-size: 16px;">Delete User</button>
+     </div>
+   </div> -->
+ 
+   <!-- <div style="text-align: center; margin-top: 50px;">
     <h2 style="color: purple;">ADMIN DASHBOARD</h2>
    
     <div style="margin-top: 30px;">
@@ -17,5 +17,68 @@
       <button (click)="NavigateToViewUsers()" style="margin-right: 10px; padding: 10px 20px; font-size: 16px;">View Users</button>
       <button (click)="NavigateToViewProjects()" style="padding: 10px 20px; font-size: 16px;">View All Projects</button>
     </div>
-  </div>
+  </div> -->
+
+
+  <p>Admin Dashboard</p>
+<button (click)="NavigateToAddNewUser()">Add New User</button>
+<button (click)="NavigateToAddNewProject()">Add New Project</button>
  
+<h4>All Users</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>User Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.role }}</td>
+    </tr>
+  </tbody>
+</table>
+ 
+<h4>Assigned Projects</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Project ID</th>
+      <th>Project Name</th>
+      <th>Assigned PM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of assignedProjects">
+      <td>{{ project.id }}</td>
+      <td>{{ project.name }}</td>
+      <td>{{ project.pmId }}</td>
+    </tr>
+  </tbody>
+</table>
+ 
+<h4>Assign Project to PM</h4>
+<div>
+  <label for="project">Select Project:</label>
+  <select id="project" [(ngModel)]="selectedProjectId">
+    <option value="" disabled selected>Select Project</option>
+    <option *ngFor="let project of projectList" [value]="project.id">
+      {{ project.name }} ({{ project.id }})
+    </option>
+  </select>
+</div>
+<div>
+  <label for="pm">Select PM:</label>
+  <select id="pm" [(ngModel)]="selectedPmId">
+    <option value="" disabled selected>Select PM</option>
+    <ng-container *ngFor="let user of userList">
+      <option *ngIf="user.role?.toUpperCase() === 'PM'" [value]="user.id">
+        {{ user.name }}
+      </option>
+    </ng-container>
+  </select>
+</div>
+<button (click)="assignProjectToPm()">Assign</button>
