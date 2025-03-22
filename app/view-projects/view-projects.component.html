@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h3>VIEW PROJECTS</h3>
+        <br>
+    </div>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>PROJECT ID</th>
+                    <th>PROJECT NAME</th>
+                    <th>PROJECT MANAGER ID</th>
+                
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of projectList">
+                        <td>
+                            {{p.id}}
+                        </td>
+                        <td >
+                            {{p.name}}
+                        </td>
+                        <td >
+                            {{p.pm}}
+                        </td>
+                    </tr>                
+                </tbody>
+            </table>
+            <button (click)="goToPMDashboard()" class="btn btn-primary">Back to Dashboard</button>
+        </div>
+    </div>
