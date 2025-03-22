@@ -1,0 +1,18 @@
+<div class="container">
+    <h3>Assign Members to Project</h3>
+    <div>
+      <h4>Existing Members</h4>
+      <ul>
+        <li *ngFor="let name of existingMemberNames">{{name}}</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Assign New Member</h4>
+      <form [formGroup]="assignMemberForm" (ngSubmit)="assignMember()">
+        <select formControlName="selectedUserId">
+          <option *ngFor="let user of allUsers" [value]="user.id">{{user.name}}</option>
+        </select>
+        <button type="submit">Assign</button>
+      </form>
+    </div>
+  </div>

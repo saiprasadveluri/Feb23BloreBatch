@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Project List</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table" style="border-collapse: collapse; ">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Members
+                    </th>
+                   
+                    <th>
+                        Tasks
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of projectList">
+                    <td >
+                        {{p.name}}
+                    </td>
+                    <td>
+                        <button *ngIf="p.id!=undefined" (click)="GetMembersForProject(p.id)">Show Members</button>
+                        <ul *ngIf="selectedProjectId === p.id">
+                            <li *ngFor="let member of selectedProjectMembers">{{member.memid}}</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <button *ngIf="p.id!=undefined" (click)="GetTasksForProject(p.id)">Show Tasks</button>
+                        <ul *ngIf="selectedProjectId === p.id">
+                            <li *ngFor="let task of selectedProjectTasks">{{task.title}}</li>
+                        </ul>
+                    </td>
+                        <div>
+                            <button *ngIf="p.id!=null"(click)="NavigateToAssignMembers(p.id)">Assign Members</button> | <button *ngIf="p.id!=null"(click)="NavigateToAddTask(p.id)">Add tasks</button>
+                        </div>
+                    </tr>
+                               
+            </tbody>
+        </table>
+    </div>
+</div>
