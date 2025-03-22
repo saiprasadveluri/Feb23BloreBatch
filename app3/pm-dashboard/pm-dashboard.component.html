@@ -1,0 +1,19 @@
+<h2>Project Manager Dashboard</h2>
+
+<div>
+  <h3>Your Projects</h3>
+  <table border="1">
+    <tr>
+      <th>Project ID</th>
+      <th>Project Name</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.pid }}</td>
+      <td>{{ project.pname }}</td>
+      <td>
+        <button (click)="manageProject(project.pid)">Manage Project</button>
+      </td>
+    </tr>
+  </table>
+</div>

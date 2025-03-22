@@ -1,0 +1,71 @@
+<div>
+  <h1>Project Dashboard</h1>
+
+  <h2>Project Members</h2>
+  <table>
+    <tr>
+      <th>Member ID</th>
+      <th>Member Name</th>
+      <th>Role</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let member of members">
+      <td>{{ member.id }}</td>
+      <td>{{ member.name }}</td>
+      <td>{{ member.role }}</td>
+      <td><button (click)="member.id && removeMember(member.id)">Remove</button></td>
+    </tr>
+  </table>
+
+  <h2>Add New Member</h2>
+  <label for="newMember">Select a User:</label>
+  <select id="newMember" [(ngModel)]="selectedMemberId" >
+    <option *ngFor="let user of availableUsers" [value]="user.id">
+      {{ user.name }} ({{ user.role }})
+    </option>
+  </select>
+  <button (click)="assignMember()">Add Member</button>
+
+<div>
+  <h3>Create Task</h3>
+  <input [(ngModel)]="taskTitle" placeholder="Task Title" />
+  <textarea [(ngModel)]="taskDescription" placeholder="Task Description"></textarea>
+  <select [(ngModel)]="assignedMemberId">
+    <option value="" disabled>Select a Member</option>
+    <option *ngFor="let member of members" [value]="member.id">
+      {{ member.name }}
+    </option>
+  </select>
+  <select [(ngModel)]="taskStatus">
+    <option value="" disabled>Select Status</option>
+    <option value="Pending">Pending</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Completed">Completed</option>
+  </select>
+
+  <button (click)="createTask()">Create Task</button>
+</div>
+
+
+<div>
+  <h3>Tasks</h3>
+  <table border="1" >
+    <tr>
+      <th>Task ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+    </tr>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.id }}</td>
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.assignedTo.name }}</td>
+      <td>{{ task.status }}</td>
+       <td><button (click)="updateTaskStatus(task.id, 'In Progress')">Start</button>
+        <button (click)="updateTaskStatus(task.id, 'Completed')">Complete</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,42 @@
+<h2>Project Members</h2>
+
+<div>
+  <h3>Current Members</h3>
+  <table border="1">
+    <tr>
+      <th>Member ID</th>
+      <th>Member Name</th>
+      <th>Role</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let member of members">
+      <td>{{ member.id }}</td>
+      <td>{{ member.name }}</td>
+      <td>{{ member.role }}</td>
+      <td>
+        <button (click)="removeMember(member.name)">Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <h3>Add New Member</h3>
+  <input [(ngModel)]="newMemberName" placeholder="Member Name" />
+  <select [(ngModel)]="newMemberRole">
+    <option value="Developer">Developer</option>
+    <option value="QA">QA</option>
+  </select>
+  <button (click)="assignMember()">Add Member</button>
+</div>
+
+<!-- <tr *ngFor="let member of members">
+  <td>{{ member.id }}</td>
+  <td>{{ member.name }}</td>
+  <td>{{ member.role }}</td>
+  <td>
+    <button (click)="removeMember(member.name)">Remove</button>
+  </td>
+</tr> -->
+
+
