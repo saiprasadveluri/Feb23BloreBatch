@@ -1,0 +1,80 @@
+<h1>Project Manager Dashboard</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Project Manager</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.id }}</td>
+      <td>{{ project.Pname }}</td>
+      <td>{{ project.PM }}</td>
+      <td>
+        <button (click)="viewProjectMembers(project.id)">View Members</button>
+        <button (click)="manageTasks(project.id)">Manage Tasks</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="projId">
+  <h3>Project Members</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Member ID</th>
+        <th>Member Name</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let member of members">
+        <td>{{ member.id }}</td>
+        <td>{{ getUserName(member.memid) }}</td>
+        <td>{{ getUserRole(member.memid) }}</td>
+        <td>
+          <button (click)="removeMember(member.id)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="projId">
+  <h3>Assign New Member</h3>
+  <select #userSelect>
+    <option *ngFor="let user of users" [value]="user.id">{{ user.name }} ({{ user.role }})</option>
+  </select>
+  <button (click)="assignMember(userSelect.value)">Assign</button>
+</div>
+
+<div *ngIf="projId">
+  <h3>Project Tasks</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Task ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.id }}</td>
+        <td>{{ task.Title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.tasktype }}</td>
+        <td>{{ getUserName(task.assignedto) }}</td>
+        <td>{{ task.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,30 @@
+
+<!-- <h2>Login Form</h2> -->
+
+<!-- <form [formGroup]="frmGroup" (ngSubmit)="OnLoginClick()">
+    <div>
+        <input type ="email" formControlName="uemail" placeholder="Enter email" />
+    </div>
+    <div>
+        <input type ="password" formControlName="upassword" placeholder="Enter password" />
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+    </form> -->
+
+    <div class="center-container">
+        <h1>Login form</h1>
+        <form [formGroup]="frmGroup" (ngSubmit)="OnLoginClick()">
+          <div>
+            <label for="uemail">Email:</label>
+            <input id="uemail" formControlName="uemail" />
+          </div>
+          <div>
+            <label for="upassword">Password:</label>
+            <input id="upassword" type="password" formControlName="upassword" />
+          </div>
+          <!-- <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> -->
+          <button type="submit">Login</button>
+        </form>
+      </div>
