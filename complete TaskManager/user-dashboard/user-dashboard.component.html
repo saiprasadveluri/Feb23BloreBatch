@@ -1,0 +1,33 @@
+<h2>User Dashboard</h2>
+
+
+<div>
+  <h3>Your Tasks</h3>
+  <table border="1" width="100%">
+    <tr>
+      <th>Task ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.id }}</td>
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.status }}</td>
+      
+      <td>
+        <button (click)="selectedTaskId = task.id">View/Add Comments</button>
+        <button (click)="reassignTask(task.id, 'newUserId')">Reassign Task</button>
+      </td>
+    </tr>
+  </table>
+  <div *ngIf="tasks.length === 0">
+    <p>No tasks assigned to you.</p>
+  </div>
+</div>
+
+<div *ngIf="selectedTaskId">
+  <app-comment [taskId]="selectedTaskId" (commentAdded)="loadTasks()"></app-comment>
+</div>

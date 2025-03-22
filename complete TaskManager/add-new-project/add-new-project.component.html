@@ -1,0 +1,30 @@
+<h3>Add New Project</h3>
+
+<form [formGroup]="frmGroup" (ngSubmit)="OnAddProject()">
+    <label for="pid">Project ID</label>
+    <div>
+    <input id="pid" formControlName="pid" type="text" placeholder="Enter Project ID" />
+    </div>
+    <br/>
+    <div>
+    <label for="pname">Project Name</label>
+    </div>
+    <br/>
+    <div>
+    <input id="pname" formControlName="pname" type="text" placeholder="Enter Project Name" />
+   </div>
+   <br/>
+   <div>
+    <label for="pm">Project Manager</label>
+    <select id="pm" [(ngModel)]="selectedUserId" formControlName="pm">
+      <option value="" disabled>Select a User</option>
+      <option *ngFor="let user of users" [value]="user.id">
+        {{ user.name }} ({{ user.role }})
+      </option>
+    </select>
+  </div>
+  <br/>
+  
+    <button type="submit">Add Project</button>
+  </form>
+  

@@ -1,0 +1,50 @@
+
+    <h2>Admin Dashboard</h2>
+
+<div style="display: flex; flex-direction: row; gap: 20px;">
+
+  <div style="flex: 1;">
+    <h4>Users</h4>
+    <table border="1" width="100%">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Role</th>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.role }}</td>
+      </tr>
+    </table>
+    <div style="margin-top: 20px;">
+        <button style="margin-inline-end: 10px;" (click)="NavigateToAddNewUser()">Add New User</button>
+    </div>
+  </div>
+  </div>
+  
+
+
+  <div style="flex: 1;" >
+    <br/>
+    <h4>Projects</h4>
+    <table border="1" width="100%">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Project Manager</th>
+      </tr>
+      <tr *ngFor="let project of projects">
+        <td>{{ project.id }}</td>
+        <td>{{ project. pname }}</td>
+        <td>{{ project.pm }}</td>
+      </tr>
+    </table>
+  </div>
+
+
+<div style="margin-top: 20px;">
+ 
+  
+  <button style="margin-inline-end: 10px;" (click)="NavigateToAddNewProject()">Add New Project</button>
+</div>
