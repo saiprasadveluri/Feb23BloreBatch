@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DbAccessService } from '../db-access.service';
 import { Task } from '../task';
 import { UserInfo } from '../user-info';
+import { ProjectManager } from '../projectmanager';
 
 @Component({
   selector: 'app-add-new-task',
@@ -13,6 +14,7 @@ import { UserInfo } from '../user-info';
 export class AddNewTaskComponent implements OnInit {
   frmGroup: FormGroup;
   users: UserInfo[] = [];
+  projectMembers: UserInfo[] = [];
   projId: string = '';
   errorMessage: string = '';
 
@@ -34,16 +36,29 @@ export class AddNewTaskComponent implements OnInit {
   ngOnInit(): void {
     this.projId = this.route.snapshot.paramMap.get('projectId') || '';
     this.loadUsers();
+    this.loadProjectMembers();
   }
 
   loadUsers(): void {
     this.srv.GetAllUsers().subscribe({
       next: (users) => {
-        this.users = users.filter((user: UserInfo) => user.role === 'DEVELOPER' || user.role === 'QA');
+        this.users = users;
       },
       error: (err) => {
         console.error('Failed to fetch users', err);
         this.errorMessage = 'Failed to fetch users';
+      }
+    });
+  }
+
+  loadProjectMembers(): void {
+    this.srv.GetProjectMembers(this.projId).subscribe({
+      next: (members: ProjectManager[]) => {
+        this.projectMembers = this.users.filter(user => members.some(member => member.memid === user.id));
+      },
+      error: (err) => {
+        console.error('Failed to fetch project members', err);
+        this.errorMessage = 'Failed to fetch project members';
       }
     });
   }

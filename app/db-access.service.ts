@@ -6,6 +6,7 @@ import { UserInfo } from './user-info';
 import { ProjectInfo } from './project-info';
 import { ProjectManager } from './projectmanager';
 import { Task } from './task';
+import { Comment } from './comment';
 
 @Injectable({
   providedIn: 'root'
@@ -84,5 +85,21 @@ export class DbAccessService {
       }),
       switchMap(newTask => this.http.post(`${this.baseUrl}/Task`, newTask))
     );
+  }
+
+  getTasksByUser(userId: string): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.baseUrl}/Task?assignedto=${userId}`);
+  }
+
+  addComment(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(`${this.baseUrl}/Comment`, comment);
+  }
+
+  updateTaskStatus(taskId: string, status: string): Observable<void> {
+    return this.http.patch<void>(`${this.baseUrl}/Task/${taskId}`, { status });
+  }
+
+  assignTask(taskId: string, role: string): Observable<void> {
+    return this.http.patch<void>(`${this.baseUrl}/Task/${taskId}`, { assignedto: role });
   }
 }

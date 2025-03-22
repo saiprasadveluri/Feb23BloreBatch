@@ -17,7 +17,7 @@ export const myrouteGuard: CanActivateFn = (route, state) =>
     }
   }
     sessionStorage.removeItem('LoggedinUserData');
-    location.href='Login';
+    location.href='login';
     return false;
   
 };

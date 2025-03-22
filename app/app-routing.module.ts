@@ -8,6 +8,7 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { AddNewProjectComponent } from './add-new-project/add-new-project.component';
 import { AddNewProjectMemberComponent } from './add-new-project-member/add-new-project-member.component';
 import { AddNewTaskComponent } from './add-new-task/add-new-task.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component'; // Import UserDashboardComponent
 import { myrouteGuard } from './myroute.guard';
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'addnewproject', component: AddNewProjectComponent, canActivate: [myrouteGuard], data: { reqRole: ['ADMIN'] } },
   { path: 'add-new-task/:projectId', component: AddNewTaskComponent, canActivate: [myrouteGuard], data: { reqRole: ['PM'] } },
   { path: 'add-new-project-member/:projectId', component: AddNewProjectMemberComponent, canActivate: [myrouteGuard], data: { reqRole: ['PM'] } },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [myrouteGuard], data: { reqRole: ['DEVELOPER', 'QA'] } }, // Add this line
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({
