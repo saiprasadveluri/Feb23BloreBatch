@@ -1,0 +1,28 @@
+<h2>Member Dashboard</h2>
+<hr/>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Project Id</td>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Task Type</td>
+                <td>Status</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>{{getname(task.projectid)}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.tasktype}}</td>
+                <td>{{task.status}}</td>
+                <td>
+                    <button (click)="AddComment(task.id||'')">Add Comment</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
