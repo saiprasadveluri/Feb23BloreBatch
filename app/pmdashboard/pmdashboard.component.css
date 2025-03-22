@@ -1,0 +1,65 @@
+/* General Styles */
+h2, h3 {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styles */
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+button:active {
+    background-color: #0056b3;
+}
+
+/* Select Dropdown */
+select {
+    padding: 8px;
+    margin-right: 10px;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* No Members Message */
+p {
+    font-style: italic;
+    color: #666;
+}

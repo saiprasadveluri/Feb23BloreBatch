@@ -1,0 +1,24 @@
+<form [formGroup]="frmGroup" (ngSubmit)="OnAddClick()">
+    <div>
+      <label for="name">Project Name:</label>
+      <input id="name" formControlName="name" type="text" />
+      <div *ngIf="frmGroup.controls['name'].invalid && frmGroup.controls['name'].touched">
+        Project name is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="PM">Project Manager:</label>
+      <select id="PM" formControlName="PM">
+        <option value="" disabled>Select a Project Manager</option>
+        <option *ngFor="let manager of userInfo" [value]="manager.id">
+          {{ manager.name }}
+        </option>
+      </select>
+      <div *ngIf="frmGroup.controls['PM'].invalid && frmGroup.controls['PM'].touched">
+        Project Manager is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="frmGroup.invalid">Add Project</button>
+  </form>

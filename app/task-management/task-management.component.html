@@ -1,0 +1,35 @@
+<h2>Task Management for Project {{ projectId }}</h2>
+
+<h3>Create New Task</h3>
+<div>
+  <input [(ngModel)]="newTaskName" placeholder="Task Name" />
+  <select [(ngModel)]="assignedTo">
+    <option value="" disabled>Select Assignee</option>
+    <option *ngFor="let member of projectMembers" [value]="member.memid">
+      {{ member.name }} ({{ member.role }})
+    </option>
+  </select>
+
+  <button (click)="createTask()">Create Task</button>
+</div>
+
+<h3>Existing Tasks</h3>
+<table border="1" *ngIf="tasks && tasks.length > 0">
+  <thead>
+    <tr>
+      <th>Task ID</th>
+      <th>Task Name</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.id }}</td>
+      <td>{{ task.name }}</td>
+      <td>{{ findMemberNameById(task.assignedTo) }}</td>
+      <td>{{ task.status }}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="tasks && tasks.length === 0">No tasks found for this project.</p>

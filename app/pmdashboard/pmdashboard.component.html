@@ -1,0 +1,52 @@
+<h2>Project Manager Dashboard</h2>
+
+<h3>Your Projects</h3>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Project ID</th>
+      <th>Project Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projectinfo">
+      <td>{{ project.id }}</td>
+      <td>{{ project.name }}</td>
+      <td>
+        <button (click)="navigateToTaskManagement(project.id)">Manage Tasks</button>
+        <button (click)="selectedProjectId = project.id; loadProjectMembers(project.id)">View Members</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 *ngIf="selectedProjectId">Members of Project {{ selectedProjectId }}</h3>
+<table *ngIf="projectMembers.length > 0" border="1">
+  <thead>
+    <tr>
+      <th>Member ID</th>
+      <th>Member Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of projectMembers">
+      <td>{{ member.memid }}</td> <!-- Display Member ID -->
+      <td>{{ member.name }}</td> <!-- Display Member Name -->
+      <td>{{ member.role }}</td> <!-- Display Member Role -->
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="projectMembers.length === 0 && selectedProjectId">No members found for this project.</p>
+
+<h3>Add Member to Project</h3>
+<div *ngIf="selectedProjectId">
+  <select [(ngModel)]="selectedUserId">
+    <option value="" disabled>Select a user</option>
+    <option *ngFor="let user of availableUsers" [value]="user.id">
+      {{ user.name }} ({{ user.role }})
+    </option>
+  </select>
+  <button (click)="addMemberToProject()">Add Member</button>
+</div>

@@ -1,0 +1,154 @@
+{
+  "UserInfo": [
+    {
+      "id": "66a4",
+      "name": "hari",
+      "email": "hari@hari.com",
+      "password": "123",
+      "role": "ADMIN"
+    },
+    {
+      "id": "22cc",
+      "name": "tigmanshu",
+      "email": "tig@tig.com",
+      "password": "123",
+      "role": "PM"
+    },
+    {
+      "id": "e5d9",
+      "name": "utkarsh",
+      "email": "utr@utr.com",
+      "password": "123",
+      "role": "DEV"
+    },
+    {
+      "id": "21a4",
+      "name": "sai",
+      "email": "sai@sai.com",
+      "password": "123",
+      "role": "QA"
+    },
+    {
+      "id": "6ecc",
+      "name": "thiru",
+      "email": "thiru@thiru.com",
+      "password": "123",
+      "role": "PM"
+    },
+    {
+      "id": "ab9e",
+      "name": "ram",
+      "email": "ram@ram.com",
+      "password": "123",
+      "role": "DEV"
+    },
+    {
+      "id": "2047",
+      "name": "deepak",
+      "email": "dee@dee.com",
+      "password": "123",
+      "role": "QA"
+    }
+  ],
+  "Project": [
+    {
+      "id": "ac78",
+      "name": "Pro 1",
+      "PM": "22cc"
+    },
+    {
+      "id": "ec7d",
+      "name": "Pro 2",
+      "PM": "6ecc"
+    },
+    {
+      "id": "741b",
+      "name": "Pro 3",
+      "PM": "6ecc"
+    }
+  ],
+  "ProjectMember": [
+    {
+      "id": "1",
+      "projid": "ec7d",
+      "memid": "e5d9"
+    },
+    {
+      "id": "2",
+      "projid": "ec7d",
+      "memid": "21a4"
+    },
+    {
+      "id": "6f89",
+      "projid": "ac78",
+      "memid": "ab9e"
+    },
+    {
+      "id": "5fbc",
+      "projid": "741b",
+      "memid": "2047"
+    }
+  ],
+  "Task": [
+    {
+      "id": "rwt0a8m92",
+      "name": "feature 1",
+      "projectId": "ec7d",
+      "assignedTo": "e5d9",
+      "status": "Pending"
+    },
+    {
+      "id": "xvfuu1109",
+      "name": "bug 1",
+      "projectId": "ec7d",
+      "assignedTo": "21a4",
+      "status": "Pending"
+    },
+    {
+      "id": "stqkvmrfd",
+      "name": "taks1",
+      "projectId": "ac78",
+      "assignedTo": "ab9e",
+      "status": "Pending"
+    },
+    {
+      "id": "aog0y161o",
+      "name": "test1",
+      "projectId": "741b",
+      "assignedTo": "2047",
+      "status": "Pending"
+    }
+  ],
+  "Comment": [
+    {
+      "id": 1,
+      "taskid": 1,
+      "commentedby": 1,
+      "description": "work in progress"
+    },
+    {
+      "id": 2,
+      "taskid": 2,
+      "commentedby": 2,
+      "description": "design phase ongoing"
+    },
+    {
+      "id": 3,
+      "taskid": 3,
+      "commentedby": 3,
+      "description": "development started"
+    },
+    {
+      "id": 4,
+      "taskid": 4,
+      "commentedby": 4,
+      "description": "testing completed"
+    },
+    {
+      "id": 5,
+      "taskid": 5,
+      "commentedby": 5,
+      "description": "deployment scheduled"
+    }
+  ]
+}
