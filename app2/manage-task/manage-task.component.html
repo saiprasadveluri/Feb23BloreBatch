@@ -1,0 +1,16 @@
+<p>manage-task works!</p>
+<div class="manage-tasks">
+    <h2>Project Tasks</h2>
+    <div>
+      <label for="newTask">New Task:</label>
+      <input id="newTask" ngModel="newTask" placeholder="Task description">
+      <button (click)="addTask()">Add Task</button>
+    </div>
+    <h3>Current Tasks</h3>
+    <ul>
+      <li *ngFor="let task of tasks">
+        {{ task.description }}
+        <button (click)="removeTask(task.id)">Remove</button>
+      </li>
+    </ul>
+  </div>

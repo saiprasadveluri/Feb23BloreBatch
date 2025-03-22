@@ -1,0 +1,44 @@
+<!-- <p>projects-list works!</p> -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Project  List</h3>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table border="1" >
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Project Manager 
+                        </th>
+                        
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of projects">
+                        <td>
+                            {{r.pname}}
+                        </td>
+                        <td>
+                            {{r.pm}}
+                        </td>
+                        
+                        <td>
+                            <div>
+                                <button (click)="NavigateToManageTask()">Manage Task</button>
+                            </div>
+                        </td>
+                    </tr>                
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
