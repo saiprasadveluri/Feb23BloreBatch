@@ -1,0 +1,19 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div>
+      <h2>Login Form</h2>
+      <form [formGroup]="frmGroup" (ngSubmit)="OnLoginClick()">
+        <div>
+          <input type="email" formControlName="uemail" placeholder="Email" />
+        </div>
+        <br />
+        <div>
+          <input type="password" formControlName="upassword" placeholder="Password" />
+        </div>
+        <br />
+        <div>
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
