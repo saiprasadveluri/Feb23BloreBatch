@@ -1,0 +1,18 @@
+
+<form [formGroup]="frmGroup" (ngSubmit)="OnAddProject()" class="form-container">
+    <h2>ADD NEW PROJECT</h2>
+    <div>
+        <label for="NAME">PROJECT NAME</label>
+        <input type="text" formControlName="name">
+    </div>
+    <div >
+        <label for="MANAGER">MANAGER</label>
+        <select formControlName="mid" >
+            
+            <option value="{{m.id}}" *ngFor="let m of manlist">{{m.name}}</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">ADD</button>
+    </div>
+</form>
