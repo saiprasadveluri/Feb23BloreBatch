@@ -1,0 +1,82 @@
+<h2>My Tasks</h2>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+  <thead>
+    <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+      <th style="padding: 10px; border: 1px solid #ddd;">Title</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Task Type</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks" style="border: 1px solid #ddd;">
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ task.title }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ task.description }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ task.tasktype }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ task.status }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">
+        <button (click)="addComment(task)">Add Comment</button>
+        <button (click)="updateTaskStatus(task)">Update Status</button>
+        <button (click)="viewComments(task)">View Comments</button>
+        <button *ngIf="userRole === 'Dev'" (click)="resolveTask(task)">Resolve</button>
+        <button *ngIf="userRole === 'QA'" (click)="reopenTask(task)">Reopen</button>
+        
+        <!-- Assign Task Dropdown -->
+        <div [formGroup]="assignForm">
+            <label for="assignDropdown">Assign Task:</label>
+            <select id="assignDropdown" formControlName="assignee">
+              <option *ngFor="let member of assignableMembers" [value]="member.memid">
+                {{ member.name }}
+              </option>
+            </select>
+            <button (click)="assignTask(task)">Assign</button>
+          </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div *ngIf="activeSection === 'addComment'" style="margin-top: 20px; padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9;">
+  <h3>Add Comment for Task: {{ selectedTask?.title }}</h3>
+  <form [formGroup]="commentForm" (ngSubmit)="submitComment()">
+    <label for="description">Comment:</label><br />
+    <textarea
+      id="description"
+      formControlName="description"
+      rows="4"
+      cols="50"
+      required
+    ></textarea><br /><br />
+    <button type="submit" [disabled]="commentForm.invalid">Submit Comment</button>
+    <button type="button" (click)="cancelComment()">Cancel</button>
+  </form>
+</div>
+
+<div *ngIf="activeSection === 'updateStatus'" style="margin-top: 20px; padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9;">
+  <h3>Update Status for Task: {{ selectedTask?.title }}</h3>
+  <form [formGroup]="statusForm" (ngSubmit)="submitStatusUpdate()">
+    <label for="status">New Status:</label><br />
+    <input
+      type="text"
+      id="status"
+      formControlName="status"
+      placeholder="Enter new status"
+      required
+    /><br /><br />
+    <button type="submit" [disabled]="statusForm.invalid">Submit</button>
+    <button type="button" (click)="cancelStatusUpdate()">Cancel</button>
+  </form>
+</div>
+
+<div *ngIf="activeSection === 'viewComments'" style="margin-top: 20px; padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9;">
+  <h3>Comments for Task: {{ selectedTask?.title }}</h3>
+  <ul>
+    <li *ngFor="let comment of comments">
+      <strong>Commented By:</strong> {{ comment.commentedby }}<br />
+      <strong>Description:</strong> {{ comment.description }}
+    </li>
+  </ul>
+  <button (click)="closeComments()">Close Comments</button>
+</div>

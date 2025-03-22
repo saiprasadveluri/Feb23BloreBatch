@@ -1,0 +1,79 @@
+<h2> My Projects </h2>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+  <caption style="caption-side: top; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">Projects</caption>
+  <thead>
+    <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+      <th style="padding: 10px; border: 1px solid #ddd;">Project ID</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Project Name</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Project Manager</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects" style="border: 1px solid #ddd;">
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ project.id }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ project.name }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ project.pm }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">
+        <button style="padding: 5px 10px;" (click)="onManageTask(project)">Manage Task</button>
+        <button style="padding: 5px 10px;" (click)="ViewTasks(project)">View Tasks</button>
+        
+        <!-- Dropdown for selecting members -->
+        <label for="userDropdown" *ngIf="User.length > 0">Select Member:</label>
+        <select
+          id="userDropdown"
+          *ngIf="User.length > 0"
+          (change)="onUserSelect($event, project)"
+        >
+          <option value="" disabled selected>Select a Member</option>
+          <option *ngFor="let user of User" [value]="user.id">
+            {{ user.id }} ({{ user.role }})
+          </option>
+        </select>
+
+        <!-- New button to view members -->
+        <button style="padding: 5px 10px;" (click)="retrieveMembers(project)">View Members</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Tasks</h2>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+  <caption style="caption-side: top; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">Tasks</caption>
+  <thead>
+    <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+      <th style="padding: 10px; border: 1px solid #ddd;">Title</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Assigned To</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks" style="border: 1px solid #ddd;">
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ task.title }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ task.description }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ task.assignedto }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ task.status }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Members</h2>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+  <caption style="caption-side: top; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">Project Members</caption>
+  <thead>
+    <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+      <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Project</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Member ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of Member" style="border: 1px solid #ddd;">
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ member.id }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ member.project }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ member.memid }}</td>
+    </tr>
+  </tbody>
+</table>
