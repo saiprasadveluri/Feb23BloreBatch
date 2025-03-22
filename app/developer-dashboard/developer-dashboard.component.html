@@ -1,0 +1,44 @@
+<h1>Developer Dashboard</h1>
+<hr />
+<!-- Display Assigned Tasks -->
+<h2>Assigned Tasks</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Task ID</th>
+      <th>Task Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Assigned To</th>
+      <th>Comments</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.id }}</td>
+      <td>{{ task.name }}</td>
+      <td>{{ task.description }}</td>
+      <td>
+        <!-- Display current status -->
+        <span>{{ task.status }}</span>
+        <!-- Dropdown to update status -->
+        <select (change)="updateTaskStatus(task.id, $event.target.value)">
+          <option [selected]="task.status === 'Pending'" value="Pending">Pending</option>
+          <option [selected]="task.status === 'In Progress'" value="In Progress">In Progress</option>
+          <option [selected]="task.status === 'Completed'" value="Completed">Completed</option>
+        </select>
+      </td>
+      <td>{{ task.assignedTo }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let comment of task.comments">{{ comment }}</li>
+        </ul>
+      </td>
+      <td>
+        <!-- Button to add a comment -->
+        <button (click)="addComment(task.id)">Add Comment</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

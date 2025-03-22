@@ -1,0 +1,68 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Login Form Styling */
+  .login-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Group Spacing */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Input Field Styling */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  /* Input Field Focus Effect */
+  .form-control:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0px 0px 4px rgba(76, 175, 80, 0.5);
+  }
+  
+  /* Button Styling */
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Button Hover Effect */
+  .login-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add responsive design for small screens */
+  @media (max-width: 400px) {
+    .login-form {
+      width: 90%;
+    }
+  }
+  
