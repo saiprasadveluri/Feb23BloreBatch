@@ -1,0 +1,38 @@
+<h3>Admin DashBoard</h3>
+<table >
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users">
+            <td>{{u.name}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.role}}</td>
+            <button *ngIf="u.id" (click)="deleteuser(u.id)">Delete</button>    
+        </tr>
+
+    </tbody>
+</table>
+<button (click)="NavigateToAddNewUser()">Add New User</button>
+
+<table >
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>PM</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of projects">
+            <td>{{p.name}}</td>
+            <td>{{getUserName(p.pm)}}</td>
+        </tr>
+
+    </tbody>
+</table>
+<button (click)="NavigateToAddNewProject()">Add New Project</button>
