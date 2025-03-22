@@ -1,0 +1,48 @@
+<h1>Admin Dashboard</h1>
+<div>
+  <table border="1">
+    <caption>Users</caption>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of Users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <button (click)="NavigateToaddNewUser()">Add New User</button> 
+</div>
+<div>
+<table border="1">
+    <caption>Projects</caption>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Project Manager</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pr of projects">
+        <td>{{ pr.id}}</td>
+        <td>{{ pr.name }}</td>
+        <td>{{ pr.pm}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+<div>
+  <button (click)="NavigateToAddNewProject()">Add New Project</button>
+</div>
+
