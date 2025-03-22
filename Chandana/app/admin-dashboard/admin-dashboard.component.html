@@ -1,0 +1,45 @@
+<div class="admin-dashboard">
+    <header class="header">
+      <h1>Admin Dashboard</h1>
+    </header>
+    <main class="content">
+      <section class="users-section">
+        <h2>Users</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="projects-section">
+        <h2>Projects</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>id</th>
+                         </thead>
+          <tbody>
+            <tr *ngFor="let project of projects">
+              <td>{{ project.name }}</td>
+              <td>{{ project.pm }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <div class="actions">
+        <button (click)="NavigateToAddNewUser()">Add New User</button>
+        <button (click)="NavigateToAddNewProject()">Add New Project</button>
+      </div>
+    </main>
+  </div>
+  ```

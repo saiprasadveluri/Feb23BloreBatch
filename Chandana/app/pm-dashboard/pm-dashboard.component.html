@@ -1,0 +1,36 @@
+<div class="pm-dashboard">
+    <header class="header">
+      <h1>PM Dashboard</h1>
+    </header>
+    <main class="content">
+      <button (click)="NavigateToAddNewProject()">Add New Project</button>
+      <h3>My Projects</h3>
+      <ul>
+        <li *ngFor="let project of projects" class="project-item">
+          {{ project.name }}
+          <button (click)="viewMembers(project)">View Members</button>
+        </li>
+      </ul>
+ 
+      <div *ngIf="selectedProject" class="members-view">
+        <h2>{{ selectedProject.name }} Members</h2>
+        <section class="members-section">
+          <h3>Developers</h3>
+          <ul>
+            <li *ngFor="let developer of selectedProject.developers">
+              {{ developer.name }}
+            </li>
+          </ul>
+          <h3>QA</h3>
+          <ul>
+            <li *ngFor="let qa of selectedProject.qa">
+              {{ qa.name }}
+            </li>
+          </ul>
+        </section>
+        <button (click)="closeMembersView()">Close</button>
+        <button (click)="navigateToAssignMembers()">Assign Members</button>
+     </div>
+    </main>
+  </div>
+  
