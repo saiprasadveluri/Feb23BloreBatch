@@ -1,0 +1,16 @@
+<div>
+    <h1>Member Dashboard</h1>
+    <div *ngFor="let task of tasks">
+        <h2>{{ task.title }}</h2>
+        <p>Status: {{ task.status }}</p>
+        <p>Comments:</p>
+        <ul>
+            <li *ngFor="let comment of task.comments">{{ comment }}</li>
+        </ul>
+        <button (click)="changeTaskStatus(task.id, 'Closed')">Close Task</button>
+        <button (click)="addComment(task.id, 'New Comment')">Add Comment</button>
+        <button (click)="changeTaskStatus(task.id, 'Open')">Reopen Task</button>
+        <button (click)="workOnTask(task.id)">Work on Task</button>
+        <button (click)="qaTask(task.id)">QA Task</button>
+    </div>
+</div>

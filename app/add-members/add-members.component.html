@@ -1,0 +1,29 @@
+<h2>Add Members to Project</h2>
+
+<hr>
+<button (click)="logout()">Logout</button>
+<form [formGroup]="frmGroup" (ngSubmit)="OnAddMemberClick()" class="form-container">
+  <div class="form-group">
+    <label for="projid">Project</label>
+    <select id="projid" formControlName="projid" class="form-control">
+      <option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</option>
+    </select>
+    <div *ngIf="frmGroup.controls['projid'].invalid && frmGroup.controls['projid'].touched">
+      Project is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="memid">Member</label>
+    <select id="memid" formControlName="memid" class="form-control">
+      <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+    </select>
+    <div *ngIf="frmGroup.controls['memid'].invalid && frmGroup.controls['memid'].touched">
+      Member is required.
+    </div>
+  </div>
+
+  <div class="form-group text-center">
+    <button type="submit" class="btn-submit" [disabled]="frmGroup.invalid">Add Member</button>
+  </div>
+</form>

@@ -1,0 +1,56 @@
+<h2>Create Task</h2>
+<hr>
+<button (click)="logout()">Logout</button>
+<form [formGroup]="frmGroup" (ngSubmit)="OnCreateClick()" class="form-container">
+  <div class="form-group">
+    <label for="projid">Project</label>
+    <select id="projid" formControlName="projid" class="form-control">
+      <option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</option>
+    </select>
+    <div *ngIf="frmGroup.controls['projid'].invalid && frmGroup.controls['projid'].touched">
+      Project is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title" class="form-control"/>
+    <div *ngIf="frmGroup.controls['title'].invalid && frmGroup.controls['title'].touched">
+      Title is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="tasktype">Task Type</label>
+    <input type="text" id="tasktype" formControlName="tasktype" class="form-control"/>
+    <div *ngIf="frmGroup.controls['tasktype'].invalid && frmGroup.controls['tasktype'].touched">
+      Task Type is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="Assignedto">Assigned To</label>
+    <select id="Assignedto" formControlName="Assignedto" class="form-control">
+      <option *ngFor="let user of projectMembers" [value]="user.id">{{ user.name }}</option>
+    </select>
+    <div *ngIf="frmGroup.controls['Assignedto'].invalid && frmGroup.controls['Assignedto'].touched">
+      Assigned To is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="status">Status</label>
+    <select id="status" formControlName="status" class="form-control">
+      <option value="DEVELOPMENT">DEVELOPMENT</option>
+      <option value="ACTIVE">ACTIVE</option>
+      <option value="QA">QA</option>
+    </select>
+    <div *ngIf="frmGroup.controls['status'].invalid && frmGroup.controls['status'].touched">
+      Status is required.
+    </div>
+  </div>
+
+  <div class="form-group text-center">
+    <button type="submit" class="btn-submit" [disabled]="frmGroup.invalid">Create Task</button>
+  </div>
+</form>

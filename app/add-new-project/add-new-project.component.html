@@ -1,0 +1,31 @@
+<h2>Add New Project</h2>
+<hr>
+<button (click)="logout()">Logout</button>
+<form [formGroup]="frmGroup" (ngSubmit)="OnAddClick()" class="form-container">
+    <div class="form-group">
+        <label for="name">Project Name</label>
+        <input type="text" id="name" formControlName="name" class="form-control"/>
+        <div *ngIf="frmGroup.controls['name'].invalid && frmGroup.controls['name'].touched">
+            Project name is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="pm">Project Manager</label>
+        <select id="pm" formControlName="pm" class="form-control">
+            <option *ngFor="let pm of projectManagers" [value]="pm.id">{{ pm.name }}</option>
+        </select>
+        <div *ngIf="frmGroup.controls['pm'].invalid && frmGroup.controls['pm'].touched">
+            Project manager is required.
+        </div>
+    </div>
+
+    <div class="form-group text-center">
+        <button type="submit" class="btn-submit" [disabled]="frmGroup.invalid">Add Project</button>
+    </div>
+</form>
