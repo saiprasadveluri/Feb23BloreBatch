@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<h2>Add New Comment</h2>
+<hr/>
+<form [formGroup]="frmGroup"(ngSubmit)="OnAddClick()">
+    
+        <div>
+        Task Id
+        <input type="text" formControlName="taskid"/>
+
+    </div>
+    <br>
+    <div>
+        Commented by
+        <input type="text" formControlName="commentedby"/> 
+    </div>
+    <br>
+    <div>
+        Description
+        <input type="text" formControlName="description"/>
+
+    </div>
+    <br>
+    <div>
+    <button type="submit">Add Comment</button>&nbsp;
+    <button (click)="goToQaDashboard()" class="btn btn-primary">Cancel</button>
+    </div>
+</form>

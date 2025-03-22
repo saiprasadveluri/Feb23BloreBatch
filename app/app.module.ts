@@ -14,6 +14,15 @@ import { AddNewProjectComponent } from './add-new-project/add-new-project.compon
 import { ViewUsersComponent } from './view-users/view-users.component';
 import { ViewProjectsComponent } from './view-projects/view-projects.component';
 import { ViewOwnProjectsComponent } from './view-own-projects/view-own-projects.component';
+import { AssignMemberComponent } from './assign-member/assign-member.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { ViewTaskComponent } from './view-task/view-task.component';
+import { QaDashboardComponent } from './qa-dashboard/qa-dashboard.component';
+import { DeveloperDashboardComponent } from './developer-dashboard/developer-dashboard.component';
+import { ViewCommentComponent } from './view-comment/view-comment.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
+import { ReassignTaskComponent } from './reassign-task/reassign-task.component';
+import { ViewOwnTaskComponent } from './view-own-task/view-own-task.component';
 
 
 @NgModule({
@@ -27,7 +36,16 @@ import { ViewOwnProjectsComponent } from './view-own-projects/view-own-projects.
     AddNewProjectComponent,
     ViewUsersComponent,
     ViewProjectsComponent,
-    ViewOwnProjectsComponent
+    ViewOwnProjectsComponent,
+    AssignMemberComponent,
+    CreateTaskComponent,
+    ViewTaskComponent,
+    QaDashboardComponent,
+    DeveloperDashboardComponent,
+    ViewCommentComponent,
+    AddCommentComponent,
+    ViewOwnTaskComponent,
+    ReassignTaskComponent
   ],
   imports: [
     BrowserModule,

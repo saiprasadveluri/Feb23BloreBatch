@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <h5>ASSIGN MEMBERS TO TASKS</h5>
+        <hr/>
+    </div>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped table-sm w-auto">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>PROJECT TITLE</th>
+                    <th>TASK TITLE</th>
+                    <th>TASK TYPE</th>
+                    <th>ASSIGNED TO</th>
+                    <th>TASK STATUS</th>  
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let m of ownprojList"> 
+                        <td>
+                            {{m.id}}
+                        </td>
+                        <td >
+                            {{m.name}}
+                        </td>
+                    </tr>
+                    <tr *ngFor="let t of taskList">
+                            <td >
+                                {{t.title}}
+                            </td>
+                            <td >
+                                {{t.tasktype}}
+                            </td>
+                            <td >
+                                {{t.assignedto}}
+                            </td>
+                            <td>
+                                {{t.status}}
+                            </td>
+                        </tr>              
+                                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-sm w-auto">
+                    <thead>
+                    <tr>
+                        
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                              
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-sm w-auto">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>PROJECT ID</th>
+                        <th>MEMBER ID</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let m of membList">
+                            <td>
+                                {{m.id}}
+                            </td>
+                            <td >
+                                {{m.projid}}
+                            </td>
+                            <td >
+                                {{m.memid}}
+                            </td>
+                        </tr>                
+                    </tbody>
+                </table>
+                <button (click)="goToPMDashboard()" class="btn btn-primary">Back to Dashboard</button>
+            </div>
+        </div>
+
+
+
+
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <form [formGroup]="frmGroup"(ngSubmit)="OnAddClick()">
+            <div>
+                PROJECT ID
+                <input type="text" formControlName="projid"/>
+        
+            </div>
+            <br>
+            <div>
+                TITLE
+                <input type="text" formControlName="title"/>
+        
+            </div>
+            <br>
+            <div>
+                TASKTYPE
+                <select formControlName="tasktype">
+                    <option value="BUG">BUG</option>
+                    <option value="NEW FEATURE">NEW FEATURE</option>
+                   
+        
+                </select>
+        
+            </div>
+            <br>
+            <div>
+                ASSIGNED TO
+                <input type="text" formControlName="assignedto"/>
+        
+            </div>
+            <br>
+            <div>
+                STATUS
+                <select formControlName="status">
+                    <option value="OPEN">OPEN</option>
+                    <option value="DEVELOPER">DEVELOPER</option>
+                    <option value="QA">QA</option>
+                    <option value="CLOSED">CLOSED</option>
+                </select>
+        
+            </div>
+            <br>
+            <div>
+            <button type="submit">Add Task</button>
+            </div>
+        </form>
+         -->

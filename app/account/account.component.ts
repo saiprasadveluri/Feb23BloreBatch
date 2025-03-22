@@ -48,6 +48,16 @@ export class AccountComponent {
                 this.router.navigate(['memberdashboard']);
                 break;
               }
+              case 'QA':
+              {
+                this.router.navigate(['qadashboard']);
+                break;
+              }
+              case 'DEVELOPER':
+              {
+                this.router.navigate(['developerdashboard']);
+                break;
+              }
           }
         }
       },

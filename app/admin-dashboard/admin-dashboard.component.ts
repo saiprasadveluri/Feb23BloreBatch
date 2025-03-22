@@ -11,6 +11,9 @@ export class AdminDashboardComponent {
   {
     
   }
+  goToLoginPage(): void {
+    this.router.navigate(['login']); 
+  }
   NavigateToAddNewUser()
   {
     this.router.navigate(['addnewuser']);

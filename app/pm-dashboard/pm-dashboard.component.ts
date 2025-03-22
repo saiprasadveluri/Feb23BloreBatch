@@ -11,6 +11,9 @@ constructor(private router:Router)
   {
     
   }
+  goToLoginPage(): void {
+    this.router.navigate(['login']); 
+  }
   NavigateToViewMembers()
   {
     this.router.navigate(['memberdashboard']);
@@ -20,4 +23,16 @@ constructor(private router:Router)
     this.router.navigate(['viewownprojects']);
   }
 
+  NavigateToAssignMember()
+  {
+    this.router.navigate(['assignmember']);
+  }
+  NavigateToCreateTask()
+  {
+    this.router.navigate(['createtask']);
+  }
+  NavigateToViewTask()
+  {
+    this.router.navigate(['viewtask']);
+  }
 }
