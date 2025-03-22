@@ -1,0 +1,34 @@
+<h2>ADD NEW TASK</h2>
+<hr/>
+
+<form [formGroup]="frmGroup" (ngSubmit)="OnClickAssignTask()">
+    <div>
+        <select formControlName="projectid">
+            <option  *ngFor="let p of projects"[value]="p.id" >{{p.name}}</option>
+        </select>
+    </div>
+    <div>
+        <input type="text" formControlName="title" placeholder="Title">
+    </div>
+    <div>
+        <input type="text" formControlName="description" placeholder="description">
+    </div>
+    <div>
+        <input type="text" formControlName="tasktype" placeholder="tasktype">
+    </div>
+    <div>
+        <select formControlName="assignedto">
+            <option  *ngFor="let u of users"[value]="u.id" >{{u.name}}</option>
+        </select>
+    </div>
+    <div>
+        <select formControlName="status">
+            <option value="ACTIVE" >ACTIVE</option>
+            <option value="INACTIVE" >INCTIVE</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+
+</form>

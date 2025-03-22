@@ -1,0 +1,118 @@
+{
+  "UserInfo": [
+    {
+      "id": "1",
+      "name": "Chandu",
+      "email": "admin@admin",
+      "password": "123456",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "name": "NC",
+      "email": "nc@nc",
+      "password": "123456",
+      "role": "PM"
+    },
+    {
+      "id": "b52f",
+      "name": "raju",
+      "email": "raju@raju",
+      "password": "123456",
+      "role": "PM"
+    },
+    {
+      "id": "d431",
+      "name": "kow",
+      "email": "k@k",
+      "password": "123456",
+      "role": "DEV"
+    },
+    {
+      "id": "9af8",
+      "name": "isha",
+      "email": "s@s",
+      "password": "123456",
+      "role": "QA"
+    },
+    {
+      "id": "c33d",
+      "name": "pat",
+      "email": "p@p",
+      "password": "123456",
+      "role": "QA"
+    }
+  ],
+  "Project": [
+    {
+      "id": "1",
+      "name": "Taskmanager",
+      "pm": "2"
+    },
+    {
+      "id": "49b6",
+      "name": "FoodManager",
+      "pm": "b52f"
+    },
+    {
+      "id": "e75f",
+      "name": "ToDo List",
+      "pm": "2"
+    },
+    {
+      "id": "26c7",
+      "name": "StockXchange",
+      "pm": "b52f"
+    }
+  ],
+  "projectMember": [
+    {
+      "id": "1",
+      "projectid": "1",
+      "memid": "9af8"
+    },
+    {
+      "id": "c60f",
+      "projectid": "1",
+      "memid": "d431"
+    },
+    {
+      "id": "d1f4",
+      "projectid": "e75f",
+      "memid": "d431"
+    },
+    {
+      "id": "ae80",
+      "projectid": "26c7",
+      "memid": "c33d"
+    }
+  ],
+  "Task": [
+    {
+      "id": "1",
+      "projectid": "1",
+      "title": "Something",
+      "description": "prepare the url",
+      "tasktype": "Activity",
+      "assignedto": "9af8",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "929d",
+      "projectid": "e75f",
+      "title": "CREATE",
+      "description": "create items",
+      "tasktype": "Activity",
+      "assignedto": "c33d",
+      "status": "ACTIVE"
+    }
+  ],
+  "Comment": [
+    {
+      "id": "1",
+      "taskid": "929d",
+      "commentedby": "Something",
+      "descrption": "Work in Progress"
+    }
+  ]
+}
