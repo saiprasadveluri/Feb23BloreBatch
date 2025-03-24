@@ -1,0 +1,33 @@
+<h1>Project Members</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of members">
+      <td>{{ member.id }}</td>
+      <td>{{ getUserName(member.memid) }}</td>
+      <td>{{ getUserRole(member.memid) }}</td>
+      <td>
+        <button (click)="removeMember(member.id)">Remove</button>
+      </td>
+    </tr>
+    <tr *ngIf="members.length === 0">
+      <td colspan="4">No members assigned</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Assign New Member</h2>
+<div>
+  <label for="user">User:</label>
+  <select id="user" #user>
+    <option *ngFor="let user of users" [value]="user.id">{{ user.name }} ({{ user.role }})</option>
+  </select>
+  <button (click)="assignMember(user.value)">Assign</button>
+</div>

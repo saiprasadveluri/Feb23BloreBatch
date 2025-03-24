@@ -1,0 +1,17 @@
+<div>
+    <h2>User Dashboard</h2>
+    <div *ngIf="tasks.length === 0">
+      <p>No tasks assigned to you.</p>
+    </div>
+    <div *ngFor="let task of tasks">
+      <h3>{{ task.Title }}</h3>
+      <p>{{ task.description }}</p>
+      <p>Status: {{ task.status }}</p>
+      <button (click)="addComment(task.id)">Add Comment</button>
+      <button *ngIf="isDeveloper" (click)="resolveTask(task.id)">Resolve Task</button>
+      <button *ngIf="isQA" (click)="closeTask(task.id)">Close Task</button>
+      <button *ngIf="isQA" (click)="reopenTask(task.id)">Reopen Task</button>
+      <button (click)="updateStatus(task.id, 'New Status')">Update Status</button>
+    </div>
+    <app-add-new-comment *ngIf="showCommentForm" [taskId]="selectedTaskId"></app-add-new-comment>
+  </div>
